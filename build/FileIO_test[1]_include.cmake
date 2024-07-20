@@ -1,0 +1,5 @@
+if(EXISTS "/home/ace/kv/build/FileIO_test[1]_tests.cmake")
+  include("/home/ace/kv/build/FileIO_test[1]_tests.cmake")
+else()
+  add_test(FileIO_test_NOT_BUILT FileIO_test_NOT_BUILT)
+endif()

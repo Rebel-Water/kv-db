@@ -1,0 +1,43 @@
+cmake_minimum_required(VERSION 3.14)
+project(my_project)
+
+# GoogleTest requires at least C++14
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+include_directories(include)
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+add_executable(
+  BTree_test
+  src/BTree.cpp
+  BTree_test.cpp
+)
+add_executable(
+  FileIO_test
+  src/FileIO.cpp
+  FileIO_test.cpp
+)
+
+target_link_libraries(
+  BTree_test
+  GTest::gtest_main
+)
+
+target_link_libraries(
+  FileIO_test
+  GTest::gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(BTree_test)
+gtest_discover_tests(FileIO_test)
