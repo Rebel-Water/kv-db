@@ -15,6 +15,7 @@ class LogRecord {
     std::vector<byte> Key;
     std::vector<byte> Value;
     LogRecordType Type;
+    int64 Size;
 };
 
 class LogRecordPos {

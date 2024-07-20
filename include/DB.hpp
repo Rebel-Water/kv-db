@@ -10,15 +10,22 @@
 #include "Indexer.hpp"
 
 class DB {
+    DB(Options option);
+
     std::shared_mutex RWMutex;
     Options option;
     std::unique_ptr<Indexer> index;
-    std::unique_ptr<DataFile> activeFile;
-    std::unordered_map<uint32, std::unique_ptr<DataFile>> olderFiles;
+    std::shared_ptr<DataFile> activeFile;
+    std::vector<int> fileIds;
+    std::unordered_map<uint32, std::shared_ptr<DataFile>> olderFiles;
 
+    std::unique_ptr<DB> Open(Options option);
     std::vector<byte> Get(const std::vector<byte>& key);
     void Put(std::vector<byte>& key, std::vector<byte>& value);
     std::unique_ptr<LogRecordPos> AppendLogRecord(std::unique_ptr<LogRecord> logRecord);
     void SetActiveDataFile();
+    void checkOptions(Options option);
+    void LoadDataFiles();
+    void LoadIndexFromDataFiles();
 };
 

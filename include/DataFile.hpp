@@ -4,19 +4,15 @@
 #include <string>
 #include <memory>
 
-const std::string DataFileNameSuffix    = ".data";
-const std::string HintFileName          = "hint-index";
-const std::string MergeFinishedFileName = "merge-finished";
-const std::string SeqNoFileName         = "seq-no";
-
 class DataFile {
-public:
+public:             // write buf but read logRecord, maybe can do encode and decode in this
+    DataFile(std::string& path, uint32 fileId) {
+
+    }
     uint32 FileId;
     int64 WriteOff;
     IOManager IoManager;
-    std::unique_ptr<DataFile> OpenDataFile(std::string path, uint32 fileId) {
-        return nullptr;
-    }
+    
     void Sync() {
         return ;
     }

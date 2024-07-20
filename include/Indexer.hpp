@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 
+
 class Indexer {
     public:
     virtual bool Put(const std::vector<byte>& key, std::unique_ptr<LogRecordPos> data) = 0;

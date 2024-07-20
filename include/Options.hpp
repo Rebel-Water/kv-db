@@ -7,5 +7,6 @@ class Options {
     std::string DirPath;
     int64 DataFileSize;
     bool SyncWrite;
+    IndexType Type;
 
 };
