@@ -25,7 +25,7 @@ std::unique_ptr<DB> DB::Open(Options option)
     if (std::filesystem::exists(option.DirPath))
         if (!std::filesystem::create_directories(option.DirPath))
             throw "DB::Open create_directory error";
-    
+
     auto db = std::make_unique<DB>(option);
     db->LoadDataFiles();
     db->LoadIndexFromDataFiles();
@@ -57,7 +57,7 @@ std::vector<byte> DB::Get(const std::vector<byte> &key)
     else if (this->olderFiles.find(logRecordPos->Fid) != this->olderFiles.end())
         datafile = this->olderFiles[logRecordPos->Fid];
 
-    logRecord = std::move(datafile->ReadLogRecord(logRecordPos->Offset)); // can overfit
+    logRecord = std::move(this->ReadLogRecord(logRecordPos->Offset, datafile)); // can overfit
 
     if (logRecord->Type == LogRecordDeleted)
         throw "DB::Get Error Key Not Found";
@@ -65,13 +65,28 @@ std::vector<byte> DB::Get(const std::vector<byte> &key)
     return logRecord->Value;
 }
 
-std::unique_ptr<LogRecordPos> DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord)
+void DB::Delete(std::vector<byte>& key) {
+    if(key.size() == 0) 
+        throw "DB::Delete Key Empty";
+    if(auto pos = this->index->Get(key))
+        return ;
+    auto logRecord = std::make_unique<LogRecord>(key, LogRecordDeleted); 
+    this->AppendLogRecord(std::move(logRecord)); // update at disk level to appand a delete flag
+    if(this->index->Delete(key) == 0)            // update at memory level to call btree.delete 
+        throw "DB::Delete Index Update Fail";
+}
+
+std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataFile> datafile) {
+        return nullptr;
+}
+
+std::unique_ptr<LogRecordPos> DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord) // here appandlogrecord can be moved into datafile?
+                                                                                        // now i move appand and read all into db
 {
     std::unique_lock<std::shared_mutex> lock(RWMutex);
-    if (this->activeFile == nullptr)
-    {
+    if (this->activeFile == nullptr) // when start db, activefile is null
         this->SetActiveDataFile();
-    }
+
     std::vector<byte> encodeRecord = Code::EncodeLogRecord(std::move(logRecord));
     int size = encodeRecord.size();
     if (this->activeFile->WriteOff + size > this->option.DataFileSize)
@@ -85,16 +100,15 @@ std::unique_ptr<LogRecordPos> DB::AppendLogRecord(std::unique_ptr<LogRecord> log
     this->activeFile->Write(encodeRecord);
 
     if (this->option.SyncWrite)
-    {
         this->activeFile->Sync();
-    }
+
     return std::make_unique<LogRecordPos>(this->activeFile->FileId, writeOff);
 }
 
 void DB::SetActiveDataFile()
 {
     uint32 initialFieldId = 0;
-    if (this->activeFile != nullptr)
+    if (this->activeFile != nullptr) // start from 0 because db initial activeFile is nullptr
     {
         initialFieldId = this->activeFile->FileId + 1;
     }
@@ -128,7 +142,7 @@ void DB::LoadDataFiles()
                 // Split the file name
                 std::istringstream ss(fileName);
                 std::string token;
-                std::getline(ss, token, '.'); // Get the first part before the dot
+                std::getline(ss, token, '.');  // Get the first part before the dot
                 int fileId = std::stoi(token); // use number as name
                 fileIds.push_back(fileId);
             }
@@ -137,38 +151,47 @@ void DB::LoadDataFiles()
     sort(fileIds.begin(), fileIds.end());
     this->fileIds = fileIds;
     int n = fileIds.size();
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         auto dataFile = std::make_shared<DataFile>(this->option.DirPath, fileIds[i]);
-        if(i == n - 1)
+        if (i == n - 1)
             this->activeFile = dataFile;
-        else 
+        else
             this->olderFiles[fileIds[i]] = dataFile;
     }
-    return ;
+    return;
 }
 
-void DB::LoadIndexFromDataFiles() {
-    if(this->fileIds.size() == 0)
-        return ;
-    
+void DB::LoadIndexFromDataFiles()
+{
+    if (this->fileIds.size() == 0)
+        return;
+
     int n = fileIds.size();
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         uint32 fileId = fileIds[i];
         std::shared_ptr<DataFile> datafile;
-        if(fileId == this->activeFile->FileId)
+        if (fileId == this->activeFile->FileId)
             datafile = this->activeFile;
         else
             datafile = this->olderFiles[fileId];
         int64 offset = 0;
-        while(auto logRecord = datafile->ReadLogRecord(offset)) {
+        while (auto logRecord = this->ReadLogRecord(offset, datafile))
+        {
             auto logRecordPos = std::make_unique<LogRecordPos>(fileId, offset);
-            if(logRecord->Type == LogRecordDeleted)
-                this->index->Delete(logRecord->Key);
-            else
-                this->index->Put(logRecord->Key, std::move(logRecordPos));
+            if (logRecord->Type == LogRecordDeleted) {
+                if(this->index->Delete(logRecord->Key) == 0) 
+                    throw "DB::LoadIndexFromDataFiles Update Delete Index Fail";
+            }
+            else {
+                if(this->index->Put(logRecord->Key, std::move(logRecordPos)) == 0)
+                    throw "DB::LoadIndexFromDataFiles Update Put Index Fail";
+            }
             offset += logRecord->Size;
         }
-        if(i == n - 1)
+        if (i == n - 1)
             this->activeFile->WriteOff = offset;
     }
 }
+

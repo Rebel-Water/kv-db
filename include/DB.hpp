@@ -22,7 +22,11 @@ class DB {
     std::unique_ptr<DB> Open(Options option);
     std::vector<byte> Get(const std::vector<byte>& key);
     void Put(std::vector<byte>& key, std::vector<byte>& value);
+    void Delete(std::vector<byte>& key);
+
+    std::unique_ptr<LogRecord> ReadLogRecord(int64 offset, std::shared_ptr<DataFile> datafile);
     std::unique_ptr<LogRecordPos> AppendLogRecord(std::unique_ptr<LogRecord> logRecord);
+
     void SetActiveDataFile();
     void checkOptions(Options option);
     void LoadDataFiles();

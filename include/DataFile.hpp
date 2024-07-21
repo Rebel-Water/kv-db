@@ -21,7 +21,5 @@ public:             // write buf but read logRecord, maybe can do encode and dec
         return ;
     }
 
-    std::unique_ptr<LogRecord> ReadLogRecord(int64 offset) {
-        return nullptr;
-    }
+
 };
