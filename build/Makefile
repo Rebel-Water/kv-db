@@ -198,6 +198,19 @@ FileIO_test/fast:
 .PHONY : FileIO_test/fast
 
 #=============================================================================
+# Target rules for targets named DataFile_test
+
+# Build rule for target.
+DataFile_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DataFile_test
+.PHONY : DataFile_test
+
+# fast build rule for target.
+DataFile_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/build
+.PHONY : DataFile_test/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -273,6 +286,30 @@ BTree_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/BTree_test.cpp.s
 .PHONY : BTree_test.cpp.s
 
+DataFile_test.o: DataFile_test.cpp.o
+.PHONY : DataFile_test.o
+
+# target to build an object file
+DataFile_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o
+.PHONY : DataFile_test.cpp.o
+
+DataFile_test.i: DataFile_test.cpp.i
+.PHONY : DataFile_test.i
+
+# target to preprocess a source file
+DataFile_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/DataFile_test.cpp.i
+.PHONY : DataFile_test.cpp.i
+
+DataFile_test.s: DataFile_test.cpp.s
+.PHONY : DataFile_test.s
+
+# target to generate assembly for a file
+DataFile_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/DataFile_test.cpp.s
+.PHONY : DataFile_test.cpp.s
+
 FileIO_test.o: FileIO_test.cpp.o
 .PHONY : FileIO_test.o
 
@@ -303,6 +340,7 @@ src/BTree.o: src/BTree.cpp.o
 # target to build an object file
 src/BTree.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/BTree.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/BTree.cpp.o
 .PHONY : src/BTree.cpp.o
 
 src/BTree.i: src/BTree.cpp.i
@@ -311,6 +349,7 @@ src/BTree.i: src/BTree.cpp.i
 # target to preprocess a source file
 src/BTree.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/BTree.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/BTree.cpp.i
 .PHONY : src/BTree.cpp.i
 
 src/BTree.s: src/BTree.cpp.s
@@ -319,7 +358,32 @@ src/BTree.s: src/BTree.cpp.s
 # target to generate assembly for a file
 src/BTree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/BTree.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/BTree.cpp.s
 .PHONY : src/BTree.cpp.s
+
+src/DB.o: src/DB.cpp.o
+.PHONY : src/DB.o
+
+# target to build an object file
+src/DB.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/DB.cpp.o
+.PHONY : src/DB.cpp.o
+
+src/DB.i: src/DB.cpp.i
+.PHONY : src/DB.i
+
+# target to preprocess a source file
+src/DB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/DB.cpp.i
+.PHONY : src/DB.cpp.i
+
+src/DB.s: src/DB.cpp.s
+.PHONY : src/DB.s
+
+# target to generate assembly for a file
+src/DB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/DB.cpp.s
+.PHONY : src/DB.cpp.s
 
 src/FileIO.o: src/FileIO.cpp.o
 .PHONY : src/FileIO.o
@@ -327,6 +391,7 @@ src/FileIO.o: src/FileIO.cpp.o
 # target to build an object file
 src/FileIO.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o
 .PHONY : src/FileIO.cpp.o
 
 src/FileIO.i: src/FileIO.cpp.i
@@ -335,6 +400,7 @@ src/FileIO.i: src/FileIO.cpp.i
 # target to preprocess a source file
 src/FileIO.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/FileIO.cpp.i
 .PHONY : src/FileIO.cpp.i
 
 src/FileIO.s: src/FileIO.cpp.s
@@ -343,6 +409,7 @@ src/FileIO.s: src/FileIO.cpp.s
 # target to generate assembly for a file
 src/FileIO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/FileIO.cpp.s
 .PHONY : src/FileIO.cpp.s
 
 # Help Target
@@ -359,6 +426,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... BTree_test"
+	@echo "... DataFile_test"
 	@echo "... FileIO_test"
 	@echo "... gmock"
 	@echo "... gmock_main"
@@ -367,12 +435,18 @@ help:
 	@echo "... BTree_test.o"
 	@echo "... BTree_test.i"
 	@echo "... BTree_test.s"
+	@echo "... DataFile_test.o"
+	@echo "... DataFile_test.i"
+	@echo "... DataFile_test.s"
 	@echo "... FileIO_test.o"
 	@echo "... FileIO_test.i"
 	@echo "... FileIO_test.s"
 	@echo "... src/BTree.o"
 	@echo "... src/BTree.i"
 	@echo "... src/BTree.s"
+	@echo "... src/DB.o"
+	@echo "... src/DB.i"
+	@echo "... src/DB.s"
 	@echo "... src/FileIO.o"
 	@echo "... src/FileIO.i"
 	@echo "... src/FileIO.s"

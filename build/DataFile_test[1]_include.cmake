@@ -1,0 +1,5 @@
+if(EXISTS "/home/ace/kv/build/DataFile_test[1]_tests.cmake")
+  include("/home/ace/kv/build/DataFile_test[1]_tests.cmake")
+else()
+  add_test(DataFile_test_NOT_BUILT DataFile_test_NOT_BUILT)
+endif()
