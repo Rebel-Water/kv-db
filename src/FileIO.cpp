@@ -7,18 +7,20 @@ FileIO::FileIO(const std::string &fileName)
 }
 
 // Read function
-std::streamsize FileIO::Read(char *buffer, std::streamsize size, std::streamoff offset)
+std::streamsize FileIO::Read(std::vector<byte>& buffer, int64 offset)
 {
     fd.seekg(offset);
-    fd.read(buffer, size);
+    int n = buffer.size();
+    fd.read(reinterpret_cast<char*>(buffer.data()), n);
     return fd.gcount();
 }
 
 // Write function
-std::streamsize FileIO::Write(const char *buffer, std::streamsize size)
+std::streamsize FileIO::Write(const std::vector<byte>& buffer)
 {
-    fd.write(buffer, size);
-    return size;
+    int n = buffer.size();
+    fd.write(reinterpret_cast<const char*>(buffer.data()), n);
+    return n;
 }
 
 // Sync function
@@ -35,7 +37,7 @@ void FileIO::Close()
 }
 
 // Size function
-std::streamoff FileIO::Size()
+std::streamsize FileIO::Size()
 {
     std::streamoff currentPos = fd.tellg();
     fd.seekg(0, std::ios::end);

@@ -3,8 +3,10 @@
 #include <vector>
 
 class IOManager {
-    virtual int Read(std::vector<byte>& buf, int64 length);
-    virtual int Write(const std::vector<byte>& buf);
-    void Sync();
-    void Close();
+public:
+    virtual std::streamsize Read(std::vector<byte>& buf, int64 offset) = 0;
+    virtual std::streamsize Write(const std::vector<byte>& buf) = 0;
+    virtual void Sync() = 0;
+    virtual void Close() = 0;
+    virtual std::streamsize Size() = 0;
 };

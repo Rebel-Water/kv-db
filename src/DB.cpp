@@ -77,7 +77,33 @@ void DB::Delete(std::vector<byte>& key) {
 }
 
 std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataFile> datafile) {
+    int filesize = datafile->IoManager->Size();
+    int headerBytes = MaxLogRecordHeaderSize;
+    if(offset + MaxLogRecordHeaderSize > filesize)
+        headerBytes = filesize - offset;
+
+    auto headerBuf = datafile->readNBytes(headerBytes, offset);
+    auto header = Code::DecodeLogRecord(headerBuf);
+    if(header == nullptr)
         return nullptr;
+    if(header->crc == 0 && header->keySize == 0 && header->valueSize == 0)
+        return nullptr;
+    int64 keySize = header->keySize, valueSize = header->valueSize;
+    int64 recordSize = header->headerSize + keySize + valueSize;
+
+    std::vector<byte> key, value;
+    if(keySize > 0 || valueSize > 0) {
+        auto kvBuf = datafile->readNBytes(keySize + valueSize, header->headerSize + offset);
+        key = std::vector<byte>(kvBuf.begin(), kvBuf.begin() + keySize);
+        value = std::vector<byte>(kvBuf.begin() + keySize, kvBuf.end());
+    }
+
+    auto logRecord = std::make_unique<LogRecord>(key, value, header->recordType);
+    std::vector<byte> crcBuf(headerBuf.begin() + sizeof(header->crc), headerBuf.begin() + header->headerSize);
+    if(header->crc != logRecord->getLogRecordCRC(crcBuf))
+        throw "DB::ReadLogRecord Crc fault";
+    
+    return std::move(logRecord);
 }
 
 std::unique_ptr<LogRecordPos> DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord) // here appandlogrecord can be moved into datafile?

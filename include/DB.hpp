@@ -10,6 +10,7 @@
 #include "Indexer.hpp"
 
 class DB {
+    public:
     DB(Options option);
 
     std::shared_mutex RWMutex;

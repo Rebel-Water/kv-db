@@ -1,23 +1,23 @@
 #include <fstream>
 #include <string>
 #include <system_error>
+#include "IOManager.hpp"
 
-class FileIO
+class FileIO : public IOManager
 {
 private:
     std::fstream fd;
-
 public:
     // Constructor to initialize FileIO
     FileIO(const std::string &fileName);
 
     // Read function
-    std::streamsize Read(char *buffer, std::streamsize size, std::streamoff offset); // Write function
-    std::streamsize Write(const char *buffer, std::streamsize size);                 // Sync function
-    void Sync();                                                                     // Close function
-    void Close();
+    virtual std::streamsize Read(std::vector<byte>& buf, int64 offset); // Write function
+    virtual std::streamsize Write(const std::vector<byte>& buf);                 // Sync function
+    virtual void Sync();                                                                     // Close function
+    virtual void Close();
 
     // Size function
-    std::streamoff Size(); // Destructor
+    virtual std::streamsize Size(); // Destructor
     ~FileIO();
 };

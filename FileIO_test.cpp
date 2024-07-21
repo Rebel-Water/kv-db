@@ -15,11 +15,17 @@ TEST(FileIOTest, OpenFile) {
 TEST(FileIOTest, WriteFile) {
     try {
         FileIO file("/home/ace/kv/a.data");
-        std::string buf = "hello, my kv-db";
-        int n = file.Write(buf.c_str(), buf.size());
+        std::vector<byte> buf; 
+        std::string str = "hello, my kv-db";
+        for(auto& ch : str)
+            buf.push_back(ch);
+        int n = file.Write(buf);
         EXPECT_EQ(n, buf.size());
-        buf = "123";
-        n = file.Write(buf.c_str(), buf.size());
+        buf.clear();
+        buf.push_back('1');
+        buf.push_back('2');
+        buf.push_back('3');
+        n = file.Write(buf);
         EXPECT_EQ(n, buf.size());
     }catch(...) {
         EXPECT_NE(1, 1);
@@ -30,10 +36,13 @@ TEST(FileIOTest, ReadFile) {
     try {
         FileIO file("/home/ace/kv/a.data");
         int size = 5, offset = 10;
-        char buf[10] = {0};
-        int n = file.Read(buf ,size, offset);
+        std::vector<byte> buf(size);
+        int n = file.Read(buf, offset);
         EXPECT_EQ(n, size);
-        EXPECT_STREQ(buf, "kv-db");
+        std::string str;
+        for(int i = 0; i < n; i++)
+            str += buf[i];
+        EXPECT_STREQ(str.c_str(), "kv-db");
     }catch(...) {
         EXPECT_NE(1, 1);
     }

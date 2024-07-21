@@ -1,5 +1,6 @@
 #pragma once
-#include<cstdint>
+#include <cstdint>
+#include <string>
 
 using byte = uint8_t;
 using int32 = int32_t;
