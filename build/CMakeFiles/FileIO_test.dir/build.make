@@ -109,6 +109,7 @@ FileIO_test: CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o
 FileIO_test: CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o
 FileIO_test: CMakeFiles/FileIO_test.dir/build.make
 FileIO_test: lib/libgtest_main.a
+FileIO_test: /usr/lib/x86_64-linux-gnu/libz.so
 FileIO_test: lib/libgtest.a
 FileIO_test: CMakeFiles/FileIO_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable FileIO_test"

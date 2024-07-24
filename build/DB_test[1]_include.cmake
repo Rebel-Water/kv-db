@@ -1,0 +1,5 @@
+if(EXISTS "/home/ace/kv/build/DB_test[1]_tests.cmake")
+  include("/home/ace/kv/build/DB_test[1]_tests.cmake")
+else()
+  add_test(DB_test_NOT_BUILT DB_test_NOT_BUILT)
+endif()

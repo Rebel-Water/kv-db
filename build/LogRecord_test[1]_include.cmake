@@ -1,0 +1,5 @@
+if(EXISTS "/home/ace/kv/build/LogRecord_test[1]_tests.cmake")
+  include("/home/ace/kv/build/LogRecord_test[1]_tests.cmake")
+else()
+  add_test(LogRecord_test_NOT_BUILT LogRecord_test_NOT_BUILT)
+endif()

@@ -33,9 +33,10 @@ TEST(BTreeTest, BTree_Get) {
     bool flag = tree.Put(buf, std::make_unique<LogRecordPos>(1, 2));
     EXPECT_EQ(flag, true);
 
+    flag = tree.Put(buf, std::make_unique<LogRecordPos>(4, 3));
     auto ret = tree.Get(buf);
-    EXPECT_EQ(ret->Fid, 1);
-    EXPECT_EQ(ret->Offset, 2);
+    EXPECT_EQ(ret->Fid, 4);
+    EXPECT_EQ(ret->Offset, 3);
 
     flag = tree.Delete(buf);
     EXPECT_EQ(flag, true);

@@ -109,6 +109,7 @@ BTree_test: CMakeFiles/BTree_test.dir/src/BTree.cpp.o
 BTree_test: CMakeFiles/BTree_test.dir/BTree_test.cpp.o
 BTree_test: CMakeFiles/BTree_test.dir/build.make
 BTree_test: lib/libgtest_main.a
+BTree_test: /usr/lib/x86_64-linux-gnu/libz.so
 BTree_test: lib/libgtest.a
 BTree_test: CMakeFiles/BTree_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable BTree_test"

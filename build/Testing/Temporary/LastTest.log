@@ -1,98 +1,20 @@
-Start testing: Jul 21 23:38 CST
+Start testing: Jul 22 23:28 CST
 ----------------------------------------------------------
-1/14 Testing: BTreeTest.BTree_Put
-1/14 Test: BTreeTest.BTree_Put
-Command: "/home/ace/kv/build/BTree_test" "--gtest_filter=BTreeTest.BTree_Put" "--gtest_also_run_disabled_tests"
+1/3 Testing: DB_Test.DBPutAndGet
+1/3 Test: DB_Test.DBPutAndGet
+Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBPutAndGet" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"BTreeTest.BTree_Put" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Note: Google Test filter = BTreeTest.BTree_Put
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from BTreeTest
-[ RUN      ] BTreeTest.BTree_Put
-[       OK ] BTreeTest.BTree_Put (0 ms)
-[----------] 1 test from BTreeTest (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"BTreeTest.BTree_Put" end time: Jul 21 23:38 CST
-"BTreeTest.BTree_Put" time elapsed: 00:00:00
-----------------------------------------------------------
-
-2/14 Testing: BTreeTest.BTree_Get
-2/14 Test: BTreeTest.BTree_Get
-Command: "/home/ace/kv/build/BTree_test" "--gtest_filter=BTreeTest.BTree_Get" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"BTreeTest.BTree_Get" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Note: Google Test filter = BTreeTest.BTree_Get
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from BTreeTest
-[ RUN      ] BTreeTest.BTree_Get
-[       OK ] BTreeTest.BTree_Get (0 ms)
-[----------] 1 test from BTreeTest (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"BTreeTest.BTree_Get" end time: Jul 21 23:38 CST
-"BTreeTest.BTree_Get" time elapsed: 00:00:00
-----------------------------------------------------------
-
-3/14 Testing: BTreeTest.BTree_Delete
-3/14 Test: BTreeTest.BTree_Delete
-Command: "/home/ace/kv/build/BTree_test" "--gtest_filter=BTreeTest.BTree_Delete" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"BTreeTest.BTree_Delete" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Note: Google Test filter = BTreeTest.BTree_Delete
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from BTreeTest
-[ RUN      ] BTreeTest.BTree_Delete
-[       OK ] BTreeTest.BTree_Delete (0 ms)
-[----------] 1 test from BTreeTest (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"BTreeTest.BTree_Delete" end time: Jul 21 23:38 CST
-"BTreeTest.BTree_Delete" time elapsed: 00:00:00
-----------------------------------------------------------
-
-4/14 Testing: FileIOTest.OpenFile
-4/14 Test: FileIOTest.OpenFile
-Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.OpenFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"FileIOTest.OpenFile" start time: Jul 21 23:38 CST
+"DB_Test.DBPutAndGet" start time: Jul 22 23:28 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = FileIOTest.OpenFile
+Note: Google Test filter = DB_Test.DBPutAndGet
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from FileIOTest
-[ RUN      ] FileIOTest.OpenFile
-[       OK ] FileIOTest.OpenFile (0 ms)
-[----------] 1 test from FileIOTest (0 ms total)
+[----------] 1 test from DB_Test
+[ RUN      ] DB_Test.DBPutAndGet
+[       OK ] DB_Test.DBPutAndGet (0 ms)
+[----------] 1 test from DB_Test (0 ms total)
 
 [----------] Global test environment tear-down
 [==========] 1 test from 1 test suite ran. (0 ms total)
@@ -101,25 +23,26 @@ Note: Google Test filter = FileIOTest.OpenFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.OpenFile" end time: Jul 21 23:38 CST
-"FileIOTest.OpenFile" time elapsed: 00:00:00
+"DB_Test.DBPutAndGet" end time: Jul 22 23:28 CST
+"DB_Test.DBPutAndGet" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/14 Testing: FileIOTest.WriteFile
-5/14 Test: FileIOTest.WriteFile
-Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.WriteFile" "--gtest_also_run_disabled_tests"
+2/3 Testing: DB_Test.DBIndexLoadFromDataFile
+2/3 Test: DB_Test.DBIndexLoadFromDataFile
+Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBIndexLoadFromDataFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.WriteFile" start time: Jul 21 23:38 CST
+"DB_Test.DBIndexLoadFromDataFile" start time: Jul 22 23:28 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = FileIOTest.WriteFile
+Note: Google Test filter = DB_Test.DBIndexLoadFromDataFile
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from FileIOTest
-[ RUN      ] FileIOTest.WriteFile
-[       OK ] FileIOTest.WriteFile (0 ms)
-[----------] 1 test from FileIOTest (0 ms total)
+[----------] 1 test from DB_Test
+[ RUN      ] DB_Test.DBIndexLoadFromDataFile
+cannot create std::vector larger than max_size()
+[       OK ] DB_Test.DBIndexLoadFromDataFile (0 ms)
+[----------] 1 test from DB_Test (0 ms total)
 
 [----------] Global test environment tear-down
 [==========] 1 test from 1 test suite ran. (0 ms total)
@@ -128,25 +51,26 @@ Note: Google Test filter = FileIOTest.WriteFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.WriteFile" end time: Jul 21 23:38 CST
-"FileIOTest.WriteFile" time elapsed: 00:00:00
+"DB_Test.DBIndexLoadFromDataFile" end time: Jul 22 23:28 CST
+"DB_Test.DBIndexLoadFromDataFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-6/14 Testing: FileIOTest.ReadFile
-6/14 Test: FileIOTest.ReadFile
-Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.ReadFile" "--gtest_also_run_disabled_tests"
+3/3 Testing: DB_Test.DBDelete
+3/3 Test: DB_Test.DBDelete
+Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBDelete" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.ReadFile" start time: Jul 21 23:38 CST
+"DB_Test.DBDelete" start time: Jul 22 23:28 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = FileIOTest.ReadFile
+Note: Google Test filter = DB_Test.DBDelete
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from FileIOTest
-[ RUN      ] FileIOTest.ReadFile
-[       OK ] FileIOTest.ReadFile (0 ms)
-[----------] 1 test from FileIOTest (0 ms total)
+[----------] 1 test from DB_Test
+[ RUN      ] DB_Test.DBDelete
+cannot create std::vector larger than max_size()
+[       OK ] DB_Test.DBDelete (0 ms)
+[----------] 1 test from DB_Test (0 ms total)
 
 [----------] Global test environment tear-down
 [==========] 1 test from 1 test suite ran. (0 ms total)
@@ -155,224 +79,8 @@ Note: Google Test filter = FileIOTest.ReadFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.ReadFile" end time: Jul 21 23:38 CST
-"FileIOTest.ReadFile" time elapsed: 00:00:00
+"DB_Test.DBDelete" end time: Jul 22 23:28 CST
+"DB_Test.DBDelete" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-7/14 Testing: FileIOTest.SizeFile
-7/14 Test: FileIOTest.SizeFile
-Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.SizeFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"FileIOTest.SizeFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = FileIOTest.SizeFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from FileIOTest
-[ RUN      ] FileIOTest.SizeFile
-[       OK ] FileIOTest.SizeFile (0 ms)
-[----------] 1 test from FileIOTest (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"FileIOTest.SizeFile" end time: Jul 21 23:38 CST
-"FileIOTest.SizeFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-8/14 Testing: FileIOTest.SyncFile
-8/14 Test: FileIOTest.SyncFile
-Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.SyncFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"FileIOTest.SyncFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = FileIOTest.SyncFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from FileIOTest
-[ RUN      ] FileIOTest.SyncFile
-[       OK ] FileIOTest.SyncFile (0 ms)
-[----------] 1 test from FileIOTest (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"FileIOTest.SyncFile" end time: Jul 21 23:38 CST
-"FileIOTest.SyncFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-9/14 Testing: FileIOTest.CloseFile
-9/14 Test: FileIOTest.CloseFile
-Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.CloseFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"FileIOTest.CloseFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = FileIOTest.CloseFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from FileIOTest
-[ RUN      ] FileIOTest.CloseFile
-[       OK ] FileIOTest.CloseFile (0 ms)
-[----------] 1 test from FileIOTest (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"FileIOTest.CloseFile" end time: Jul 21 23:38 CST
-"FileIOTest.CloseFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-10/14 Testing: FileIOTest.DestroyFile
-10/14 Test: FileIOTest.DestroyFile
-Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.DestroyFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"FileIOTest.DestroyFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = FileIOTest.DestroyFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from FileIOTest
-[ RUN      ] FileIOTest.DestroyFile
-[       OK ] FileIOTest.DestroyFile (0 ms)
-[----------] 1 test from FileIOTest (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"FileIOTest.DestroyFile" end time: Jul 21 23:38 CST
-"FileIOTest.DestroyFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-11/14 Testing: DataFile_test.DataFile
-11/14 Test: DataFile_test.DataFile
-Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.DataFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"DataFile_test.DataFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = DataFile_test.DataFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from DataFile_test
-[ RUN      ] DataFile_test.DataFile
-[       OK ] DataFile_test.DataFile (0 ms)
-[----------] 1 test from DataFile_test (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"DataFile_test.DataFile" end time: Jul 21 23:38 CST
-"DataFile_test.DataFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-12/14 Testing: DataFile_test.WriteAndSyncFile
-12/14 Test: DataFile_test.WriteAndSyncFile
-Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.WriteAndSyncFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"DataFile_test.WriteAndSyncFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = DataFile_test.WriteAndSyncFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from DataFile_test
-[ RUN      ] DataFile_test.WriteAndSyncFile
-[       OK ] DataFile_test.WriteAndSyncFile (0 ms)
-[----------] 1 test from DataFile_test (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"DataFile_test.WriteAndSyncFile" end time: Jul 21 23:38 CST
-"DataFile_test.WriteAndSyncFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-13/14 Testing: DataFile_test.CloseFile
-13/14 Test: DataFile_test.CloseFile
-Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.CloseFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"DataFile_test.CloseFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = DataFile_test.CloseFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from DataFile_test
-[ RUN      ] DataFile_test.CloseFile
-[       OK ] DataFile_test.CloseFile (0 ms)
-[----------] 1 test from DataFile_test (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"DataFile_test.CloseFile" end time: Jul 21 23:38 CST
-"DataFile_test.CloseFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-14/14 Testing: DataFile_test.DestroyFile
-14/14 Test: DataFile_test.DestroyFile
-Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.DestroyFile" "--gtest_also_run_disabled_tests"
-Directory: /home/ace/kv/build
-"DataFile_test.DestroyFile" start time: Jul 21 23:38 CST
-Output:
-----------------------------------------------------------
-Running main() from /home/ace/kv/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = DataFile_test.DestroyFile
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from DataFile_test
-[ RUN      ] DataFile_test.DestroyFile
-[       OK ] DataFile_test.DestroyFile (0 ms)
-[----------] 1 test from DataFile_test (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"DataFile_test.DestroyFile" end time: Jul 21 23:38 CST
-"DataFile_test.DestroyFile" time elapsed: 00:00:00
-----------------------------------------------------------
-
-End testing: Jul 21 23:38 CST
+End testing: Jul 22 23:28 CST

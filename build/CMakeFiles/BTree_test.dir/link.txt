@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/BTree_test.dir/src/BTree.cpp.o CMakeFiles/BTree_test.dir/BTree_test.cpp.o -o BTree_test  lib/libgtest_main.a lib/libgtest.a 
+/usr/bin/c++ CMakeFiles/BTree_test.dir/src/BTree.cpp.o CMakeFiles/BTree_test.dir/BTree_test.cpp.o -o BTree_test  lib/libgtest_main.a /usr/lib/x86_64-linux-gnu/libz.so lib/libgtest.a 

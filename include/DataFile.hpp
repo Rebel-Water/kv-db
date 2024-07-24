@@ -29,11 +29,12 @@ public:             // write buf but read logRecord, maybe can do encode and dec
 
     void Write(const std::vector<byte>& buf) {
         int n = this->IoManager->Write(buf);
+        this->WriteOff += n;
     }
 
     std::vector<byte> readNBytes(int64 n, int64 offset) {
         std::vector<byte> buf(n);
-        this->IoManager->Read(buf, offset);
+        int size = this->IoManager->Read(buf, offset);
         return buf;
     }
 

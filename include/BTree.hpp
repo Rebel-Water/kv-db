@@ -13,5 +13,5 @@ class BTree : public Indexer {
     virtual std::unique_ptr<LogRecordPos> Get(const std::vector<byte>& key);
     virtual bool Delete(const std::vector<byte>& key);
     btree::set<Item> btree;
-    std::shared_mutex RWMutex;
+    // std::shared_mutex RWMutex;
 };

@@ -1,58 +1,86 @@
 #pragma once
 #include <memory>
+#include <cstring>
 #include "LogRecord.hpp"
-
-const int MaxVarintLen32 = 5;
-
-const int MaxLogRecordHeaderSize = MaxVarintLen32 * 2 + 5;
+#include <zlib.h>
 
 class Code
 {
 public:
     static std::vector<byte> EncodeLogRecord(std::unique_ptr<LogRecord> logRecord)
     {
-        return std::vector<byte>();
+        std::vector<byte> header(MaxLogRecordHeaderSize); // read logrecordheader
+        header[IndexLogRecordType] = logRecord->Type;
+        int index = IndexLogRecordType + 1;
+        index += Code::PutVarint(header, index, logRecord->Key.size());
+        index += Code::PutVarint(header, index, logRecord->Value.size());
+
+        int size = index + logRecord->Key.size() + logRecord->Value.size();
+        if(size > 40)
+            throw "here is!";
+        std::vector<byte> encode(size); // read logrecord based on header's keysize and valuesize
+        
+
+        std::copy(header.begin(), header.begin() + index, encode.begin());
+        std::copy(logRecord->Key.begin(), logRecord->Key.end(), encode.begin() + index);
+        std::copy(logRecord->Value.begin(), logRecord->Value.end(), encode.begin() + index + logRecord->Key.size());
+
+        uint32 crc = crc32(CRC_DEFAULT, encode.data() + IndexLogRecordType, encode.size() - 4);
+        std::memcpy(&encode[0], &crc, sizeof(crc));
+
+        return encode;
     }
 
-    static std::unique_ptr<LogRecordHeader> DecodeLogRecord(std::vector<byte> buf)
+    static std::unique_ptr<LogRecordHeader> DecodeLogRecord(std::vector<byte> &buf)
     {
-        return nullptr;
+        int n = buf.size();
+        if (n <= IndexLogRecordType)
+            return nullptr;
+
+        // std::unique_ptr<LogRecordHeader> header(buf[4])
+        uint32 crc = *reinterpret_cast<const uint32_t*>(&buf[0]);
+        int index = IndexLogRecordType + 1;
+
+        int length = 0;
+        int keySize = GetVarint(buf, index, &length);
+        index += length;
+
+        int valueSize = GetVarint(buf, index, &length);
+        index += length;
+
+        auto header = std::make_unique<LogRecordHeader>(crc, static_cast<LogRecordType>(buf[IndexLogRecordType]), keySize, valueSize, index);
+
+        return std::move(header);
     }
 
-
-    static std::vector<byte> varintEncode(uint64_t val)
+    static int PutVarint(std::vector<byte> &buf, int index, int val)
     {
-        std::vector<byte> result;
+        int cnt = 0;
         while (val >= 0x80)
         {
-            result.emplace_back(0x80 | (val & 0x7f));
+            buf[index + cnt] = (0x80 | (val & 0x7f));
             val >>= 7;
+            cnt++;
         }
-        // The last byte always < 0x80
-        result.emplace_back(byte(val));
-        return result;
+        buf[index + cnt] = byte(val);
+        return cnt + 1;
     }
 
-    static std::string varintEncodeStr(uint64_t val)
+    static int GetVarint(std::vector<byte> &buf, int index, int* length)
     {
-        byte buf[16];
-        size_t size = varintEncodeBuf(&buf[0], sizeof(buf), val);
-        // INVARIANT_D(size < sizeof(buf));
-        return std::string(reinterpret_cast<char *>(&buf[0]), size);
-    }
-
-    static size_t varintEncodeBuf(uint8_t *buf, size_t bufsize, uint64_t val)
-    {
-        size_t size = 0;
-        while (val >= 0x80)
+        int val = 0;
+        int shift = 0;
+        int cnt = 0;
+        while (true)
         {
-            buf[size++] = (0x80 | (val & 0x7f));
-            val >>= 7;
+            uint8_t byte = buf[index++];
+            val |= (int (byte & 0x7F) << shift);
+            shift += 7;
+            cnt++;
+            if ((byte & 0x80) == 0)
+                break;
         }
-        // The last byte always < 0x80
-        buf[size++] = (uint8_t)val;
-
-        // INVARIANT_D(size <= bufsize);
-        return size;
+        *length = cnt;
+        return val;
     }
 };

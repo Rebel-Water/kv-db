@@ -1,0 +1,7 @@
+add_test( DB_Test.DBPutAndGet /home/ace/kv/build/DB_test [==[--gtest_filter=DB_Test.DBPutAndGet]==] --gtest_also_run_disabled_tests)
+set_tests_properties( DB_Test.DBPutAndGet PROPERTIES WORKING_DIRECTORY /home/ace/kv/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( DB_Test.DBIndexLoadFromDataFile /home/ace/kv/build/DB_test [==[--gtest_filter=DB_Test.DBIndexLoadFromDataFile]==] --gtest_also_run_disabled_tests)
+set_tests_properties( DB_Test.DBIndexLoadFromDataFile PROPERTIES WORKING_DIRECTORY /home/ace/kv/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( DB_Test.DBDelete /home/ace/kv/build/DB_test [==[--gtest_filter=DB_Test.DBDelete]==] --gtest_also_run_disabled_tests)
+set_tests_properties( DB_Test.DBDelete PROPERTIES WORKING_DIRECTORY /home/ace/kv/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( DB_test_TESTS DB_Test.DBPutAndGet DB_Test.DBIndexLoadFromDataFile DB_Test.DBDelete)

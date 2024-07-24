@@ -141,6 +141,7 @@ DataFile_test: CMakeFiles/DataFile_test.dir/src/DB.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/build.make
 DataFile_test: lib/libgtest_main.a
+DataFile_test: /usr/lib/x86_64-linux-gnu/libz.so
 DataFile_test: lib/libgtest.a
 DataFile_test: CMakeFiles/DataFile_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable DataFile_test"

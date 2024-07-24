@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/DB_test.dir/src/DB.cpp.o CMakeFiles/DB_test.dir/src/FileIO.cpp.o CMakeFiles/DB_test.dir/src/BTree.cpp.o CMakeFiles/DB_test.dir/DB_test.cpp.o -o DB_test  lib/libgtest_main.a /usr/lib/x86_64-linux-gnu/libz.so lib/libgtest.a 
