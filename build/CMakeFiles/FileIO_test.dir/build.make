@@ -83,30 +83,30 @@ CMakeFiles/FileIO_test.dir/src/FileIO.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FileIO_test.dir/src/FileIO.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/FileIO.cpp -o CMakeFiles/FileIO_test.dir/src/FileIO.cpp.s
 
-CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o: CMakeFiles/FileIO_test.dir/flags.make
-CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o: ../FileIO_test.cpp
-CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o: CMakeFiles/FileIO_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o -MF CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o.d -o CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o -c /home/ace/kv/FileIO_test.cpp
+CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o: CMakeFiles/FileIO_test.dir/flags.make
+CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o: ../test/FileIO_test.cpp
+CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o: CMakeFiles/FileIO_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o -MF CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o.d -o CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o -c /home/ace/kv/test/FileIO_test.cpp
 
-CMakeFiles/FileIO_test.dir/FileIO_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FileIO_test.dir/FileIO_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/FileIO_test.cpp > CMakeFiles/FileIO_test.dir/FileIO_test.cpp.i
+CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/test/FileIO_test.cpp > CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.i
 
-CMakeFiles/FileIO_test.dir/FileIO_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FileIO_test.dir/FileIO_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/FileIO_test.cpp -o CMakeFiles/FileIO_test.dir/FileIO_test.cpp.s
+CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/test/FileIO_test.cpp -o CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.s
 
 # Object files for target FileIO_test
 FileIO_test_OBJECTS = \
 "CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o" \
-"CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o"
+"CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o"
 
 # External object files for target FileIO_test
 FileIO_test_EXTERNAL_OBJECTS =
 
 FileIO_test: CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o
-FileIO_test: CMakeFiles/FileIO_test.dir/FileIO_test.cpp.o
+FileIO_test: CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o
 FileIO_test: CMakeFiles/FileIO_test.dir/build.make
 FileIO_test: lib/libgtest_main.a
 FileIO_test: /usr/lib/x86_64-linux-gnu/libz.so

@@ -16,8 +16,7 @@ public:
         index += Code::PutVarint(header, index, logRecord->Value.size());
 
         int size = index + logRecord->Key.size() + logRecord->Value.size();
-        if(size > 40)
-            throw "here is!";
+        
         std::vector<byte> encode(size); // read logrecord based on header's keysize and valuesize
         
 

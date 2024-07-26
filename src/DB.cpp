@@ -30,53 +30,94 @@ DB::DB(const Options &option) : option(option)
     this->LoadIndexFromDataFiles();
 }
 
+DB::~DB() {
+   this->Sync();
+   this->Close(); 
+}
+
+void DB::Fold(FoldFn fn)
+{
+    std::unique_ptr<Iterator_Interface> iterator;
+    {
+        std::shared_lock<std::shared_mutex> lock(this->RWMutex);
+        iterator = this->index->Iter(false);
+        for (iterator->Rewind(); iterator->Valid(); iterator->Next())
+        {
+            auto value = this->getValueByPosition(iterator->Value());
+            if (!fn(iterator->Key(), value))
+                break;
+        }
+    }
+    iterator->Close();
+}
+
+std::vector<std::vector<byte>> DB::ListKey()
+{
+    std::unique_ptr<Iterator_Interface> iter;
+    {
+        std::shared_lock<std::shared_mutex> lock(this->RWMutex);
+        iter = this->index->Iter(false);
+    }
+    auto keys = std::vector<std::vector<byte>>(this->index->Size());
+    int idx = 0;
+    for (iter->Rewind(); iter->Valid(); iter->Next())
+        keys[idx++] = iter->Key();
+    iter->Close();
+    return keys;
+}
+
+void DB::Close()
+{
+    if (this->activeFile == nullptr)
+        return;
+    std::unique_lock<std::shared_mutex> lock(this->RWMutex);
+    this->activeFile->Close();
+    for (auto &[_, file] : this->olderFiles)
+        file->Close();
+}
+
+void DB::Sync()
+{
+    if (this->activeFile == nullptr)
+        return;
+    std::unique_lock<std::shared_mutex> lock(this->RWMutex);
+    this->activeFile->Sync();
+}
+
 // write-lock
 void DB::Put(const std::vector<byte> &key, const std::vector<byte> &value)
 {
-    // std::unique_lock<std::shared_mutex> lock(RWMutex);
+    std::unique_lock<std::shared_mutex> lock(RWMutex);
     if (key.size() == 0)
         throw "DB::Put Empty Key";
     auto log_record = std::make_unique<LogRecord>(key, value, LogRecordNormal);
     auto pos = this->AppendLogRecord(std::move(log_record));
-    this->index->Put(key, std::move(pos));
+    this->index->Put(key, pos);
 }
 
 // read-lock
 std::vector<byte> DB::Get(const std::vector<byte> &key)
 {
-    // std::shared_lock<std::shared_mutex> lock(this->RWMutex); // read lock
+    std::shared_lock<std::shared_mutex> lock(this->RWMutex); // read lock
     if (key.size() == 0)
         throw "DB::Get Empty Key";
     auto logRecordPos = this->index->Get(key);
     if (logRecordPos == nullptr)
         throw "DB::Get Key Not Found";
-
-    std::unique_ptr<LogRecord> logRecord;
-    std::shared_ptr<DataFile> datafile;
-    if (this->activeFile->FileId == logRecordPos->Fid)
-        datafile = this->activeFile;
-    else if (this->olderFiles.find(logRecordPos->Fid) != this->olderFiles.end())
-        datafile = this->olderFiles[logRecordPos->Fid]; // note: we also should know db's member data lock logic
-
-    logRecord = std::move(this->ReadLogRecord(logRecordPos->Offset, datafile)); // can overfit
-
-    if (logRecord->Type == LogRecordDeleted)
-        throw "DB::Get Error Key Not Found";
-
-    return logRecord->Value;
+    return getValueByPosition(*logRecordPos);
 }
 
 // write-lock
 void DB::Delete(const std::vector<byte> &key)
 {
-    // std::unique_lock<std::shared_mutex> lock(RWMutex);
+    std::unique_lock<std::shared_mutex> lock(RWMutex);
     if (key.size() == 0)
         throw "DB::Delete Key Empty";
-
-    if(auto pos = this->index->Get(key) != nullptr)
+    auto pos = this->index->Get(key);
+    if (pos == nullptr)
         return;
     auto logRecord = std::make_unique<LogRecord>(key, LogRecordDeleted); // Delete LogRecord size is smaller
-    this->AppendLogRecord(std::move(logRecord)); // update at disk level to appand a delete flag
+    this->AppendLogRecord(std::move(logRecord));                         // update at disk level to appand a delete flag
     // write-lock so here delete don't need lock
     // write-lock
     if (this->index->Delete(key) == 0) // update at memory level to call btree.delete
@@ -93,10 +134,12 @@ std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataF
 
     auto headerBuf = datafile->readNBytes(headerBytes, offset);
     auto header = Code::DecodeLogRecord(headerBuf);
+
     if (header == nullptr)
         return nullptr;
     if (header->crc == 0 && header->keySize == 0 && header->valueSize == 0)
         return nullptr;
+
     int64 keySize = header->keySize, valueSize = header->valueSize;
 
     int64 recordSize = header->headerSize + keySize + valueSize;
@@ -104,7 +147,7 @@ std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataF
     std::vector<byte> key, value;
     if (keySize > 0 || valueSize > 0)
     {
-        auto kvBuf = datafile->readNBytes(keySize + valueSize, header->headerSize + offset); // wrong!
+        auto kvBuf = datafile->readNBytes(keySize + valueSize, header->headerSize + offset);
         key = std::vector<byte>(kvBuf.begin(), kvBuf.begin() + keySize);
         value = std::vector<byte>(kvBuf.begin() + keySize, kvBuf.end());
     }
@@ -113,6 +156,7 @@ std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataF
     logRecord->Size = recordSize;
 
     std::vector<byte> crcBuf(headerBuf.begin() + sizeof(header->crc), headerBuf.begin() + header->headerSize);
+    // crc notice value size is 0
     if (header->crc != logRecord->getLogRecordCRC(crcBuf))
         throw "DB::ReadLogRecord Crc fault";
 
@@ -120,8 +164,8 @@ std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataF
 }
 
 // call this function should hold write-lock
-std::unique_ptr<LogRecordPos> DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord) // here appandlogrecord can be moved into datafile?
-                                                                                        // now i move appand and read all into db
+LogRecordPos DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord) // here appandlogrecord can be moved into datafile?
+                                                                       // now i move appand and read all into db
 {
     if (this->activeFile == nullptr) // when start db, activefile is null
         this->SetActiveDataFile();
@@ -141,9 +185,34 @@ std::unique_ptr<LogRecordPos> DB::AppendLogRecord(std::unique_ptr<LogRecord> log
     if (this->option.SyncWrite)
         this->activeFile->Sync();
 
-    return std::make_unique<LogRecordPos>(this->activeFile->FileId, writeOff);
+    return LogRecordPos(this->activeFile->FileId, writeOff);
 }
+
+std::unique_ptr<Iterator> DB::NewIterator(IteratorOptions option)
+{
+    auto indexIter = this->index->Iter(option.Reverse);
+    return std::make_unique<Iterator>(this, std::move(indexIter), option);
+}
+
+std::vector<byte> DB::getValueByPosition(const LogRecordPos &pos)
+{
+    std::shared_lock<std::shared_mutex> lock(this->RWMutex);
+    std::shared_ptr<DataFile> datafile;
+    if (this->activeFile->FileId == pos.Fid)
+        datafile = this->activeFile;
+    else if (this->olderFiles.find(pos.Fid) != this->olderFiles.end())
+        datafile = this->olderFiles[pos.Fid]; // note: we also should know db's member data lock logic
+
+    auto logRecord = std::move(this->ReadLogRecord(pos.Offset, datafile)); // can overfit
+
+    if (logRecord->Type == LogRecordDeleted)
+        throw "DB::Get Error Key Not Found";
+
+    return logRecord->Value;
+}
+
 // callee by appendlogrecord, have write-lock
+// before callee, olderfile has been set
 void DB::SetActiveDataFile()
 {
     uint32 initialFieldId = 0;
@@ -183,7 +252,6 @@ void DB::LoadDataFiles()
                 std::string token;
                 std::getline(ss, token, '.');  // Get the first part before the dot
                 int fileId = std::stoi(token); // use number as name
-                // printf("%d\n", fileId);
                 fileIds.push_back(fileId);
             }
         }
@@ -218,7 +286,7 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
         int64 offset = 0;                                              // from loading every datafile, offset should begin at 0
         while (auto logRecord = this->ReadLogRecord(offset, datafile)) // find fileId.data datafile to load in btree
         {                                                              // and read target.data in offset(int offset = 0)
-            auto logRecordPos = std::make_unique<LogRecordPos>(fileId, offset);
+            auto logRecordPos = LogRecordPos(fileId, offset);
             if (logRecord->Type == LogRecordDeleted) // delete is a record to appand into disk but in memory we do delete
             {
                 if (this->index->Delete(logRecord->Key) == 0)
@@ -226,7 +294,8 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
             }
             else
             {
-                if (this->index->Put(logRecord->Key, std::move(logRecordPos)) == 0) {
+                if (this->index->Put(logRecord->Key, logRecordPos) == 0)
+                {
                     throw "DB::LoadIndexFromDataFiles Update Put Index Fail";
                 }
             }

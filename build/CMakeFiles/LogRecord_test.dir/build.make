@@ -111,26 +111,26 @@ CMakeFiles/LogRecord_test.dir/src/BTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LogRecord_test.dir/src/BTree.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/BTree.cpp -o CMakeFiles/LogRecord_test.dir/src/BTree.cpp.s
 
-CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o: CMakeFiles/LogRecord_test.dir/flags.make
-CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o: ../LogRecord_test.cpp
-CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o: CMakeFiles/LogRecord_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o -MF CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o.d -o CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o -c /home/ace/kv/LogRecord_test.cpp
+CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o: CMakeFiles/LogRecord_test.dir/flags.make
+CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o: ../test/LogRecord_test.cpp
+CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o: CMakeFiles/LogRecord_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o -MF CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o.d -o CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o -c /home/ace/kv/test/LogRecord_test.cpp
 
-CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/LogRecord_test.cpp > CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.i
+CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/test/LogRecord_test.cpp > CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.i
 
-CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/LogRecord_test.cpp -o CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.s
+CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/test/LogRecord_test.cpp -o CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.s
 
 # Object files for target LogRecord_test
 LogRecord_test_OBJECTS = \
 "CMakeFiles/LogRecord_test.dir/src/DB.cpp.o" \
 "CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.o" \
 "CMakeFiles/LogRecord_test.dir/src/BTree.cpp.o" \
-"CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o"
+"CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o"
 
 # External object files for target LogRecord_test
 LogRecord_test_EXTERNAL_OBJECTS =
@@ -138,7 +138,7 @@ LogRecord_test_EXTERNAL_OBJECTS =
 LogRecord_test: CMakeFiles/LogRecord_test.dir/src/DB.cpp.o
 LogRecord_test: CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.o
 LogRecord_test: CMakeFiles/LogRecord_test.dir/src/BTree.cpp.o
-LogRecord_test: CMakeFiles/LogRecord_test.dir/LogRecord_test.cpp.o
+LogRecord_test: CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o
 LogRecord_test: CMakeFiles/LogRecord_test.dir/build.make
 LogRecord_test: lib/libgtest_main.a
 LogRecord_test: /usr/lib/x86_64-linux-gnu/libz.so

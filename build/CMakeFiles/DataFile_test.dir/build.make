@@ -111,26 +111,26 @@ CMakeFiles/DataFile_test.dir/src/DB.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataFile_test.dir/src/DB.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/DB.cpp -o CMakeFiles/DataFile_test.dir/src/DB.cpp.s
 
-CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o: CMakeFiles/DataFile_test.dir/flags.make
-CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o: ../DataFile_test.cpp
-CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o: CMakeFiles/DataFile_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o -MF CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o.d -o CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o -c /home/ace/kv/DataFile_test.cpp
+CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o: CMakeFiles/DataFile_test.dir/flags.make
+CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o: ../test/DataFile_test.cpp
+CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o: CMakeFiles/DataFile_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o -MF CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o.d -o CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o -c /home/ace/kv/test/DataFile_test.cpp
 
-CMakeFiles/DataFile_test.dir/DataFile_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DataFile_test.dir/DataFile_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/DataFile_test.cpp > CMakeFiles/DataFile_test.dir/DataFile_test.cpp.i
+CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/test/DataFile_test.cpp > CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.i
 
-CMakeFiles/DataFile_test.dir/DataFile_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataFile_test.dir/DataFile_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/DataFile_test.cpp -o CMakeFiles/DataFile_test.dir/DataFile_test.cpp.s
+CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/test/DataFile_test.cpp -o CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.s
 
 # Object files for target DataFile_test
 DataFile_test_OBJECTS = \
 "CMakeFiles/DataFile_test.dir/src/BTree.cpp.o" \
 "CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o" \
 "CMakeFiles/DataFile_test.dir/src/DB.cpp.o" \
-"CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o"
+"CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o"
 
 # External object files for target DataFile_test
 DataFile_test_EXTERNAL_OBJECTS =
@@ -138,7 +138,7 @@ DataFile_test_EXTERNAL_OBJECTS =
 DataFile_test: CMakeFiles/DataFile_test.dir/src/BTree.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/src/DB.cpp.o
-DataFile_test: CMakeFiles/DataFile_test.dir/DataFile_test.cpp.o
+DataFile_test: CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/build.make
 DataFile_test: lib/libgtest_main.a
 DataFile_test: /usr/lib/x86_64-linux-gnu/libz.so

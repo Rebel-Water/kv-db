@@ -83,30 +83,30 @@ CMakeFiles/BTree_test.dir/src/BTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BTree_test.dir/src/BTree.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/BTree.cpp -o CMakeFiles/BTree_test.dir/src/BTree.cpp.s
 
-CMakeFiles/BTree_test.dir/BTree_test.cpp.o: CMakeFiles/BTree_test.dir/flags.make
-CMakeFiles/BTree_test.dir/BTree_test.cpp.o: ../BTree_test.cpp
-CMakeFiles/BTree_test.dir/BTree_test.cpp.o: CMakeFiles/BTree_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BTree_test.dir/BTree_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BTree_test.dir/BTree_test.cpp.o -MF CMakeFiles/BTree_test.dir/BTree_test.cpp.o.d -o CMakeFiles/BTree_test.dir/BTree_test.cpp.o -c /home/ace/kv/BTree_test.cpp
+CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o: CMakeFiles/BTree_test.dir/flags.make
+CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o: ../test/BTree_test.cpp
+CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o: CMakeFiles/BTree_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o -MF CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o.d -o CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o -c /home/ace/kv/test/BTree_test.cpp
 
-CMakeFiles/BTree_test.dir/BTree_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BTree_test.dir/BTree_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/BTree_test.cpp > CMakeFiles/BTree_test.dir/BTree_test.cpp.i
+CMakeFiles/BTree_test.dir/test/BTree_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BTree_test.dir/test/BTree_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/test/BTree_test.cpp > CMakeFiles/BTree_test.dir/test/BTree_test.cpp.i
 
-CMakeFiles/BTree_test.dir/BTree_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BTree_test.dir/BTree_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/BTree_test.cpp -o CMakeFiles/BTree_test.dir/BTree_test.cpp.s
+CMakeFiles/BTree_test.dir/test/BTree_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BTree_test.dir/test/BTree_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/test/BTree_test.cpp -o CMakeFiles/BTree_test.dir/test/BTree_test.cpp.s
 
 # Object files for target BTree_test
 BTree_test_OBJECTS = \
 "CMakeFiles/BTree_test.dir/src/BTree.cpp.o" \
-"CMakeFiles/BTree_test.dir/BTree_test.cpp.o"
+"CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o"
 
 # External object files for target BTree_test
 BTree_test_EXTERNAL_OBJECTS =
 
 BTree_test: CMakeFiles/BTree_test.dir/src/BTree.cpp.o
-BTree_test: CMakeFiles/BTree_test.dir/BTree_test.cpp.o
+BTree_test: CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o
 BTree_test: CMakeFiles/BTree_test.dir/build.make
 BTree_test: lib/libgtest_main.a
 BTree_test: /usr/lib/x86_64-linux-gnu/libz.so

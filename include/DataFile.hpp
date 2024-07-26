@@ -35,6 +35,7 @@ public:             // write buf but read logRecord, maybe can do encode and dec
     std::vector<byte> readNBytes(int64 n, int64 offset) {
         std::vector<byte> buf(n);
         int size = this->IoManager->Read(buf, offset);
+        // buf.resize(size);
         return buf;
     }
 
