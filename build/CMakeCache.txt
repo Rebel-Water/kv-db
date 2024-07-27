@@ -322,7 +322,7 @@ gmock_IS_TOP_LEVEL:STATIC=OFF
 gmock_LIB_DEPENDS:STATIC=general;gtest;
 
 //Value Computed by CMake
-gmock_SOURCE_DIR:STATIC=/home/ace/kv/build/_deps/googletest-src/googlemock
+gmock_SOURCE_DIR:STATIC=/home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googlemock
 
 //Build all of Google Mock's own tests.
 gmock_build_tests:BOOL=OFF
@@ -337,7 +337,7 @@ googletest-distribution_BINARY_DIR:STATIC=/home/ace/kv/build/_deps/googletest-bu
 googletest-distribution_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-googletest-distribution_SOURCE_DIR:STATIC=/home/ace/kv/build/_deps/googletest-src
+googletest-distribution_SOURCE_DIR:STATIC=/home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395
 
 //Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/home/ace/kv/build/_deps/googletest-build/googletest
@@ -346,7 +346,7 @@ gtest_BINARY_DIR:STATIC=/home/ace/kv/build/_deps/googletest-build/googletest
 gtest_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-gtest_SOURCE_DIR:STATIC=/home/ace/kv/build/_deps/googletest-src/googletest
+gtest_SOURCE_DIR:STATIC=/home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest
 
 //Build gtest's sample programs.
 gtest_build_samples:BOOL=OFF
@@ -359,7 +359,7 @@ gtest_disable_pthreads:BOOL=OFF
 
 //Use shared (DLL) run-time lib even when Google Test is built
 // as static lib.
-gtest_force_shared_crt:BOOL=ON
+gtest_force_shared_crt:BOOL=OFF
 
 //Build gtest with internal symbols hidden in shared libraries.
 gtest_hide_internal_symbols:BOOL=OFF

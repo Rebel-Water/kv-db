@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Batch_test.dir/src/Batch.cpp.o CMakeFiles/Batch_test.dir/src/DB.cpp.o CMakeFiles/Batch_test.dir/src/BTree.cpp.o CMakeFiles/Batch_test.dir/src/FileIO.cpp.o CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o -o Batch_test  lib/libgtest_main.a /usr/lib/x86_64-linux-gnu/libz.so lib/libgtest.a 

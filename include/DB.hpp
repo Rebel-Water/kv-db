@@ -4,6 +4,7 @@
 #include <memory>
 #include <unordered_map>
 #include <functional>
+#include <atomic>
 #include "Type.hpp"
 #include "LogRecord.hpp"
 #include "DataFile.hpp"
@@ -12,6 +13,7 @@
 
 class Iterator;
 class Indexer;
+class WriteBatch;
 class DB {
     public:
     using FoldFn = std::function<bool(const std::vector<byte>&, const std::vector<byte>&)>;
@@ -24,6 +26,7 @@ class DB {
     std::shared_ptr<DataFile> activeFile;
     std::vector<int> fileIds;
     std::unordered_map<uint32, std::shared_ptr<DataFile>> olderFiles;
+    std::atomic_uint64_t seqNo;
 
     void Fold(FoldFn fn);
     std::vector<std::vector<byte>> ListKey();
@@ -38,6 +41,7 @@ class DB {
     LogRecordPos AppendLogRecord(std::unique_ptr<LogRecord> logRecord);
 
     std::unique_ptr<Iterator> NewIterator(IteratorOptions option);
+    std::unique_ptr<WriteBatch> NewWriteBatch(WriteBatchOptions option);
 
     std::vector<byte> getValueByPosition(const LogRecordPos& pos);
     void SetActiveDataFile();

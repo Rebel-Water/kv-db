@@ -18,6 +18,7 @@ const std::string MergeFinishedFileName = "merge-finished";
 const std::string SeqNoFileName         = "seq-no";
 
 const int MaxVarintLen32 = 5;
+const int MaxVarintLen64 = 10;
 
 const int MaxLogRecordHeaderSize = MaxVarintLen32 * 2 + 5;
 

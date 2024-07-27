@@ -13,8 +13,8 @@ project(googletest-populate NONE)
 
 include(ExternalProject)
 ExternalProject_Add(googletest-populate
-                     "UPDATE_DISCONNECTED" "False" "URL" "https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip"
-                    SOURCE_DIR          "/home/ace/kv/build/_deps/googletest-src"
+                     "UPDATE_DISCONNECTED" "False"
+                    SOURCE_DIR          "/home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395"
                     BINARY_DIR          "/home/ace/kv/build/_deps/googletest-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""

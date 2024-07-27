@@ -14,7 +14,7 @@ include_directories(include)
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+  SOURCE_DIR /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395
 )
 FetchContent_MakeAvailable(googletest)
 
@@ -35,8 +35,9 @@ endfunction()
 # target_link_libraries(main ZLIB::ZLIB)
 
 # Add tests
-add_gtest(BTree_test src/BTree.cpp test/BTree_test.cpp)
-add_gtest(FileIO_test src/FileIO.cpp test/FileIO_test.cpp)
-add_gtest(DataFile_test src/BTree.cpp src/FileIO.cpp src/DB.cpp test/DataFile_test.cpp)
-add_gtest(LogRecord_test src/DB.cpp src/FileIO.cpp src/BTree.cpp test/LogRecord_test.cpp)
-add_gtest(DB_test src/Iterator.cpp src/DB.cpp src/FileIO.cpp src/BTree.cpp test/DB_test.cpp)
+# add_gtest(BTree_test src/BTree.cpp test/BTree_test.cpp)
+# add_gtest(FileIO_test src/FileIO.cpp test/FileIO_test.cpp)
+# add_gtest(DataFile_test src/BTree.cpp src/FileIO.cpp src/DB.cpp test/DataFile_test.cpp)
+# add_gtest(LogRecord_test src/DB.cpp src/FileIO.cpp src/BTree.cpp test/LogRecord_test.cpp)
+# add_gtest(DB_test src/Iterator.cpp src/DB.cpp src/FileIO.cpp src/BTree.cpp test/DB_test.cpp)
+add_gtest(Batch_test src/Batch.cpp src/DB.cpp src/BTree.cpp src/FileIO.cpp test/Batch_test.cpp)

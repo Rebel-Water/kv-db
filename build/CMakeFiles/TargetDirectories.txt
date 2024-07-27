@@ -1,8 +1,4 @@
-/home/ace/kv/build/CMakeFiles/BTree_test.dir
-/home/ace/kv/build/CMakeFiles/FileIO_test.dir
-/home/ace/kv/build/CMakeFiles/DataFile_test.dir
-/home/ace/kv/build/CMakeFiles/LogRecord_test.dir
-/home/ace/kv/build/CMakeFiles/DB_test.dir
+/home/ace/kv/build/CMakeFiles/Batch_test.dir
 /home/ace/kv/build/CMakeFiles/test.dir
 /home/ace/kv/build/CMakeFiles/edit_cache.dir
 /home/ace/kv/build/CMakeFiles/rebuild_cache.dir

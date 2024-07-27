@@ -90,18 +90,18 @@ TEST(DB_Test, DBIterator)
     {
         Options option;
         DB db(option);
-        db.Put(ToByteVector("a"), ToByteVector("a"));
-        db.Put(ToByteVector("b"), ToByteVector("b"));
-        db.Put(ToByteVector("bc"), ToByteVector("bc"));
-        db.Put(ToByteVector("bd"), ToByteVector("bd"));
-        db.Put(ToByteVector("e"), ToByteVector("e"));
-        IteratorOptions iteropt(ToByteVector("b"));
+        db.Put(Util::ToByteVector("a"), Util::ToByteVector("a"));
+        db.Put(Util::ToByteVector("b"), Util::ToByteVector("b"));
+        db.Put(Util::ToByteVector("bc"), Util::ToByteVector("bc"));
+        db.Put(Util::ToByteVector("bd"), Util::ToByteVector("bd"));
+        db.Put(Util::ToByteVector("e"), Util::ToByteVector("e"));
+        IteratorOptions iteropt(Util::ToByteVector("b"));
         auto iter = db.NewIterator(iteropt);
         // std::string strs[5] =
         // GTEST_LOG_(INFO) << "Test!!!" << std::endl;
         for (iter->Rewind(); iter->Valid(); iter->Next())
         {
-            GTEST_LOG_(INFO) << ToString(iter->Value()) << std::endl;
+            GTEST_LOG_(INFO) << Util::ToString(iter->Value()) << std::endl;
         }
     }
     catch (const std::exception &e)
@@ -136,7 +136,7 @@ TEST(DB_Test, DBListKey)
         std::string strs[5] = {"a", "b", "bc", "bd", "e"};
         int i = 0;
         for(auto& key : keys) {
-            EXPECT_STREQ(ToString(key).data(), strs[i++].data());
+            EXPECT_STREQ(Util::ToString(key).data(), strs[i++].data());
         }
     }
     catch (const std::exception& e)

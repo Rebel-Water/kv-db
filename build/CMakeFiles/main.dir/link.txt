@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/main.dir/src/DB.cpp.o CMakeFiles/main.dir/src/FileIO.cpp.o CMakeFiles/main.dir/src/BTree.cpp.o CMakeFiles/main.dir/main.cpp.o -o main  /usr/lib/x86_64-linux-gnu/libz.so 

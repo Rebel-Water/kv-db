@@ -4,6 +4,7 @@
 
 const std::string defaultPath = "/home/ace/kv/";
 const int defaultDataFileSize = 256 * 1024 * 1024;
+const int DefaultMaxBatchNum = 10000;
 
 class Options {
     public:
@@ -29,4 +30,12 @@ class IteratorOptions {
     // skiptoNext jump to next fit Prefix position
     std::vector<byte> Prefix;
     bool Reverse;
+};
+
+class WriteBatchOptions {
+    public:
+    WriteBatchOptions(uint MaxBatchNum = DefaultMaxBatchNum, bool SyncWrite = true) : MaxBatchNum(MaxBatchNum), SyncWrite(SyncWrite) {}
+    WriteBatchOptions(const WriteBatchOptions& opt) : MaxBatchNum(opt.MaxBatchNum), SyncWrite(opt.SyncWrite) {}
+    uint MaxBatchNum;
+    bool SyncWrite;
 };

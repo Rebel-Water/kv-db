@@ -1,0 +1,5 @@
+if(EXISTS "/home/ace/kv/build/Batch_test[1]_tests.cmake")
+  include("/home/ace/kv/build/Batch_test[1]_tests.cmake")
+else()
+  add_test(Batch_test_NOT_BUILT Batch_test_NOT_BUILT)
+endif()

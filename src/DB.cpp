@@ -5,11 +5,13 @@
 #include "BTree.hpp"
 #include "Code.hpp"
 #include "LogRecord.hpp"
+#include "Batch.hpp"
 #include <algorithm>
+#include <gtest/gtest.h>
 
 // about lock... maybe we can merge all lock in Btree into DB to simplify lock's logical
 // have let all lock only stay at db, Btree's parallel hold by db
-DB::DB(const Options &option) : option(option)
+DB::DB(const Options &option) : option(option), seqNo(0)
 {
     switch (option.Type)
     {
@@ -17,22 +19,23 @@ DB::DB(const Options &option) : option(option)
         this->index = std::make_unique<BTree>();
         break;
     default:
-        throw "No Indexer Type Fit";
+        throw std::runtime_error("No Indexer Type Fit");
     }
     this->checkOptions(option);
     if (!std::filesystem::exists(option.DirPath))
     {
         if (!std::filesystem::create_directories(option.DirPath))
-            throw "DB::Open create_directory error";
+            throw std::runtime_error("DB::Open create_directory error");
     }
 
     this->LoadDataFiles();
     this->LoadIndexFromDataFiles();
 }
 
-DB::~DB() {
-   this->Sync();
-   this->Close(); 
+DB::~DB()
+{
+    this->Sync();
+    this->Close();
 }
 
 void DB::Fold(FoldFn fn)
@@ -58,10 +61,9 @@ std::vector<std::vector<byte>> DB::ListKey()
         std::shared_lock<std::shared_mutex> lock(this->RWMutex);
         iter = this->index->Iter(false);
     }
-    auto keys = std::vector<std::vector<byte>>(this->index->Size());
-    int idx = 0;
+    auto keys = std::vector<std::vector<byte>>();
     for (iter->Rewind(); iter->Valid(); iter->Next())
-        keys[idx++] = iter->Key();
+        keys.emplace_back(iter->Key());
     iter->Close();
     return keys;
 }
@@ -89,8 +91,8 @@ void DB::Put(const std::vector<byte> &key, const std::vector<byte> &value)
 {
     std::unique_lock<std::shared_mutex> lock(RWMutex);
     if (key.size() == 0)
-        throw "DB::Put Empty Key";
-    auto log_record = std::make_unique<LogRecord>(key, value, LogRecordNormal);
+        throw std::runtime_error("DB::Put Empty Key");
+    auto log_record = std::make_unique<LogRecord>(WriteBatch::logRecordKeyWithSeq(key, NonTransactionSeqNo), value, LogRecordNormal);
     auto pos = this->AppendLogRecord(std::move(log_record));
     this->index->Put(key, pos);
 }
@@ -100,10 +102,10 @@ std::vector<byte> DB::Get(const std::vector<byte> &key)
 {
     std::shared_lock<std::shared_mutex> lock(this->RWMutex); // read lock
     if (key.size() == 0)
-        throw "DB::Get Empty Key";
+        throw std::runtime_error("DB::Get Empty Key");
     auto logRecordPos = this->index->Get(key);
     if (logRecordPos == nullptr)
-        throw "DB::Get Key Not Found";
+        throw std::runtime_error("DB::Get Key Not Found");
     return getValueByPosition(*logRecordPos);
 }
 
@@ -112,16 +114,16 @@ void DB::Delete(const std::vector<byte> &key)
 {
     std::unique_lock<std::shared_mutex> lock(RWMutex);
     if (key.size() == 0)
-        throw "DB::Delete Key Empty";
+        throw std::runtime_error("DB::Delete Key Empty");
     auto pos = this->index->Get(key);
     if (pos == nullptr)
         return;
-    auto logRecord = std::make_unique<LogRecord>(key, LogRecordDeleted); // Delete LogRecord size is smaller
-    this->AppendLogRecord(std::move(logRecord));                         // update at disk level to appand a delete flag
+    auto logRecord = std::make_unique<LogRecord>(WriteBatch::logRecordKeyWithSeq(key, NonTransactionSeqNo), LogRecordDeleted); // Delete LogRecord size is smaller
+    this->AppendLogRecord(std::move(logRecord));                                                                   // update at disk level to appand a delete flag
     // write-lock so here delete don't need lock
     // write-lock
     if (this->index->Delete(key) == 0) // update at memory level to call btree.delete
-        throw "DB::Delete Index Update Fail";
+        throw std::runtime_error("DB::Delete Index Update Fail");
 }
 
 // call this function should hold read-lock
@@ -158,7 +160,7 @@ std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataF
     std::vector<byte> crcBuf(headerBuf.begin() + sizeof(header->crc), headerBuf.begin() + header->headerSize);
     // crc notice value size is 0
     if (header->crc != logRecord->getLogRecordCRC(crcBuf))
-        throw "DB::ReadLogRecord Crc fault";
+        throw std::runtime_error("DB::ReadLogRecord Crc fault");
 
     return std::move(logRecord);
 }
@@ -188,6 +190,11 @@ LogRecordPos DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord) // here a
     return LogRecordPos(this->activeFile->FileId, writeOff);
 }
 
+std::unique_ptr<WriteBatch> DB::NewWriteBatch(WriteBatchOptions option)
+{
+    return std::make_unique<WriteBatch>(option, this);
+}
+
 std::unique_ptr<Iterator> DB::NewIterator(IteratorOptions option)
 {
     auto indexIter = this->index->Iter(option.Reverse);
@@ -206,7 +213,7 @@ std::vector<byte> DB::getValueByPosition(const LogRecordPos &pos)
     auto logRecord = std::move(this->ReadLogRecord(pos.Offset, datafile)); // can overfit
 
     if (logRecord->Type == LogRecordDeleted)
-        throw "DB::Get Error Key Not Found";
+        throw std::runtime_error("DB::Get Error Key Not Found");
 
     return logRecord->Value;
 }
@@ -223,7 +230,7 @@ void DB::SetActiveDataFile()
     auto dataFile = std::make_shared<DataFile>(this->option.DirPath, initialFieldId);
     if (dataFile == nullptr)
     {
-        throw "DB::SetActiveDataFile no such datafile";
+        throw std::runtime_error("DB::SetActiveDataFile no such datafile");
     }
     this->activeFile = dataFile;
 }
@@ -231,9 +238,9 @@ void DB::SetActiveDataFile()
 void DB::checkOptions(const Options &option)
 {
     if (option.DirPath == "")
-        throw "DB::checkOptions Dirpath Empty";
+        throw std::runtime_error("DB::checkOptions Dirpath Empty");
     if (option.DataFileSize <= 0)
-        throw "DB::checkOptions DataFileSize Too Low";
+        throw std::runtime_error("DB::checkOptions DataFileSize Too Low");
 }
 
 void DB::LoadDataFiles()
@@ -274,6 +281,23 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
     if (this->fileIds.size() == 0) // fileIds(vector) got in loadDataFiles, this vector maintain all old datafile and active datafile in DB
         return;
 
+    auto updateIndex = [&](const std::vector<byte> &key, LogRecordType type, LogRecordPos pos)
+    {
+        if (type == LogRecordDeleted) // delete is a record to appand into disk but in memory we do delete
+        {
+            if (this->index->Delete(key) == 0)
+                throw std::runtime_error("DB::LoadIndexFromDataFiles Update Delete Index Fail");
+        }
+        else if(type == LogRecordNormal) // modify!
+        {
+            if (this->index->Put(key, pos) == 0)
+                throw std::runtime_error("DB::LoadIndexFromDataFiles Update Put Index Fail");
+        }
+    };
+
+    std::unordered_map<uint64, std::vector<std::unique_ptr<TransactionRecord>>> transactionRecords;
+    int currentSeqno = NonTransactionSeqNo;
+
     int n = fileIds.size();
     for (int i = 0; i < n; i++)
     {
@@ -286,22 +310,30 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
         int64 offset = 0;                                              // from loading every datafile, offset should begin at 0
         while (auto logRecord = this->ReadLogRecord(offset, datafile)) // find fileId.data datafile to load in btree
         {                                                              // and read target.data in offset(int offset = 0)
+            int size = logRecord->Size;
             auto logRecordPos = LogRecordPos(fileId, offset);
-            if (logRecord->Type == LogRecordDeleted) // delete is a record to appand into disk but in memory we do delete
-            {
-                if (this->index->Delete(logRecord->Key) == 0)
-                    throw "DB::LoadIndexFromDataFiles Update Delete Index Fail";
+            auto pair = WriteBatch::parseLogRecordKey(logRecord->Key);
+            if (pair.second == NonTransactionSeqNo) {
+                updateIndex(pair.first, logRecord->Type, logRecordPos);
             }
-            else
-            {
-                if (this->index->Put(logRecord->Key, logRecordPos) == 0)
-                {
-                    throw "DB::LoadIndexFromDataFiles Update Put Index Fail";
+            else {
+                if(logRecord->Type == LogRecordTxnFinsihed) {
+                    GTEST_LOG_(INFO) << "!";
+                    for(auto& txnRecord : transactionRecords[pair.second])
+                        updateIndex(txnRecord->Record->Key, txnRecord->Record->Type, txnRecord->Pos);
+                    transactionRecords.erase(pair.second);
+                } else {
+                    logRecord->Key = pair.first;
+                    transactionRecords[pair.second].emplace_back(std::make_unique<TransactionRecord>(std::move(logRecord), logRecordPos));
                 }
             }
-            offset += logRecord->Size; // after readed, offset increase and point at next logRecord start
+            if(pair.second > currentSeqno)
+                currentSeqno = pair.second;
+
+            offset += size; // after readed, offset increase and point at next logRecord start
         }
         if (i == n - 1) // we write the newest(biggest) datafile, others can only be read can't be wrote
             this->activeFile->WriteOff = offset;
     }
+    this->seqNo = currentSeqno;
 }

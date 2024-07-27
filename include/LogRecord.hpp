@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include "Type.hpp"
+#include <memory>
 #include <zlib.h>
 
 enum LogRecordType {
@@ -28,6 +29,8 @@ class LogRecord {
         : Key(key), Value({}), Type(type) {}
     LogRecord(const std::vector<byte>& key, const std::vector<byte>& value, LogRecordType type) 
         : Key(key), Value(value), Type(type) {}
+    LogRecord(const std::vector<byte>& key, const std::vector<byte>& value) 
+        : Key(key), Value(value), Type(LogRecordNormal) {}
 
     uint32 getLogRecordCRC(std::vector<byte>& header) {
         uint32 crc = crc32(CRC_DEFAULT, header.data(), header.size());
@@ -55,3 +58,10 @@ class LogRecordPos {
     uint32 Size;
 };
 
+class TransactionRecord {
+    public:
+    TransactionRecord(std::unique_ptr<LogRecord> Record, LogRecordPos Pos) : Record(std::move(Record)), Pos(Pos) {}
+    std::unique_ptr<LogRecord> Record;
+    LogRecordPos Pos;
+
+};

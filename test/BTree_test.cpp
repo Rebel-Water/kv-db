@@ -68,10 +68,10 @@ TEST(BTreeTest, BTree_Iterator) {
     EXPECT_EQ(true, iter->Valid());
     iter->Next();
     EXPECT_EQ(false, iter->Valid());
-    tree.Put(ToByteVector("b"), pos);
-    tree.Put(ToByteVector("c"), pos);
-    tree.Put(ToByteVector("d"), pos);
-    tree.Put(ToByteVector("e"), pos);
+    tree.Put(Util::ToByteVector("b"), pos);
+    tree.Put(Util::ToByteVector("c"), pos);
+    tree.Put(Util::ToByteVector("d"), pos);
+    tree.Put(Util::ToByteVector("e"), pos);
     iter = tree.Iter(false);
     int i = 0;
     std::string temp("abcde");
@@ -91,14 +91,14 @@ TEST(BTreeTest, BTree_Iterator) {
     
     iter = tree.Iter(false);
     i = 0;
-    for(iter->Seek(ToByteVector("c")); iter->Valid(); iter->Next()) {
+    for(iter->Seek(Util::ToByteVector("c")); iter->Valid(); iter->Next()) {
         EXPECT_EQ(temp[i + 'c' - 'a'], iter->Key()[0]);
         EXPECT_EQ(true, iter->Valid());
         i++;
     }
 
     iter = tree.Iter(false);
-    for(iter->Seek(ToByteVector("c")); iter->Valid(); iter->Next()) {
+    for(iter->Seek(Util::ToByteVector("c")); iter->Valid(); iter->Next()) {
         i--;
         EXPECT_EQ(temp[i - ('c' - 'a')], iter->Key()[0]);
         EXPECT_EQ(true, iter->Valid());

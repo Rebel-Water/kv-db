@@ -65,7 +65,7 @@ public:
         return cnt + 1;
     }
 
-    static int GetVarint(std::vector<byte> &buf, int index, int* length)
+    static int GetVarint(const std::vector<byte> &buf, int index, int* length)
     {
         int val = 0;
         int shift = 0;

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ace/kv/build/_deps/googletest-src
+# Install script for directory: /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
