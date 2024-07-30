@@ -52,6 +52,24 @@ public:
         return std::move(header);
     }
 
+    static std::vector<byte> EncodeLogRecordPos(LogRecordPos pos) {
+        std::vector<byte> buf(MaxVarintLen32 + MaxVarintLen64);
+        int index = 0;
+        index += Code::PutVarint(buf, index, int64(pos.Fid));
+        index += Code::PutVarint(buf, index, int64(pos.Offset));
+        buf.resize(index);
+        return buf;
+    }
+
+    static LogRecordPos DecodeLogRecordPos(std::vector<byte>& buf) {
+        int index = 0;
+        int length = 0;
+        int fileId = GetVarint(buf, index, &length);
+        index += length;
+        int offset = GetVarint(buf, index, &length);
+        return LogRecordPos(fileId, offset);
+    }
+
     static int PutVarint(std::vector<byte> &buf, int index, int val)
     {
         int cnt = 0;

@@ -7,19 +7,19 @@ FileIO::FileIO(const std::string &fileName)
 }
 
 // Read function
-std::streamsize FileIO::Read(std::vector<byte>& buffer, int64 offset)
+std::streamsize FileIO::Read(std::vector<byte> &buffer, int64 offset)
 {
     fd.seekg(offset);
     int n = buffer.size();
-    fd.read(reinterpret_cast<char*>(buffer.data()), n);
+    fd.read(reinterpret_cast<char *>(buffer.data()), n);
     return fd.gcount();
 }
 
 // Write function
-std::streamsize FileIO::Write(const std::vector<byte>& buffer)
+std::streamsize FileIO::Write(const std::vector<byte> &buffer)
 {
     int n = buffer.size();
-    fd.write(reinterpret_cast<const char*>(buffer.data()), n);
+    fd.write(reinterpret_cast<const char *>(buffer.data()), n);
     return n;
 }
 
@@ -35,6 +35,20 @@ void FileIO::Close()
     if (fd.is_open())
         fd.close();
 }
+
+// int FileIO::GetFd()
+// {
+//     auto helper = [](std::filebuf &fb) -> int
+//     {
+//         class Helper : public std::filebuf
+//         {
+//             public:
+//             int handle() { return _M_file.fd(); }
+//         };
+//         return static_cast<Helper&>(fb).handle();
+//     };
+//     return helper(*(this->fd.rdbuf()));
+// }
 
 // Size function
 std::streamsize FileIO::Size()

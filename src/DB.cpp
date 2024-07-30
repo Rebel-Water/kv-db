@@ -2,16 +2,23 @@
 #include <shared_mutex>
 #include <mutex>
 #include <filesystem>
+#include <sys/file.h>
+#include <fcntl.h>
 #include "BTree.hpp"
+#include "Util.hpp"
 #include "Code.hpp"
 #include "LogRecord.hpp"
 #include "Batch.hpp"
 #include <algorithm>
 #include <gtest/gtest.h>
 
+const std::string mergeDirName = "Merge";
+const std::vector<byte> mergeFinishKey = Util::ToByteVector("merge-finished");
+const std::string filelockName = "file-lock";
+
 // about lock... maybe we can merge all lock in Btree into DB to simplify lock's logical
 // have let all lock only stay at db, Btree's parallel hold by db
-DB::DB(const Options &option) : option(option), seqNo(0)
+DB::DB(const Options &option) : option(option), seqNo(0), isMerging(false), isClose(false)
 {
     switch (option.Type)
     {
@@ -27,15 +34,122 @@ DB::DB(const Options &option) : option(option), seqNo(0)
         if (!std::filesystem::create_directories(option.DirPath))
             throw std::runtime_error("DB::Open create_directory error");
     }
+    auto lockfile = option.DirPath + filelockName;
 
+    int fd = open(lockfile.data(), O_RDWR | O_CREAT, 0666);
+    this->fileLockFd = fd;
+    if (flock(fd, LOCK_EX) == -1)
+    {
+        close(fd);
+        throw std::runtime_error("DB::Open File Lock Occupied");
+    }
+
+    this->LoadMergeFiles();
     this->LoadDataFiles();
+    this->LoadHintFiles();
     this->LoadIndexFromDataFiles();
 }
 
 DB::~DB()
 {
     this->Sync();
-    this->Close();
+    if (!isClose)
+        this->Close();
+}
+
+std::string DB::getMergePath()
+{
+
+    std::filesystem::path dirPath = this->option.DirPath;
+    // Clean the path and get the directory part
+    std::filesystem::path dir = dirPath.lexically_normal().parent_path();
+    // Get the base name of the path
+    std::filesystem::path base = dirPath.filename();
+    // Append the merge directory name to the base
+    std::filesystem::path fullPath = std::filesystem::path(dir) / (base.string() + mergeDirName);
+    return fullPath.string();
+}
+
+void DB::Merge()
+{
+    if (this->activeFile == nullptr)
+        return;
+
+    uint32 nonMergeFileId;
+    std::vector<std::shared_ptr<DataFile>> mergeFiles;
+    {
+        std::unique_lock<std::shared_mutex> lock(this->RWMutex);
+
+        if (this->isMerging)
+            throw std::runtime_error("DB::Merge DB Is Merging");
+
+        this->isMerging = true;
+
+        this->activeFile->Sync();
+
+        this->olderFiles[this->activeFile->FileId] = this->activeFile;
+        this->SetActiveDataFile();
+
+        nonMergeFileId = this->activeFile->FileId;
+
+        for (auto &[_, file] : this->olderFiles)
+            mergeFiles.push_back(file);
+
+        std::sort(mergeFiles.begin(), mergeFiles.end(),
+                  [](auto &i, auto &j)
+                  {
+                      return i->FileId < j->FileId;
+                  });
+    }
+
+    auto mergePath = this->getMergePath();
+
+    if (std::filesystem::exists(mergePath))
+    {
+        if (!std::filesystem::remove_all(mergePath))
+            throw std::runtime_error("DB::Merge Memoving Directory");
+    }
+
+    if (!std::filesystem::create_directories(mergePath))
+    {
+        throw std::runtime_error("DB::Merge Creating Directory");
+    }
+
+    Options mergeOptions(mergePath);
+    DB mergeDB(mergeOptions);
+
+    auto hintFile = std::make_shared<DataFile>(mergePath, 0, DataFileType::HintFile);
+
+    for (auto &dataFile : mergeFiles)
+    {
+        uint64 offset = 0;
+        while (auto logRecord = ReadLogRecord(offset, dataFile))
+        {
+            int size = logRecord->Size;
+            auto key = WriteBatch::parseLogRecordKey(logRecord->Key).first;
+            auto pos = this->index->Get(key);
+            if (pos && pos->Fid == dataFile->FileId && pos->Offset == offset) // valid data
+            {                                                                 // otherwise this k-v relation is not updated
+                logRecord->Key = WriteBatch::logRecordKeyWithSeq(key, NonTransactionSeqNo);
+                auto mergePos = mergeDB.AppendLogRecord(std::move(logRecord));
+                this->WriteHintRecord(hintFile, key, mergePos);
+            }
+            offset += size;
+        }
+    }
+
+    hintFile->Sync();
+    mergeDB.Sync();
+
+    auto mergeFinishFile = std::make_unique<DataFile>(mergePath, 0, DataFileType::MergeFinishFile);
+
+    auto mergeFinishRecord = std::make_unique<LogRecord>(mergeFinishKey, Util::ToByteVector(std::to_string(nonMergeFileId)));
+
+    auto encodeRecord = Code::EncodeLogRecord(std::move(mergeFinishRecord));
+    mergeFinishFile->Write(encodeRecord);
+    mergeFinishFile->Sync();
+
+    this->isMerging = false;
 }
 
 void DB::Fold(FoldFn fn)
@@ -70,12 +184,23 @@ std::vector<std::vector<byte>> DB::ListKey()
 
 void DB::Close()
 {
-    if (this->activeFile == nullptr)
-        return;
-    std::unique_lock<std::shared_mutex> lock(this->RWMutex);
-    this->activeFile->Close();
-    for (auto &[_, file] : this->olderFiles)
-        file->Close();
+    if (!this->isClose)
+    {
+        if (flock(fileLockFd, LOCK_UN) == -1)
+            throw std::runtime_error("DB::~Close File UnLock Wrong");
+        close(fileLockFd);
+    } else 
+    {
+        return ;
+    }
+    if (this->activeFile == nullptr) ; 
+    else {
+        std::unique_lock<std::shared_mutex> lock(this->RWMutex);
+        this->activeFile->Close();
+        for (auto &[_, file] : this->olderFiles)
+            file->Close();
+    }
+    isClose = true;
 }
 
 void DB::Sync()
@@ -119,7 +244,7 @@ void DB::Delete(const std::vector<byte> &key)
     if (pos == nullptr)
         return;
     auto logRecord = std::make_unique<LogRecord>(WriteBatch::logRecordKeyWithSeq(key, NonTransactionSeqNo), LogRecordDeleted); // Delete LogRecord size is smaller
-    this->AppendLogRecord(std::move(logRecord));                                                                   // update at disk level to appand a delete flag
+    this->AppendLogRecord(std::move(logRecord));                                                                               // update at disk level to appand a delete flag
     // write-lock so here delete don't need lock
     // write-lock
     if (this->index->Delete(key) == 0) // update at memory level to call btree.delete
@@ -166,6 +291,7 @@ std::unique_ptr<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataF
 }
 
 // call this function should hold write-lock
+// merge except
 LogRecordPos DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord) // here appandlogrecord can be moved into datafile?
                                                                        // now i move appand and read all into db
 {
@@ -188,6 +314,13 @@ LogRecordPos DB::AppendLogRecord(std::unique_ptr<LogRecord> logRecord) // here a
         this->activeFile->Sync();
 
     return LogRecordPos(this->activeFile->FileId, writeOff);
+}
+
+void DB::WriteHintRecord(std::shared_ptr<DataFile> datafile, const std::vector<byte> &key, LogRecordPos pos)
+{
+    auto record = std::make_unique<LogRecord>(key, Code::EncodeLogRecordPos(pos));
+    auto encodeRecord = Code::EncodeLogRecord(std::move(record));
+    datafile->Write(encodeRecord);
 }
 
 std::unique_ptr<WriteBatch> DB::NewWriteBatch(WriteBatchOptions option)
@@ -281,6 +414,15 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
     if (this->fileIds.size() == 0) // fileIds(vector) got in loadDataFiles, this vector maintain all old datafile and active datafile in DB
         return;
 
+    bool hasMerge = false;
+    uint32 nonMergeField = 0;
+    auto mergeFinishFileName = std::filesystem::path(this->option.DirPath) / MergeFinishedFileName;
+    if (std::filesystem::exists(mergeFinishFileName))
+    {
+        nonMergeField = this->GetNonMergeFileId(this->option.DirPath);
+        hasMerge = true;
+    }
+
     auto updateIndex = [&](const std::vector<byte> &key, LogRecordType type, LogRecordPos pos)
     {
         if (type == LogRecordDeleted) // delete is a record to appand into disk but in memory we do delete
@@ -288,7 +430,7 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
             if (this->index->Delete(key) == 0)
                 throw std::runtime_error("DB::LoadIndexFromDataFiles Update Delete Index Fail");
         }
-        else if(type == LogRecordNormal) // modify!
+        else if (type == LogRecordNormal) // modify!
         {
             if (this->index->Put(key, pos) == 0)
                 throw std::runtime_error("DB::LoadIndexFromDataFiles Update Put Index Fail");
@@ -302,6 +444,8 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
     for (int i = 0; i < n; i++)
     {
         uint32 fileId = fileIds[i];
+        if (hasMerge && fileId < nonMergeField)
+            continue;
         std::shared_ptr<DataFile> datafile;
         if (fileId == this->activeFile->FileId)
             datafile = this->activeFile;
@@ -313,21 +457,25 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
             int size = logRecord->Size;
             auto logRecordPos = LogRecordPos(fileId, offset);
             auto pair = WriteBatch::parseLogRecordKey(logRecord->Key);
-            if (pair.second == NonTransactionSeqNo) {
+            if (pair.second == NonTransactionSeqNo)
+            {
                 updateIndex(pair.first, logRecord->Type, logRecordPos);
             }
-            else {
-                if(logRecord->Type == LogRecordTxnFinsihed) {
-                    GTEST_LOG_(INFO) << "!";
-                    for(auto& txnRecord : transactionRecords[pair.second])
+            else
+            {
+                if (logRecord->Type == LogRecordTxnFinsihed)
+                {
+                    for (auto &txnRecord : transactionRecords[pair.second])
                         updateIndex(txnRecord->Record->Key, txnRecord->Record->Type, txnRecord->Pos);
                     transactionRecords.erase(pair.second);
-                } else {
+                }
+                else
+                {
                     logRecord->Key = pair.first;
                     transactionRecords[pair.second].emplace_back(std::make_unique<TransactionRecord>(std::move(logRecord), logRecordPos));
                 }
             }
-            if(pair.second > currentSeqno)
+            if (pair.second > currentSeqno)
                 currentSeqno = pair.second;
 
             offset += size; // after readed, offset increase and point at next logRecord start
@@ -336,4 +484,81 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
             this->activeFile->WriteOff = offset;
     }
     this->seqNo = currentSeqno;
+}
+
+void DB::LoadMergeFiles()
+{
+    std::string mergePath = getMergePath();
+
+    if (!std::filesystem::exists(mergePath))
+        return;
+
+    std::vector<std::filesystem::directory_entry> dirEntries;
+
+    for (const auto &entry : std::filesystem::directory_iterator(mergePath))
+        dirEntries.push_back(entry);
+
+    bool mergeFinished = false;
+    std::vector<std::string> mergeFileNames;
+
+    for (const auto &entry : dirEntries)
+    {
+        auto filename = entry.path().filename();
+        if (filename == MergeFinishedFileName)
+            mergeFinished = true;
+        if (filename != MergeFinishedFileName && filename != HintFileName)
+        {
+            mergeFileNames.push_back(filename);
+            GTEST_LOG_(INFO) << filename;
+        }
+    }
+
+    GTEST_LOG_(INFO) << "mergeFinished: " << mergeFinished;
+    if (!mergeFinished)
+        return;
+
+    uint32 nonMergeFileId = this->GetNonMergeFileId(mergePath);
+    GTEST_LOG_(INFO) << "nonMergeFileId: " << nonMergeFileId;
+    uint32 fileId = 0;
+    for (; fileId < nonMergeFileId; fileId++)
+    {
+        auto fileName = DataFile::GetDataFileName(this->option.DirPath, fileId);
+        GTEST_LOG_(INFO) << "fileId: " << fileId << " and fileName: " << fileName << std::endl;
+        if (std::filesystem::exists(fileName))
+            std::filesystem::remove(fileName);
+    }
+
+    for (auto &fileName : mergeFileNames)
+    {
+        auto srcPath = std::filesystem::path(mergePath) / fileName;
+        auto destPath = std::filesystem::path(this->option.DirPath) / fileName;
+        std::filesystem::rename(srcPath, destPath);
+    }
+
+    std::filesystem::remove_all(mergePath);
+}
+
+void DB::LoadHintFiles()
+{
+    auto hintFileName = std::filesystem::path(this->option.DirPath) / HintFileName;
+    GTEST_LOG_(INFO) << hintFileName << std::endl;
+    if (!std::filesystem::exists(hintFileName))
+        return;
+    auto hintFile = std::make_shared<DataFile>(this->option.DirPath, DataFileType::HintFile);
+    int64 offset = 0;
+    while (auto logRecord = ReadLogRecord(offset, hintFile))
+    {
+        auto pos = Code::DecodeLogRecordPos(logRecord->Value);
+        this->index->Put(logRecord->Key, pos);
+        offset += logRecord->Size;
+    }
+}
+
+uint32 DB::GetNonMergeFileId(const std::string &dirPath)
+{
+    auto mergeFinishFile = std::make_shared<DataFile>(dirPath, 0, DataFileType::MergeFinishFile);
+    GTEST_LOG_(INFO) << "mergeFinishFile: " << std::filesystem::path(dirPath) / MergeFinishedFileName;
+    auto record = DB::ReadLogRecord(0, mergeFinishFile);
+    int nonMergeFileId = std::stoi(Util::ToString(record->Value));
+    return static_cast<uint32>(nonMergeFileId);
 }

@@ -28,7 +28,6 @@ TEST(Batch_test, WriteBatch) {
         db.Get(Util::ToByteVector("first"));
     } catch(const std::exception& e) {
         EXPECT_STREQ(e.what(), "DB::Get Key Not Found");
-        std::remove("/home/ace/kv/000000000.data");
     }
 }
 
@@ -46,8 +45,8 @@ TEST(Batch_test, SeqNoBatch) {
         // wb->Commit();
         auto keys = db.ListKey();  
         // GTEST_LOG_(INFO) << keys.size();
-        EXPECT_EQ(keys.size(), 0);
-        //std::remove("000000000.data");
+        EXPECT_EQ(keys.size(), 2);
+        std::remove("/home/ace/kv/000000000.data");
     } catch(const std::exception& e) {
         GTEST_LOG_(INFO) << e.what();
     }

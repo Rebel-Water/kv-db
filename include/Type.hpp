@@ -12,6 +12,12 @@ enum IndexType {
     BTree_Index
 };
 
+enum DataFileType {
+    DataNormalFile,
+    HintFile,
+    MergeFinishFile
+};
+
 const std::string DataFileNameSuffix    = ".data";
 const std::string HintFileName          = "hint-index";
 const std::string MergeFinishedFileName = "merge-finished";
@@ -25,3 +31,4 @@ const int MaxLogRecordHeaderSize = MaxVarintLen32 * 2 + 5;
 const int IndexLogRecordType = 4;
 
 const uint32 CRC_DEFAULT = 0;
+

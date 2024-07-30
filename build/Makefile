@@ -172,6 +172,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named BTree_test
+
+# Build rule for target.
+BTree_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BTree_test
+.PHONY : BTree_test
+
+# fast build rule for target.
+BTree_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/build
+.PHONY : BTree_test/fast
+
+#=============================================================================
+# Target rules for targets named FileIO_test
+
+# Build rule for target.
+FileIO_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FileIO_test
+.PHONY : FileIO_test
+
+# fast build rule for target.
+FileIO_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/build
+.PHONY : FileIO_test/fast
+
+#=============================================================================
+# Target rules for targets named DataFile_test
+
+# Build rule for target.
+DataFile_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DataFile_test
+.PHONY : DataFile_test
+
+# fast build rule for target.
+DataFile_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/build
+.PHONY : DataFile_test/fast
+
+#=============================================================================
+# Target rules for targets named LogRecord_test
+
+# Build rule for target.
+LogRecord_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LogRecord_test
+.PHONY : LogRecord_test
+
+# fast build rule for target.
+LogRecord_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/build
+.PHONY : LogRecord_test/fast
+
+#=============================================================================
+# Target rules for targets named DB_test
+
+# Build rule for target.
+DB_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DB_test
+.PHONY : DB_test
+
+# fast build rule for target.
+DB_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/build
+.PHONY : DB_test/fast
+
+#=============================================================================
 # Target rules for targets named Batch_test
 
 # Build rule for target.
@@ -241,6 +306,10 @@ src/BTree.o: src/BTree.cpp.o
 
 # target to build an object file
 src/BTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/BTree.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/BTree.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/BTree.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/BTree.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/BTree.cpp.o
 .PHONY : src/BTree.cpp.o
 
@@ -249,6 +318,10 @@ src/BTree.i: src/BTree.cpp.i
 
 # target to preprocess a source file
 src/BTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/BTree.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/BTree.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/BTree.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/BTree.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/BTree.cpp.i
 .PHONY : src/BTree.cpp.i
 
@@ -257,6 +330,10 @@ src/BTree.s: src/BTree.cpp.s
 
 # target to generate assembly for a file
 src/BTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/BTree.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/BTree.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/BTree.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/BTree.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/BTree.cpp.s
 .PHONY : src/BTree.cpp.s
 
@@ -289,6 +366,9 @@ src/DB.o: src/DB.cpp.o
 
 # target to build an object file
 src/DB.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/DB.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/DB.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/DB.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/DB.cpp.o
 .PHONY : src/DB.cpp.o
 
@@ -297,6 +377,9 @@ src/DB.i: src/DB.cpp.i
 
 # target to preprocess a source file
 src/DB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/DB.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/DB.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/DB.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/DB.cpp.i
 .PHONY : src/DB.cpp.i
 
@@ -305,6 +388,9 @@ src/DB.s: src/DB.cpp.s
 
 # target to generate assembly for a file
 src/DB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/DB.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/DB.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/DB.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/DB.cpp.s
 .PHONY : src/DB.cpp.s
 
@@ -313,6 +399,10 @@ src/FileIO.o: src/FileIO.cpp.o
 
 # target to build an object file
 src/FileIO.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/FileIO.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/FileIO.cpp.o
 .PHONY : src/FileIO.cpp.o
 
@@ -321,6 +411,10 @@ src/FileIO.i: src/FileIO.cpp.i
 
 # target to preprocess a source file
 src/FileIO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/FileIO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/FileIO.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/FileIO.cpp.i
 .PHONY : src/FileIO.cpp.i
 
@@ -329,8 +423,60 @@ src/FileIO.s: src/FileIO.cpp.s
 
 # target to generate assembly for a file
 src/FileIO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/src/FileIO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/FileIO.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/FileIO.cpp.s
 .PHONY : src/FileIO.cpp.s
+
+src/Iterator.o: src/Iterator.cpp.o
+.PHONY : src/Iterator.o
+
+# target to build an object file
+src/Iterator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/Iterator.cpp.o
+.PHONY : src/Iterator.cpp.o
+
+src/Iterator.i: src/Iterator.cpp.i
+.PHONY : src/Iterator.i
+
+# target to preprocess a source file
+src/Iterator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/Iterator.cpp.i
+.PHONY : src/Iterator.cpp.i
+
+src/Iterator.s: src/Iterator.cpp.s
+.PHONY : src/Iterator.s
+
+# target to generate assembly for a file
+src/Iterator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/Iterator.cpp.s
+.PHONY : src/Iterator.cpp.s
+
+test/BTree_test.o: test/BTree_test.cpp.o
+.PHONY : test/BTree_test.o
+
+# target to build an object file
+test/BTree_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/test/BTree_test.cpp.o
+.PHONY : test/BTree_test.cpp.o
+
+test/BTree_test.i: test/BTree_test.cpp.i
+.PHONY : test/BTree_test.i
+
+# target to preprocess a source file
+test/BTree_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/test/BTree_test.cpp.i
+.PHONY : test/BTree_test.cpp.i
+
+test/BTree_test.s: test/BTree_test.cpp.s
+.PHONY : test/BTree_test.s
+
+# target to generate assembly for a file
+test/BTree_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/test/BTree_test.cpp.s
+.PHONY : test/BTree_test.cpp.s
 
 test/Batch_test.o: test/Batch_test.cpp.o
 .PHONY : test/Batch_test.o
@@ -356,6 +502,102 @@ test/Batch_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/test/Batch_test.cpp.s
 .PHONY : test/Batch_test.cpp.s
 
+test/DB_test.o: test/DB_test.cpp.o
+.PHONY : test/DB_test.o
+
+# target to build an object file
+test/DB_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/test/DB_test.cpp.o
+.PHONY : test/DB_test.cpp.o
+
+test/DB_test.i: test/DB_test.cpp.i
+.PHONY : test/DB_test.i
+
+# target to preprocess a source file
+test/DB_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/test/DB_test.cpp.i
+.PHONY : test/DB_test.cpp.i
+
+test/DB_test.s: test/DB_test.cpp.s
+.PHONY : test/DB_test.s
+
+# target to generate assembly for a file
+test/DB_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/test/DB_test.cpp.s
+.PHONY : test/DB_test.cpp.s
+
+test/DataFile_test.o: test/DataFile_test.cpp.o
+.PHONY : test/DataFile_test.o
+
+# target to build an object file
+test/DataFile_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o
+.PHONY : test/DataFile_test.cpp.o
+
+test/DataFile_test.i: test/DataFile_test.cpp.i
+.PHONY : test/DataFile_test.i
+
+# target to preprocess a source file
+test/DataFile_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.i
+.PHONY : test/DataFile_test.cpp.i
+
+test/DataFile_test.s: test/DataFile_test.cpp.s
+.PHONY : test/DataFile_test.s
+
+# target to generate assembly for a file
+test/DataFile_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataFile_test.dir/build.make CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.s
+.PHONY : test/DataFile_test.cpp.s
+
+test/FileIO_test.o: test/FileIO_test.cpp.o
+.PHONY : test/FileIO_test.o
+
+# target to build an object file
+test/FileIO_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o
+.PHONY : test/FileIO_test.cpp.o
+
+test/FileIO_test.i: test/FileIO_test.cpp.i
+.PHONY : test/FileIO_test.i
+
+# target to preprocess a source file
+test/FileIO_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.i
+.PHONY : test/FileIO_test.cpp.i
+
+test/FileIO_test.s: test/FileIO_test.cpp.s
+.PHONY : test/FileIO_test.s
+
+# target to generate assembly for a file
+test/FileIO_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.s
+.PHONY : test/FileIO_test.cpp.s
+
+test/LogRecord_test.o: test/LogRecord_test.cpp.o
+.PHONY : test/LogRecord_test.o
+
+# target to build an object file
+test/LogRecord_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o
+.PHONY : test/LogRecord_test.cpp.o
+
+test/LogRecord_test.i: test/LogRecord_test.cpp.i
+.PHONY : test/LogRecord_test.i
+
+# target to preprocess a source file
+test/LogRecord_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.i
+.PHONY : test/LogRecord_test.cpp.i
+
+test/LogRecord_test.s: test/LogRecord_test.cpp.s
+.PHONY : test/LogRecord_test.s
+
+# target to generate assembly for a file
+test/LogRecord_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogRecord_test.dir/build.make CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.s
+.PHONY : test/LogRecord_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -369,7 +611,12 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... BTree_test"
 	@echo "... Batch_test"
+	@echo "... DB_test"
+	@echo "... DataFile_test"
+	@echo "... FileIO_test"
+	@echo "... LogRecord_test"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
@@ -386,9 +633,27 @@ help:
 	@echo "... src/FileIO.o"
 	@echo "... src/FileIO.i"
 	@echo "... src/FileIO.s"
+	@echo "... src/Iterator.o"
+	@echo "... src/Iterator.i"
+	@echo "... src/Iterator.s"
+	@echo "... test/BTree_test.o"
+	@echo "... test/BTree_test.i"
+	@echo "... test/BTree_test.s"
 	@echo "... test/Batch_test.o"
 	@echo "... test/Batch_test.i"
 	@echo "... test/Batch_test.s"
+	@echo "... test/DB_test.o"
+	@echo "... test/DB_test.i"
+	@echo "... test/DB_test.s"
+	@echo "... test/DataFile_test.o"
+	@echo "... test/DataFile_test.i"
+	@echo "... test/DataFile_test.s"
+	@echo "... test/FileIO_test.o"
+	@echo "... test/FileIO_test.i"
+	@echo "... test/FileIO_test.s"
+	@echo "... test/LogRecord_test.o"
+	@echo "... test/LogRecord_test.i"
+	@echo "... test/LogRecord_test.s"
 .PHONY : help
 
 

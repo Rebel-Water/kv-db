@@ -156,3 +156,40 @@ TEST(DB_Test, DestroyFiles)
         std::cerr << e.what() << std::endl;
     }
 }
+
+TEST(DB_TEST, DBMerge) {
+    try
+    {
+        Options option;
+        DB db(option);
+        db.Put(Util::ToByteVector("a"), Util::ToByteVector("a"));
+        db.Put(Util::ToByteVector("b"), Util::ToByteVector("b"));
+        db.Put(Util::ToByteVector("bc"), Util::ToByteVector("bc"));
+        db.Put(Util::ToByteVector("bd"), Util::ToByteVector("bd"));
+        db.Put(Util::ToByteVector("e"), Util::ToByteVector("e"));
+        db.Delete(Util::ToByteVector("a"));
+        db.Merge();
+        db.Sync();
+    }
+    catch (const std::exception& e)
+    {
+        GTEST_LOG_(INFO) << e.what() << std::endl;
+    }
+}
+
+TEST(DB_TEST, DBMerge2) {
+    try
+    {
+        Options option;
+        DB db(option);
+        auto str = Util::ToString(db.Get(Util::ToByteVector("bc")));
+        EXPECT_STREQ(str.data(), "bc");
+        std::remove("/home/ace/kv/000000000.data");
+        std::remove("/home/ace/kv/000000001.data");
+    }
+    catch (const std::exception& e)
+    {
+        GTEST_LOG_(INFO) << e.what() << std::endl;
+    }
+}
+
