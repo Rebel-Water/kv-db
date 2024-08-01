@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ace/kv/src/DB.cpp" "CMakeFiles/DB_test.dir/src/DB.cpp.o" "gcc" "CMakeFiles/DB_test.dir/src/DB.cpp.o.d"
   "/home/ace/kv/src/FileIO.cpp" "CMakeFiles/DB_test.dir/src/FileIO.cpp.o" "gcc" "CMakeFiles/DB_test.dir/src/FileIO.cpp.o.d"
   "/home/ace/kv/src/Iterator.cpp" "CMakeFiles/DB_test.dir/src/Iterator.cpp.o" "gcc" "CMakeFiles/DB_test.dir/src/Iterator.cpp.o.d"
+  "/home/ace/kv/src/Mmap.cpp" "CMakeFiles/DB_test.dir/src/Mmap.cpp.o" "gcc" "CMakeFiles/DB_test.dir/src/Mmap.cpp.o.d"
   "/home/ace/kv/test/DB_test.cpp" "CMakeFiles/DB_test.dir/test/DB_test.cpp.o" "gcc" "CMakeFiles/DB_test.dir/test/DB_test.cpp.o.d"
   )
 

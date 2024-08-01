@@ -21,7 +21,7 @@ void WriteBatch::Delete(const std::vector<byte>& key) {
     auto pos = this->db->index->Get(key);
     std::string key_str = Util::ToString(key);
     
-    if(pos == nullptr) {
+    if(pos.isEmpty) {
         if(this->pendingWrites.find(key_str) != this->pendingWrites.end())
             this->pendingWrites.erase(key_str);
         return ;
@@ -56,10 +56,14 @@ void WriteBatch::Commit() {
 
     for(auto& [_, record] : this->pendingWrites) {
         auto pos = positions[Util::ToString(record->Key)];
-        if(record->Type == LogRecordNormal)
-            this->db->index->Put(record->Key, pos);
-        if(record->Type == LogRecordDeleted)
-            this->db->index->Delete(record->Key);
+        if(record->Type == LogRecordNormal) {
+            auto ret = this->db->index->Put(record->Key, pos);
+            this->db->reclaimableSize += ret.Size;
+        }
+        if(record->Type == LogRecordDeleted) {
+            auto ret = this->db->index->Delete(record->Key);
+            this->db->reclaimableSize += ret.Size;
+        }
     }
     this->pendingWrites.clear();
 }

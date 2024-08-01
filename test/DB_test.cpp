@@ -54,6 +54,8 @@ TEST(DB_Test, DBIndexLoadFromDataFile)
         EXPECT_EQ(res1, value2);
         auto res2 = db.Get(key2);
         EXPECT_EQ(res2, value2);
+        auto res3 = db.Get(Util::ToByteVector("key_c"));;
+        EXPECT_STREQ("value_c", Util::ToString(res3).c_str());
     }
     catch (const std::exception &e)
     {
@@ -76,6 +78,7 @@ TEST(DB_Test, DBDelete)
         std::vector<byte> key2(k2, k2 + strlen(k2)), value2(v2, v2 + strlen(v2));
         db.Delete(key1);
         db.Delete(key2);
+        
         // db.Put(key1, value1);
     }
     catch (const std::exception &e)
@@ -133,7 +136,9 @@ TEST(DB_Test, DBListKey)
         Options option;
         DB db(option);
         auto keys = db.ListKey();
-        std::string strs[5] = {"a", "b", "bc", "bd", "e"};
+        std::string strs[6] = {"a", "b", "bc", "bd", "e", "f"};
+        EXPECT_EQ(db.Get(Util::ToByteVector("a")), Util::ToByteVector("a"));
+        db.Put(Util::ToByteVector("f"), Util::ToByteVector("f"));
         int i = 0;
         for(auto& key : keys) {
             EXPECT_STREQ(Util::ToString(key).data(), strs[i++].data());
@@ -149,7 +154,7 @@ TEST(DB_Test, DestroyFiles)
 {
     try
     {
-        std::remove("/home/ace/kv/000000000.data");
+        std::remove("/home/ace/kv/data/000000000.txt");
     }
     catch (const std::exception &e)
     {
@@ -184,12 +189,60 @@ TEST(DB_TEST, DBMerge2) {
         DB db(option);
         auto str = Util::ToString(db.Get(Util::ToByteVector("bc")));
         EXPECT_STREQ(str.data(), "bc");
-        std::remove("/home/ace/kv/000000000.data");
-        std::remove("/home/ace/kv/000000001.data");
+        std::remove("/home/ace/kv/data/000000000.txt");
+        std::remove("/home/ace/kv/data/000000001.txt");
     }
     catch (const std::exception& e)
     {
         GTEST_LOG_(INFO) << e.what() << std::endl;
     }
 }
+
+TEST(DB_TEST, DBFileLock) {
+    try
+    {
+        Options option;
+        DB db1(option);
+        DB db2(option);
+    }
+    catch (const std::exception& e)
+    {
+        EXPECT_STREQ(e.what(), "DB::Open File Lock Occupied");
+        GTEST_LOG_(INFO) << e.what() << std::endl;
+    }
+}
+
+TEST(DB_TEST, DBStatement) {
+    try {
+        Options option;
+        DB db(option);
+        for(int i = 0; i < 100; i++)
+            db.Put(Util::ToByteVector("123123" + std::to_string(i)), Util::ToByteVector("1231231"));
+        for(int i = 0; i < 100; i++)
+            db.Delete(Util::ToByteVector("123123" + std::to_string(i)));
+        db.Sync();
+        auto stat = db.Statement();
+        EXPECT_EQ(stat.dataFileNum, 1);
+        EXPECT_GE(stat.diskSize, 100);
+        EXPECT_EQ(stat.keyNum, 0);
+        EXPECT_GE(stat.reclaimableSize, 100);
+        GTEST_LOG_(INFO) << "reclaimableSize: " << stat.reclaimableSize << std::endl;
+    } catch(const std::exception& e) {
+        GTEST_LOG_(INFO) << e.what() << std::endl;
+    }
+}
+
+TEST(DB_TEST, DBBackUp) {
+    try {
+        Options option;
+        DB db(option);
+        db.BackUp("/home/ace/kv/backup");
+    } catch(const std::exception& e) {
+        GTEST_LOG_(INFO) << e.what() << std::endl;
+        EXPECT_NE(1, 1);
+    }
+    std::remove("/home/ace/kv/data/000000000.txt");
+    std::filesystem::remove_all("/home/ace/kv/backup");
+}
+
 

@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LogRecord_test.dir/src/DB.cpp.o.d"
   "CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.o"
   "CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.o.d"
+  "CMakeFiles/LogRecord_test.dir/src/Mmap.cpp.o"
+  "CMakeFiles/LogRecord_test.dir/src/Mmap.cpp.o.d"
   "CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o"
   "CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o.d"
   "LogRecord_test"

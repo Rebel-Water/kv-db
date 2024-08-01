@@ -37,8 +37,8 @@ TEST(DataFile_test, CloseFile) {
 
 TEST(DataFile_test, DestroyFile) {
     try {
-        std::remove("/home/ace/kv/000000000.data");
-        std::remove("/home/ace/kv/000001234.data");
+        std::remove("/home/ace/kv/000000000.txt");
+        std::remove("/home/ace/kv/000001234.txt");
     }catch(...) {
         EXPECT_NE(1, 1);
     }

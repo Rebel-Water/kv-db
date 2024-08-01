@@ -17,8 +17,6 @@ public:
     virtual void Sync();                                                                     // Close function
     virtual void Close();
 
-    // int GetFd();
-
     // Size function
     virtual std::streamsize Size(); // Destructor
     ~FileIO();

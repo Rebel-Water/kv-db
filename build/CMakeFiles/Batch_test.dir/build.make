@@ -97,10 +97,24 @@ CMakeFiles/Batch_test.dir/src/DB.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Batch_test.dir/src/DB.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/DB.cpp -o CMakeFiles/Batch_test.dir/src/DB.cpp.s
 
+CMakeFiles/Batch_test.dir/src/Mmap.cpp.o: CMakeFiles/Batch_test.dir/flags.make
+CMakeFiles/Batch_test.dir/src/Mmap.cpp.o: ../src/Mmap.cpp
+CMakeFiles/Batch_test.dir/src/Mmap.cpp.o: CMakeFiles/Batch_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Batch_test.dir/src/Mmap.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Batch_test.dir/src/Mmap.cpp.o -MF CMakeFiles/Batch_test.dir/src/Mmap.cpp.o.d -o CMakeFiles/Batch_test.dir/src/Mmap.cpp.o -c /home/ace/kv/src/Mmap.cpp
+
+CMakeFiles/Batch_test.dir/src/Mmap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Batch_test.dir/src/Mmap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/src/Mmap.cpp > CMakeFiles/Batch_test.dir/src/Mmap.cpp.i
+
+CMakeFiles/Batch_test.dir/src/Mmap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Batch_test.dir/src/Mmap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/Mmap.cpp -o CMakeFiles/Batch_test.dir/src/Mmap.cpp.s
+
 CMakeFiles/Batch_test.dir/src/BTree.cpp.o: CMakeFiles/Batch_test.dir/flags.make
 CMakeFiles/Batch_test.dir/src/BTree.cpp.o: ../src/BTree.cpp
 CMakeFiles/Batch_test.dir/src/BTree.cpp.o: CMakeFiles/Batch_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Batch_test.dir/src/BTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Batch_test.dir/src/BTree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Batch_test.dir/src/BTree.cpp.o -MF CMakeFiles/Batch_test.dir/src/BTree.cpp.o.d -o CMakeFiles/Batch_test.dir/src/BTree.cpp.o -c /home/ace/kv/src/BTree.cpp
 
 CMakeFiles/Batch_test.dir/src/BTree.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/Batch_test.dir/src/BTree.cpp.s: cmake_force
 CMakeFiles/Batch_test.dir/src/FileIO.cpp.o: CMakeFiles/Batch_test.dir/flags.make
 CMakeFiles/Batch_test.dir/src/FileIO.cpp.o: ../src/FileIO.cpp
 CMakeFiles/Batch_test.dir/src/FileIO.cpp.o: CMakeFiles/Batch_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Batch_test.dir/src/FileIO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Batch_test.dir/src/FileIO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Batch_test.dir/src/FileIO.cpp.o -MF CMakeFiles/Batch_test.dir/src/FileIO.cpp.o.d -o CMakeFiles/Batch_test.dir/src/FileIO.cpp.o -c /home/ace/kv/src/FileIO.cpp
 
 CMakeFiles/Batch_test.dir/src/FileIO.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/Batch_test.dir/src/FileIO.cpp.s: cmake_force
 CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: CMakeFiles/Batch_test.dir/flags.make
 CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp
 CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: CMakeFiles/Batch_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o -MF CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o.d -o CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o -c /home/ace/kv/test/Batch_test.cpp
 
 CMakeFiles/Batch_test.dir/test/Batch_test.cpp.i: cmake_force
@@ -143,6 +157,7 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.s: cmake_force
 Batch_test_OBJECTS = \
 "CMakeFiles/Batch_test.dir/src/Batch.cpp.o" \
 "CMakeFiles/Batch_test.dir/src/DB.cpp.o" \
+"CMakeFiles/Batch_test.dir/src/Mmap.cpp.o" \
 "CMakeFiles/Batch_test.dir/src/BTree.cpp.o" \
 "CMakeFiles/Batch_test.dir/src/FileIO.cpp.o" \
 "CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o"
@@ -152,6 +167,7 @@ Batch_test_EXTERNAL_OBJECTS =
 
 Batch_test: CMakeFiles/Batch_test.dir/src/Batch.cpp.o
 Batch_test: CMakeFiles/Batch_test.dir/src/DB.cpp.o
+Batch_test: CMakeFiles/Batch_test.dir/src/Mmap.cpp.o
 Batch_test: CMakeFiles/Batch_test.dir/src/BTree.cpp.o
 Batch_test: CMakeFiles/Batch_test.dir/src/FileIO.cpp.o
 Batch_test: CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o
@@ -160,7 +176,7 @@ Batch_test: lib/libgtest_main.a
 Batch_test: /usr/lib/x86_64-linux-gnu/libz.so
 Batch_test: lib/libgtest.a
 Batch_test: CMakeFiles/Batch_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Batch_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Batch_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Batch_test.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -D TEST_TARGET=Batch_test -D TEST_EXECUTABLE=/home/ace/kv/build/Batch_test -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/ace/kv/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=Batch_test_TESTS -D CTEST_FILE=/home/ace/kv/build/Batch_test[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.22/Modules/GoogleTestAddTests.cmake
 

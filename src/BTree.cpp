@@ -73,29 +73,39 @@ std::unique_ptr<Iterator_Interface> BTree::Iter(bool reverse) {
     return std::make_unique<BTreeIterator>(*this, reverse);
 }
 
-bool BTree::Put(const std::vector<byte> &key, const LogRecordPos &pos)
+LogRecordPos BTree::Put(const std::vector<byte> &key, const LogRecordPos &pos)
 { // in cpp set, there is no replaceOrInsert
     Item item(key, pos);
-    if (btree.find(item) != btree.end())
+    auto oldItem = btree.find(item);
+    auto ret = LogRecordPos();
+    if (oldItem != btree.end()) {
+        ret = oldItem->Pos; 
         btree.erase(item);
+    }
     btree.insert(item);
-    return true;
+    return ret;
 }
 
-std::unique_ptr<LogRecordPos> BTree::Get(const std::vector<byte> &key)
+LogRecordPos BTree::Get(const std::vector<byte> &key)
 {
     // std::shared_lock<std::shared_mutex> lock(this->RWMutex); don't need this read lock in DB::Get has read-lock
     // we just wana different procs' DB::Get maintain read-parel
     Item item(key);
     auto iter = btree.find(item);
     if (iter == btree.end())
-        return nullptr;
-    return std::make_unique<LogRecordPos>(iter->Pos);
+        return LogRecordPos();
+    return iter->Pos;
 }
 
-bool BTree::Delete(const std::vector<byte> &key)
+LogRecordPos BTree::Delete(const std::vector<byte> &key)
 {
     // std::unique_lock<std::shared_mutex> lock(this->RWMutex);
     Item item(key);
-    return btree.erase(std::move(item));
+    auto oldItem = btree.find(item);
+    auto ret = LogRecordPos();
+    if(oldItem != btree.end()) {
+        ret = oldItem->Pos;
+        btree.erase(std::move(item));
+    }
+    return ret;
 }

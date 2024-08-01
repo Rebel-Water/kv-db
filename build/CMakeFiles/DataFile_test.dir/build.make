@@ -83,10 +83,24 @@ CMakeFiles/DataFile_test.dir/src/BTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataFile_test.dir/src/BTree.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/BTree.cpp -o CMakeFiles/DataFile_test.dir/src/BTree.cpp.s
 
+CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o: CMakeFiles/DataFile_test.dir/flags.make
+CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o: ../src/Mmap.cpp
+CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o: CMakeFiles/DataFile_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o -MF CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o.d -o CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o -c /home/ace/kv/src/Mmap.cpp
+
+CMakeFiles/DataFile_test.dir/src/Mmap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DataFile_test.dir/src/Mmap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/src/Mmap.cpp > CMakeFiles/DataFile_test.dir/src/Mmap.cpp.i
+
+CMakeFiles/DataFile_test.dir/src/Mmap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataFile_test.dir/src/Mmap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/Mmap.cpp -o CMakeFiles/DataFile_test.dir/src/Mmap.cpp.s
+
 CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o: CMakeFiles/DataFile_test.dir/flags.make
 CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o: ../src/FileIO.cpp
 CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o: CMakeFiles/DataFile_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o -MF CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o.d -o CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o -c /home/ace/kv/src/FileIO.cpp
 
 CMakeFiles/DataFile_test.dir/src/FileIO.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/DataFile_test.dir/src/FileIO.cpp.s: cmake_force
 CMakeFiles/DataFile_test.dir/src/DB.cpp.o: CMakeFiles/DataFile_test.dir/flags.make
 CMakeFiles/DataFile_test.dir/src/DB.cpp.o: ../src/DB.cpp
 CMakeFiles/DataFile_test.dir/src/DB.cpp.o: CMakeFiles/DataFile_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DataFile_test.dir/src/DB.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DataFile_test.dir/src/DB.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataFile_test.dir/src/DB.cpp.o -MF CMakeFiles/DataFile_test.dir/src/DB.cpp.o.d -o CMakeFiles/DataFile_test.dir/src/DB.cpp.o -c /home/ace/kv/src/DB.cpp
 
 CMakeFiles/DataFile_test.dir/src/DB.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/DataFile_test.dir/src/DB.cpp.s: cmake_force
 CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o: CMakeFiles/DataFile_test.dir/flags.make
 CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o: ../test/DataFile_test.cpp
 CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o: CMakeFiles/DataFile_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o -MF CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o.d -o CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o -c /home/ace/kv/test/DataFile_test.cpp
 
 CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.i: cmake_force
@@ -128,6 +142,7 @@ CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.s: cmake_force
 # Object files for target DataFile_test
 DataFile_test_OBJECTS = \
 "CMakeFiles/DataFile_test.dir/src/BTree.cpp.o" \
+"CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o" \
 "CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o" \
 "CMakeFiles/DataFile_test.dir/src/DB.cpp.o" \
 "CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o"
@@ -136,6 +151,7 @@ DataFile_test_OBJECTS = \
 DataFile_test_EXTERNAL_OBJECTS =
 
 DataFile_test: CMakeFiles/DataFile_test.dir/src/BTree.cpp.o
+DataFile_test: CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/src/DB.cpp.o
 DataFile_test: CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o
@@ -144,7 +160,7 @@ DataFile_test: lib/libgtest_main.a
 DataFile_test: /usr/lib/x86_64-linux-gnu/libz.so
 DataFile_test: lib/libgtest.a
 DataFile_test: CMakeFiles/DataFile_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable DataFile_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable DataFile_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DataFile_test.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -D TEST_TARGET=DataFile_test -D TEST_EXECUTABLE=/home/ace/kv/build/DataFile_test -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/ace/kv/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=DataFile_test_TESTS -D CTEST_FILE=/home/ace/kv/build/DataFile_test[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.22/Modules/GoogleTestAddTests.cmake
 

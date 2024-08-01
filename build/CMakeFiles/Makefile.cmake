@@ -83,10 +83,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/BTree_test.dir/DependInfo.cmake"
   "CMakeFiles/FileIO_test.dir/DependInfo.cmake"
+  "CMakeFiles/Mmap_test.dir/DependInfo.cmake"
   "CMakeFiles/DataFile_test.dir/DependInfo.cmake"
   "CMakeFiles/LogRecord_test.dir/DependInfo.cmake"
   "CMakeFiles/DB_test.dir/DependInfo.cmake"
-  "CMakeFiles/Batch_test.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"

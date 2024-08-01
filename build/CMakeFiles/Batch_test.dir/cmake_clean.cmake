@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Batch_test.dir/src/DB.cpp.o.d"
   "CMakeFiles/Batch_test.dir/src/FileIO.cpp.o"
   "CMakeFiles/Batch_test.dir/src/FileIO.cpp.o.d"
+  "CMakeFiles/Batch_test.dir/src/Mmap.cpp.o"
+  "CMakeFiles/Batch_test.dir/src/Mmap.cpp.o.d"
   "CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o"
   "CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o.d"
 )

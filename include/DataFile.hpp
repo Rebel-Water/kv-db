@@ -2,6 +2,7 @@
 #include "Type.hpp"
 #include "IOManager.hpp"
 #include "FileIO.hpp"
+#include "Mmap.hpp"
 #include "Code.hpp"
 #include <iomanip>
 #include <sstream>
@@ -11,17 +12,25 @@
 
 class DataFile {
 public:             // write buf but read logRecord, maybe can do encode and decode in this
-    DataFile(const std::string& path, uint32 fileId = 0, DataFileType type = DataFileType::DataNormalFile) : FileId(fileId), WriteOff(0) {
+    DataFile(const std::string& path, uint32 fileId = 0, DataFileType type = DataFileType::DataNormalFile, IOType iotype = IOType::FileIOType) : FileId(fileId), WriteOff(0) {
         std::filesystem::path fileName(path);
-        if(type == DataFileType::DataNormalFile)
-            fileName = GetDataFileName(fileName, fileId);
-        else if(type == DataFileType::HintFile)
-            fileName /= HintFileName;
-        else if(type == DataFileType::MergeFinishFile)
-            fileName /= MergeFinishedFileName;
-        else
-            throw std::runtime_error("DataFile::DataFile Undefined Type");
-        IoManager = std::make_unique<FileIO>(fileName);
+        switch(type) {
+            case DataFileType::DataNormalFile:
+                fileName = GetDataFileName(fileName, fileId);
+                break;
+            case DataFileType::HintFile:
+                fileName /= HintFileName;
+                break;
+            case DataFileType::MergeFinishFile:
+                fileName /= MergeFinishedFileName;
+                break;
+            default:
+                throw std::runtime_error("DataFile::DataFile Undefined Type");
+        }
+        if(iotype == IOType::FileIOType) 
+            IoManager = std::make_unique<FileIO>(fileName);
+        else 
+            IoManager = std::make_unique<Mmap>(fileName);
     }
 
     static std::string GetDataFileName(const std::filesystem::path& dirPath, uint32 fileId) {
@@ -29,11 +38,6 @@ public:             // write buf but read logRecord, maybe can do encode and dec
         ss << std::setw(9) << std::setfill('0') << std::right << fileId << DataFileNameSuffix;
         return dirPath / ss.str();
     }
-    
-
-    uint32 FileId;
-    int64 WriteOff;
-    std::unique_ptr<IOManager> IoManager;
     
     void Sync() {
         this->IoManager->Sync();
@@ -55,4 +59,9 @@ public:             // write buf but read logRecord, maybe can do encode and dec
         return buf;
     }
 
+    private:
+    uint32 FileId;
+    int64 WriteOff;
+    std::unique_ptr<IOManager> IoManager;
+    friend class DB;
 };

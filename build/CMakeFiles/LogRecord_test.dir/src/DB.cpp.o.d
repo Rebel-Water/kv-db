@@ -203,40 +203,18 @@ CMakeFiles/LogRecord_test.dir/src/DB.cpp.o: /home/ace/kv/src/DB.cpp \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /home/ace/kv/include/Code.hpp \
- /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
- /usr/include/c++/11/bits/locale_facets_nonio.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
- /usr/include/c++/11/bits/locale_conv.h \
- /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/filesystem \
- /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
- /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
- /usr/include/c++/11/bits/fs_ops.h /home/ace/kv/include/Options.hpp \
- /home/ace/kv/include/Indexer.hpp /home/ace/kv/include/Iterator.hpp \
- /usr/include/c++/11/mutex /usr/include/c++/11/bits/unique_lock.h \
- /usr/include/x86_64-linux-gnu/sys/file.h /usr/include/fcntl.h \
+ /usr/include/c++/11/bits/fstream.tcc /home/ace/kv/include/Mmap.hpp \
+ /usr/include/c++/11/iostream /usr/include/x86_64-linux-gnu/sys/mman.h \
+ /usr/include/x86_64-linux-gnu/bits/mman.h \
+ /usr/include/x86_64-linux-gnu/bits/mman-map-flags-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/mman-linux.h \
+ /usr/include/x86_64-linux-gnu/bits/mman-shared.h /usr/include/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
- /home/ace/kv/include/BTree.hpp /home/ace/kv/include/lib/btree.hpp \
- /usr/include/assert.h /usr/include/c++/11/algorithm \
- /usr/include/c++/11/pstl/glue_algorithm_defs.h \
- /usr/include/c++/11/iostream /usr/include/c++/11/iterator \
- /usr/include/c++/11/bits/stream_iterator.h \
- /home/ace/kv/include/lib/set.hpp /home/ace/kv/include/lib/btree.hpp \
- /home/ace/kv/include/Util.hpp /home/ace/kv/include/Batch.hpp \
- /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest.h \
- /usr/include/c++/11/cstddef \
- /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-assertion-result.h \
- /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-message.h \
- /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-port.h \
- /usr/include/c++/11/stdlib.h /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
  /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
  /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
@@ -249,9 +227,33 @@ CMakeFiles/LogRecord_test.dir/src/DB.cpp.o: /home/ace/kv/src/DB.cpp \
  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+ /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
+ /home/ace/kv/include/Code.hpp /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/filesystem \
+ /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
+ /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
+ /usr/include/c++/11/bits/fs_ops.h /home/ace/kv/include/Options.hpp \
+ /home/ace/kv/include/Indexer.hpp /home/ace/kv/include/Iterator.hpp \
+ /home/ace/kv/include/lib/file.hpp \
+ /usr/include/x86_64-linux-gnu/sys/statvfs.h \
+ /usr/include/x86_64-linux-gnu/bits/statvfs.h \
+ /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest.h \
+ /usr/include/c++/11/cstddef \
+ /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-assertion-result.h \
+ /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-message.h \
+ /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-port.h \
+ /usr/include/c++/11/stdlib.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/custom/gtest-port.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-port-arch.h \
  /usr/include/regex.h /usr/include/c++/11/condition_variable \
+ /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/mutex \
  /usr/include/c++/11/any /usr/include/c++/11/optional \
  /usr/include/c++/11/variant \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-death-test.h \
@@ -293,9 +295,15 @@ CMakeFiles/LogRecord_test.dir/src/DB.cpp.o: /home/ace/kv/src/DB.cpp \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cxxabi_tweaks.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/custom/gtest-printers.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-param-test.h \
+ /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-param-util.h \
- /usr/include/c++/11/cassert \
+ /usr/include/c++/11/cassert /usr/include/assert.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-test-part.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-typed-test.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest_pred_impl.h \
- /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest_prod.h
+ /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest_prod.h \
+ /usr/include/x86_64-linux-gnu/sys/file.h /home/ace/kv/include/BTree.hpp \
+ /home/ace/kv/include/lib/btree.hpp /usr/include/c++/11/algorithm \
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+ /home/ace/kv/include/lib/set.hpp /home/ace/kv/include/lib/btree.hpp \
+ /home/ace/kv/include/Util.hpp /home/ace/kv/include/Batch.hpp

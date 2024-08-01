@@ -8,6 +8,11 @@ using uint32 = uint32_t;
 using int64 = int64_t;
 using uint64 = uint64_t;
 
+enum IOType{
+    FileIOType,
+    MmapType
+};
+
 enum IndexType {
     BTree_Index
 };
@@ -18,7 +23,7 @@ enum DataFileType {
     MergeFinishFile
 };
 
-const std::string DataFileNameSuffix    = ".data";
+const std::string DataFileNameSuffix    = ".txt";
 const std::string HintFileName          = "hint-index";
 const std::string MergeFinishedFileName = "merge-finished";
 const std::string SeqNoFileName         = "seq-no";
@@ -32,3 +37,6 @@ const int IndexLogRecordType = 4;
 
 const uint32 CRC_DEFAULT = 0;
 
+const std::string defaultPath = "/home/ace/kv/data/";
+const int defaultDataFileSize = 256 * 1024 * 1024;
+const int DefaultMaxBatchNum = 10000;

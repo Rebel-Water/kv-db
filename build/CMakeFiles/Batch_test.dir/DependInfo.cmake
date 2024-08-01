@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ace/kv/src/Batch.cpp" "CMakeFiles/Batch_test.dir/src/Batch.cpp.o" "gcc" "CMakeFiles/Batch_test.dir/src/Batch.cpp.o.d"
   "/home/ace/kv/src/DB.cpp" "CMakeFiles/Batch_test.dir/src/DB.cpp.o" "gcc" "CMakeFiles/Batch_test.dir/src/DB.cpp.o.d"
   "/home/ace/kv/src/FileIO.cpp" "CMakeFiles/Batch_test.dir/src/FileIO.cpp.o" "gcc" "CMakeFiles/Batch_test.dir/src/FileIO.cpp.o.d"
+  "/home/ace/kv/src/Mmap.cpp" "CMakeFiles/Batch_test.dir/src/Mmap.cpp.o" "gcc" "CMakeFiles/Batch_test.dir/src/Mmap.cpp.o.d"
   "/home/ace/kv/test/Batch_test.cpp" "CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o" "gcc" "CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o.d"
   )
 

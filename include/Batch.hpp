@@ -38,8 +38,12 @@ public:
     void Delete(const std::vector<byte> &key);
     void Commit();
 
+    private:
     WriteBatchOptions option;
     DB *db;
     std::mutex mutex;
     std::unordered_map<std::string, std::unique_ptr<LogRecord>> pendingWrites;
+    
+    friend class DB;
+    friend class DataFile;
 };

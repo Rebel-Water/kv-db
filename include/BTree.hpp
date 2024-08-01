@@ -29,9 +29,8 @@ class BTree : public Indexer
 public:
     virtual int Size();
     virtual std::unique_ptr<Iterator_Interface> Iter(bool reverse);
-    virtual bool Put(const std::vector<byte> &key, const LogRecordPos &data);
-    virtual std::unique_ptr<LogRecordPos> Get(const std::vector<byte> &key);
-    virtual bool Delete(const std::vector<byte> &key);
+    virtual LogRecordPos Put(const std::vector<byte> &key, const LogRecordPos &data);
+    virtual LogRecordPos Get(const std::vector<byte> &key);
+    virtual LogRecordPos Delete(const std::vector<byte> &key);
     btree::set<Item> btree;
-    // std::shared_mutex RWMutex;
 };

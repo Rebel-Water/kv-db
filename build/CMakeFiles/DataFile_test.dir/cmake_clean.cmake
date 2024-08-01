@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DataFile_test.dir/src/DB.cpp.o.d"
   "CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o"
   "CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o.d"
+  "CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o"
+  "CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o.d"
   "CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o"
   "CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o.d"
   "DataFile_test"

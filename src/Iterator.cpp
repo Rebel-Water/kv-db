@@ -26,7 +26,7 @@ std::vector<uint8_t> Iterator::Key() const {
 
 std::vector<byte> Iterator::Value() {
     auto logRecordPos = index->Value();
-    return db->getValueByPosition(logRecordPos);
+    return db->GetValueByPosition(logRecordPos);
 }
 
 void Iterator::Close() {

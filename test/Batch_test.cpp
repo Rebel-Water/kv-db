@@ -46,7 +46,7 @@ TEST(Batch_test, SeqNoBatch) {
         auto keys = db.ListKey();  
         // GTEST_LOG_(INFO) << keys.size();
         EXPECT_EQ(keys.size(), 2);
-        std::remove("/home/ace/kv/000000000.data");
+        std::remove("/home/ace/kv/data/000000000.txt");
     } catch(const std::exception& e) {
         GTEST_LOG_(INFO) << e.what();
     }

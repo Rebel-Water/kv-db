@@ -5,7 +5,7 @@
 
 TEST(FileIOTest, OpenFile) {
     try {
-        FileIO file("/home/ace/kv/a.data");
+        FileIO file("/home/ace/kv/a.txt");
     }catch(...) {
         EXPECT_NE(1, 1);
     }
@@ -14,7 +14,7 @@ TEST(FileIOTest, OpenFile) {
 
 TEST(FileIOTest, WriteFile) {
     try {
-        FileIO file("/home/ace/kv/a.data");
+        FileIO file("/home/ace/kv/a.txt");
         std::vector<byte> buf; 
         std::string str = "hello, my kv-db";
         for(auto& ch : str)
@@ -34,7 +34,7 @@ TEST(FileIOTest, WriteFile) {
 
 TEST(FileIOTest, ReadFile) {
     try {
-        FileIO file("/home/ace/kv/a.data");
+        FileIO file("/home/ace/kv/a.txt");
         int size = 5, offset = 10;
         std::vector<byte> buf(size);
         int n = file.Read(buf, offset);
@@ -50,7 +50,7 @@ TEST(FileIOTest, ReadFile) {
 
 TEST(FileIOTest, SizeFile) {
     try {
-        FileIO file("/home/ace/kv/a.data");
+        FileIO file("/home/ace/kv/a.txt");
         int size = file.Size();
         EXPECT_EQ(size, 18);
     }catch(...) {
@@ -60,7 +60,7 @@ TEST(FileIOTest, SizeFile) {
 
 TEST(FileIOTest, SyncFile) {
     try {
-        FileIO file("/home/ace/kv/a.data");
+        FileIO file("/home/ace/kv/a.txt");
         file.Sync();
     }catch(...) {
         EXPECT_NE(1, 1);
@@ -70,16 +70,16 @@ TEST(FileIOTest, SyncFile) {
 
 TEST(FileIOTest, CloseFile) {
     try {
-        FileIO file("/home/ace/kv/a.data");
+        FileIO file("/home/ace/kv/a.txt");
         file.Close();
         file.Size();
         EXPECT_EQ(1, 1);
     }catch(...) {
-        EXPECT_EQ(1, 1);
+        EXPECT_EQ(1, 0);
     }
 }
 
 TEST(FileIOTest, DestroyFile) {
-    EXPECT_EQ(0, std::remove("/home/ace/kv/a.data"));
+    EXPECT_EQ(0, std::remove("/home/ace/kv/a.txt"));
 }
 
