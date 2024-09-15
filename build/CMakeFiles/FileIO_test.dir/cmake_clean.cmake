@@ -1,6 +1,12 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FileIO_test.dir/src/Code.cpp.o"
+  "CMakeFiles/FileIO_test.dir/src/Code.cpp.o.d"
+  "CMakeFiles/FileIO_test.dir/src/DataFile.cpp.o"
+  "CMakeFiles/FileIO_test.dir/src/DataFile.cpp.o.d"
   "CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o"
   "CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o.d"
+  "CMakeFiles/FileIO_test.dir/src/Mmap.cpp.o"
+  "CMakeFiles/FileIO_test.dir/src/Mmap.cpp.o.d"
   "CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o"
   "CMakeFiles/FileIO_test.dir/test/FileIO_test.cpp.o.d"
   "FileIO_test"

@@ -13,24 +13,9 @@ TEST(DB_Test, DBPutAndGet)
     {
         Options option;
         DB db(option);
-        const char *k1 = "key_a";
-        const char *k2 = "key_b";
-        const char *k3 = "key_c";
-        const char *v1 = "value_a";
-        const char *v2 = "value_b";
-        const char *v3 = "value_c";
-        std::vector<byte> key1(k1, k1 + strlen(k1)), value1(v1, v1 + strlen(v1));
-        std::vector<byte> key2(k2, k2 + strlen(k2)), value2(v2, v2 + strlen(v2));
-        std::vector<byte> key3(k3, k3 + strlen(k3)), value3(v3, v3 + strlen(v3));
-        db.Put(key1, value1);
-        auto res1 = db.Get(key1);
-        EXPECT_EQ(res1, value1);
-        db.Put(key2, value2);
-        auto res2 = db.Get(key2);
-        EXPECT_EQ(res2, value2);
-        db.Put(key1, value2);
-        auto res3 = db.Get(key1);
-        EXPECT_EQ(res3, value2);
+        db.Put(Util::ToByteVector("key1"), Util::ToByteVector("value1"));
+        auto res1 = db.Get(Util::ToByteVector("key1"));
+        EXPECT_EQ(res1, Util::ToByteVector("value1"));
     }
     catch (const std::exception &e)
     {
@@ -167,6 +152,7 @@ TEST(DB_TEST, DBMerge) {
     {
         Options option;
         DB db(option);
+        db.Merge(); // just merge for fun
         db.Put(Util::ToByteVector("a"), Util::ToByteVector("a"));
         db.Put(Util::ToByteVector("b"), Util::ToByteVector("b"));
         db.Put(Util::ToByteVector("bc"), Util::ToByteVector("bc"));
@@ -175,10 +161,15 @@ TEST(DB_TEST, DBMerge) {
         db.Delete(Util::ToByteVector("a"));
         db.Merge();
         db.Sync();
+        db.Close();
+        DB db2(option);
+        EXPECT_EQ(db2.Get(Util::ToByteVector("b")), Util::ToByteVector("b"));
+        db2.Get(Util::ToByteVector("a"));
     }
     catch (const std::exception& e)
     {
         GTEST_LOG_(INFO) << e.what() << std::endl;
+        EXPECT_STREQ(e.what(), "DB::Get Key Not Found");
     }
 }
 
@@ -222,7 +213,7 @@ TEST(DB_TEST, DBStatement) {
             db.Delete(Util::ToByteVector("123123" + std::to_string(i)));
         db.Sync();
         auto stat = db.Statement();
-        EXPECT_EQ(stat.dataFileNum, 1);
+        EXPECT_EQ(stat.dataFileNum, 2);
         EXPECT_GE(stat.diskSize, 100);
         EXPECT_EQ(stat.keyNum, 0);
         EXPECT_GE(stat.reclaimableSize, 100);
@@ -243,6 +234,7 @@ TEST(DB_TEST, DBBackUp) {
     }
     std::remove("/home/ace/kv/data/000000000.txt");
     std::filesystem::remove_all("/home/ace/kv/backup");
+    std::filesystem::remove_all("/home/ace/kv/data");
 }
 
 

@@ -4,10 +4,6 @@
 #include <memory>
 #include <zlib.h>
 
-enum LogRecordType {
-    LogRecordNormal, LogRecordDeleted, LogRecordTxnFinsihed
-};
-
 struct LogRecordHeader {
     LogRecordHeader() {}
     LogRecordHeader(uint32 crc, LogRecordType type, uint32 keySize, uint32 valueSize, uint32 headerSize)
@@ -21,7 +17,6 @@ struct LogRecordHeader {
 };
 
 struct LogRecord {
-    public:
     LogRecord() {}
     LogRecord(const LogRecord& logRecord) : Key(logRecord.Key), Value(logRecord.Value), Type(logRecord.Type), Size(logRecord.Size) {}
     LogRecord(const std::vector<byte>& key, LogRecordType type) 
@@ -29,7 +24,9 @@ struct LogRecord {
     LogRecord(const std::vector<byte>& key, const std::vector<byte>& value, LogRecordType type) 
         : Key(key), Value(value), Type(type) {}
     LogRecord(const std::vector<byte>& key, const std::vector<byte>& value) 
-        : Key(key), Value(value), Type(LogRecordNormal) {}
+        : Key(key), Value(value), Type(LogRecordType::LogRecordNormal) {}
+    LogRecord(std::vector<byte>&& key, std::vector<byte>&& value, LogRecordType type) 
+        : Key(std::move(key)), Value(std::move(value)), Type(type) {}
 
     uint32 GetLogRecordCRC(std::vector<byte>& header) {
         uint32 crc = crc32(CRC_DEFAULT, header.data(), header.size());
@@ -46,18 +43,18 @@ struct LogRecord {
 };
 
 struct LogRecordPos {
-    LogRecordPos() : isEmpty(true), Size(0) {}
-    LogRecordPos(const LogRecordPos& pos) : Fid(pos.Fid), Offset(pos.Offset), Size(pos.Size), isEmpty(pos.isEmpty){}
-    LogRecordPos(uint32 Fid, int64 Offset) : Fid(Fid), Offset(Offset), isEmpty(false) {}
-    LogRecordPos(uint32 Fid, int64 Offset, uint32 Size) : Fid(Fid), Offset(Offset), Size(Size), isEmpty(false) {}
+    LogRecordPos() : Size(0) {}
+    LogRecordPos(const LogRecordPos& pos) : Fid(pos.Fid), Offset(pos.Offset), Size(pos.Size) {}
+    LogRecordPos(uint32 Fid, int64 Offset) : Fid(Fid), Offset(Offset) {}
+    LogRecordPos(uint32 Fid, int64 Offset, uint32 Size) : Fid(Fid), Offset(Offset), Size(Size) {}
     uint32 Fid;
     int64 Offset;
     uint32 Size;
-    bool isEmpty;
 };
 
 struct TransactionRecord {
-    TransactionRecord(std::unique_ptr<LogRecord> Record, LogRecordPos Pos) : Record(std::move(Record)), Pos(Pos) {}
-    std::unique_ptr<LogRecord> Record;
+    TransactionRecord(const LogRecord& Record, LogRecordPos& Pos) : Record(Record), Pos(Pos) {}
+    TransactionRecord(LogRecord&& Record, LogRecordPos& Pos) : Record(std::move(Record)), Pos(Pos) {}
+    LogRecord Record;
     LogRecordPos Pos;
 };

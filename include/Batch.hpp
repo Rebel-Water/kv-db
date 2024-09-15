@@ -4,33 +4,20 @@
 #include <unordered_map>
 #include <vector>
 #include "Options.hpp"
+#include "Util.hpp"
 #include "Code.hpp"
 
 class DB;
 class LogRecord;
 
-const int NonTransactionSeqNo = 0;
-
 class WriteBatch
 {
 public:
-    static std::vector<byte> logRecordKeyWithSeq(const std::vector<byte> &key, uint64 seqNo)
-    {
-        auto seq = std::vector<byte>(MaxVarintLen64);
-        int n = Code::PutVarint(seq, 0, seqNo);
-        auto encodeKey = std::vector<byte>(key.size() + n);
-        std::copy(seq.begin(), seq.begin() + n, encodeKey.begin());
-        std::copy(key.begin(), key.end(), encodeKey.begin() + n);
-        return encodeKey;
-    };
+    static const int NonTransactionSeqNo = 0;
+    static const std::vector<byte> txnFinKey;
 
-    static std::pair<std::vector<byte>, int> parseLogRecordKey(const std::vector<byte> &key)
-    {
-        int n = 0;
-        int seqNo = Code::GetVarint(key, 0, &n);
-        std::vector<byte> buf(key.begin() + n, key.end());
-        return std::make_pair(buf, seqNo);
-    };
+    static std::vector<byte> logRecordKeyWithSeq(const std::vector<byte> &key, uint64 seqNo);
+    static std::pair<std::vector<byte>, int> parseLogRecordKey(const std::vector<byte> &key);
 
     WriteBatch(const WriteBatchOptions &option, DB *db) : option(option), db(db) {}
 
@@ -38,12 +25,15 @@ public:
     void Delete(const std::vector<byte> &key);
     void Commit();
 
-    private:
+    #ifdef GTEST
+    inline auto getDB() { return db; }
+    #endif
+
+private:
     WriteBatchOptions option;
     DB *db;
     std::mutex mutex;
     std::unordered_map<std::string, std::unique_ptr<LogRecord>> pendingWrites;
-    
     friend class DB;
-    friend class DataFile;
+    
 };

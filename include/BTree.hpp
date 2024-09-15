@@ -21,16 +21,17 @@ class BTree : public Indexer
         virtual LogRecordPos Value();
         virtual void Close();
 
+    private:
         int curIndex;
         bool reverse;
         std::vector<Item> values;
     };
-    // BTree();
 public:
     virtual int Size();
     virtual std::unique_ptr<Iterator_Interface> Iter(bool reverse);
-    virtual LogRecordPos Put(const std::vector<byte> &key, const LogRecordPos &data);
-    virtual LogRecordPos Get(const std::vector<byte> &key);
-    virtual LogRecordPos Delete(const std::vector<byte> &key);
+    virtual std::optional<LogRecordPos> Put(const std::vector<byte> &key, const LogRecordPos &data);
+    virtual std::optional<LogRecordPos> Get(const std::vector<byte> &key);
+    virtual std::optional<LogRecordPos>Delete(const std::vector<byte> &key);
+private:
     btree::set<Item> btree;
 };

@@ -10,6 +10,7 @@
 #include "DataFile.hpp"
 #include "Options.hpp"
 #include "Indexer.hpp"
+#include <optional>
 
 class Iterator;
 class Indexer;
@@ -28,6 +29,9 @@ struct Stat
 };
 class DB
 {
+    static const std::string mergeDirName;
+    static const std::vector<byte> mergeFinishKey;
+    static const std::string filelockName;
 public:
     using FoldFn = std::function<bool(const std::vector<byte> &, const std::vector<byte> &)>;
     DB(const Options &option);
@@ -42,6 +46,7 @@ public:
     std::string getMergePath();
     void Sync();
     void Close();
+    inline auto getSeqNo() { return seqNo.load(); }
     std::vector<byte> Get(const std::vector<byte> &key);
     void Put(const std::vector<byte> &key, const std::vector<byte> &value);
     void Delete(const std::vector<byte> &key);
@@ -49,9 +54,8 @@ public:
     std::unique_ptr<Iterator> NewIterator(IteratorOptions option);
     std::unique_ptr<WriteBatch> NewWriteBatch(WriteBatchOptions option);
 
-private:
-    std::unique_ptr<LogRecord> ReadLogRecord(int64 offset, std::shared_ptr<DataFile> datafile);
-    LogRecordPos AppendLogRecord(std::unique_ptr<LogRecord> logRecord);
+    std::optional<LogRecord> ReadLogRecord(int64 offset, std::shared_ptr<DataFile> datafile);
+    LogRecordPos AppendLogRecord(LogRecord& logRecord);
     void WriteHintRecord(std::shared_ptr<DataFile> datafile, const std::vector<byte> &key, LogRecordPos pos);
     std::vector<byte> GetValueByPosition(const LogRecordPos &pos);
     void SetActiveDataFile();
@@ -62,6 +66,7 @@ private:
     void LoadHintFiles();
     uint32 GetNonMergeFileId(const std::string &dirPath);
 
+private:
     std::shared_mutex RWMutex;
     Options option;
     std::unique_ptr<Indexer> index;
@@ -74,8 +79,5 @@ private:
     int fileLockFd;
     uint bytesWrite;
     int reclaimableSize;
-
-    friend class DataFile;
     friend class WriteBatch;
-    friend class Iterator;
 };

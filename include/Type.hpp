@@ -2,22 +2,27 @@
 #include <cstdint>
 #include <string>
 
+
 using byte = uint8_t;
 using int32 = int32_t;
 using uint32 = uint32_t;
 using int64 = int64_t;
 using uint64 = uint64_t;
 
-enum IOType{
+enum class LogRecordType {
+    LogRecordNormal, LogRecordDeleted, LogRecordTxnFinsihed
+};
+
+enum class IOType{
     FileIOType,
     MmapType
 };
 
-enum IndexType {
+enum class IndexType {
     BTree_Index
 };
 
-enum DataFileType {
+enum class DataFileType {
     DataNormalFile,
     HintFile,
     MergeFinishFile

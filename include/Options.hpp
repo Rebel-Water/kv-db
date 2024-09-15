@@ -3,7 +3,7 @@
 #include "Type.hpp"
 
 struct Options {
-    Options(std::string DirPath = defaultPath, int64 DataFileSize = defaultDataFileSize, bool SyncWrite = false, IndexType Type = BTree_Index, bool isOpenMergeDetect = false, float DataFileMergeRatio = 0.3)  
+    Options(std::string DirPath = defaultPath, int64 DataFileSize = defaultDataFileSize, bool SyncWrite = false, IndexType Type = IndexType::BTree_Index, bool isOpenMergeDetect = false, float DataFileMergeRatio = 0.3)  
         : DirPath(DirPath), DataFileSize(DataFileSize), SyncWrite(SyncWrite), Type(Type), BytesPerSync(0), isOpenMergeDetect(isOpenMergeDetect), DataFileMergeRatio(DataFileMergeRatio)
     {}
     Options(const Options& option) 

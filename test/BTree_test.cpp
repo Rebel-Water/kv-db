@@ -9,24 +9,24 @@ TEST(BTreeTest, BTree_Put) {
     std::vector<byte> buf;
     LogRecordPos pos1(1, 100);
     auto res = tree.Put(buf, pos1);
-    EXPECT_EQ(res.isEmpty, true);
+    EXPECT_EQ(!res.has_value(), true);
 
     buf.push_back('a');
     LogRecordPos pos2(1, 2);
     res = tree.Put(buf, pos2);
-    EXPECT_EQ(res.isEmpty, true);
+    EXPECT_EQ(!res.has_value(), true);
 
     res = tree.Get(buf);
-    EXPECT_EQ(res.Fid, 1);
-    EXPECT_EQ(res.Offset, 2);
+    EXPECT_EQ(res->Fid, 1);
+    EXPECT_EQ(res->Offset, 2);
 
     res = tree.Delete(buf);
-    EXPECT_EQ(!res.isEmpty, true);
+    EXPECT_EQ(res.has_value(), true);
 
     buf.push_back('b');
     buf.push_back('c');
     res = tree.Delete(buf);
-    EXPECT_EQ(!res.isEmpty, false);
+    EXPECT_EQ(res.has_value(), false);
 }
 
 TEST(BTreeTest, BTree_Get) {
@@ -35,16 +35,16 @@ TEST(BTreeTest, BTree_Get) {
     buf.push_back('a');
     LogRecordPos pos1(1, 2);
     auto res = tree.Put(buf, pos1);
-    EXPECT_EQ(res.isEmpty, true);
+    EXPECT_EQ(!res.has_value(), true);
 
     LogRecordPos pos2(4, 3);
     res = tree.Put(buf, pos2);
     res = tree.Get(buf);
-    EXPECT_EQ(res.Fid, 4);
-    EXPECT_EQ(res.Offset, 3);
+    EXPECT_EQ(res->Fid, 4);
+    EXPECT_EQ(res->Offset, 3);
 
     res = tree.Delete(buf);
-    EXPECT_EQ(!res.isEmpty, true);
+    EXPECT_EQ(res.has_value(), true);
 }
 
 TEST(BTreeTest, BTree_Delete) {
@@ -53,7 +53,7 @@ TEST(BTreeTest, BTree_Delete) {
     buf.push_back('b');
     buf.push_back('c');
     auto res = tree.Delete(buf);
-    EXPECT_EQ(!res.isEmpty, false);
+    EXPECT_EQ(res.has_value(), false);
 }
 
 TEST(BTreeTest, BTree_Iterator) {

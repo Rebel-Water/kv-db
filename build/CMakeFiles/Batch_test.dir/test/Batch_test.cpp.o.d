@@ -165,8 +165,9 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc /home/ace/kv/include/Options.hpp \
- /home/ace/kv/include/Type.hpp /home/ace/kv/include/Code.hpp \
- /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
+ /home/ace/kv/include/Type.hpp /home/ace/kv/include/Util.hpp \
+ /home/ace/kv/include/Code.hpp /usr/include/c++/11/cstring \
+ /usr/include/string.h /usr/include/strings.h \
  /home/ace/kv/include/LogRecord.hpp /usr/include/zlib.h \
  /usr/include/zconf.h /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
@@ -182,30 +183,41 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h /home/ace/kv/include/DB.hpp \
- /usr/include/c++/11/shared_mutex /usr/include/c++/11/functional \
- /usr/include/c++/11/bits/std_function.h \
+ /usr/include/linux/close_range.h /usr/include/c++/11/optional \
+ /home/ace/kv/include/DB.hpp /usr/include/c++/11/shared_mutex \
+ /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
  /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
  /usr/include/c++/11/bits/uniform_int_dist.h /usr/include/c++/11/atomic \
- /home/ace/kv/include/DataFile.hpp /home/ace/kv/include/IOManager.hpp \
- /home/ace/kv/include/FileIO.hpp /usr/include/c++/11/fstream \
- /usr/include/c++/11/istream /usr/include/c++/11/ios \
+ /home/ace/kv/include/DataFile.hpp /usr/include/c++/11/iomanip \
  /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h \
- /usr/include/c++/11/bits/locale_classes.tcc \
- /usr/include/c++/11/streambuf /usr/include/c++/11/bits/streambuf.tcc \
- /usr/include/c++/11/bits/basic_ios.h \
+ /usr/include/c++/11/bits/locale_classes.tcc /usr/include/c++/11/locale \
  /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+ /usr/include/c++/11/streambuf /usr/include/c++/11/bits/streambuf.tcc \
  /usr/include/c++/11/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
  /usr/include/c++/11/bits/locale_facets.tcc \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
+ /usr/include/c++/11/istream /usr/include/c++/11/ios \
+ /usr/include/c++/11/bits/basic_ios.h \
  /usr/include/c++/11/bits/basic_ios.tcc /usr/include/c++/11/ostream \
  /usr/include/c++/11/bits/ostream.tcc \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/istream.tcc \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/filesystem \
+ /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
+ /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
+ /usr/include/c++/11/bits/fs_ops.h /home/ace/kv/include/IOManager.hpp \
+ /home/ace/kv/include/FileIO.hpp /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /home/ace/kv/include/Mmap.hpp \
@@ -232,18 +244,7 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
- /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
- /usr/include/c++/11/bits/locale_facets_nonio.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
- /usr/include/c++/11/bits/locale_conv.h \
- /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/filesystem \
- /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
- /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
- /usr/include/c++/11/bits/fs_ops.h /home/ace/kv/include/Indexer.hpp \
- /home/ace/kv/include/Iterator.hpp /home/ace/kv/include/Util.hpp \
+ /home/ace/kv/include/Indexer.hpp /home/ace/kv/include/Iterator.hpp \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest.h \
  /usr/include/c++/11/cstddef \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-assertion-result.h \
@@ -253,8 +254,7 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/custom/gtest-port.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-port-arch.h \
  /usr/include/regex.h /usr/include/c++/11/condition_variable \
- /usr/include/c++/11/any /usr/include/c++/11/optional \
- /usr/include/c++/11/variant \
+ /usr/include/c++/11/any /usr/include/c++/11/variant \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-death-test.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-death-test-internal.h \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-matchers.h \

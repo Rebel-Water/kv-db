@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Mmap_test.dir/src/Code.cpp.o"
+  "CMakeFiles/Mmap_test.dir/src/Code.cpp.o.d"
+  "CMakeFiles/Mmap_test.dir/src/DataFile.cpp.o"
+  "CMakeFiles/Mmap_test.dir/src/DataFile.cpp.o.d"
   "CMakeFiles/Mmap_test.dir/src/FileIO.cpp.o"
   "CMakeFiles/Mmap_test.dir/src/FileIO.cpp.o.d"
   "CMakeFiles/Mmap_test.dir/src/Mmap.cpp.o"
