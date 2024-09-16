@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/ace/kv/include -I/home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include -I/home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest
 
-CXX_FLAGS = -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+CXX_FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
 

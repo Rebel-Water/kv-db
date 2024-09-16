@@ -5,6 +5,8 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_BUILD_TYPE "Debug")
+
 find_package(ZLIB REQUIRED)
 
 # Include project headers
@@ -35,6 +37,7 @@ endfunction()
 # target_link_libraries(main ZLIB::ZLIB)
 
 # Add tests
+add_gtest(SkipList_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/SkipList.cpp test/SkipList_test.cpp)
 add_gtest(BTree_test src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/BTree.cpp test/BTree_test.cpp)
 add_gtest(FileIO_test src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/FileIO.cpp test/FileIO_test.cpp)
 add_gtest(Mmap_test src/DataFile.cpp src/Code.cpp src/Mmap.cpp src/FileIO.cpp test/Mmap_test.cpp)

@@ -3,7 +3,6 @@
 #include "lib/btree.hpp"
 #include "lib/set.hpp"
 
-#include <shared_mutex>
 #include "Indexer.hpp"
 #include "Iterator.hpp"
 

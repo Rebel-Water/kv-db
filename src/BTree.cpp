@@ -1,9 +1,5 @@
 #include "BTree.hpp"
-#include <mutex>
 #include <cstring>
-
-// BTree::BTree() {
-// }
 
 BTree::BTreeIterator::BTreeIterator(const BTree &btree, bool reverse)
     : curIndex(0), reverse(reverse)
@@ -65,7 +61,7 @@ std::optional<LogRecordPos> BTree::Put(const std::vector<byte> &key, const LogRe
 { // in this libary set, there is no insert_or_assign
     Item item(key, pos);
     auto oldItem = btree.find(item);
-    std::optional<LogRecordPos> ret;
+    std::optional<LogRecordPos> ret(std::nullopt);
     if (oldItem != btree.end()) {
         ret = oldItem->Pos; 
         btree.erase(item);
@@ -89,7 +85,7 @@ std::optional<LogRecordPos> BTree::Delete(const std::vector<byte> &key)
 {
     Item item(key);
     auto oldItem = btree.find(item);
-    std::optional<LogRecordPos> ret;
+    std::optional<LogRecordPos> ret(std::nullopt);
     if(oldItem != btree.end()) {
         ret = oldItem->Pos;
         btree.erase(std::move(item));

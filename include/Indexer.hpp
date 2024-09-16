@@ -19,6 +19,18 @@ public:
 
 struct Item
 {
+    bool operator!=(const Item &other) const
+    {
+        return Key != other.Key;
+    }
+    bool operator>(const Item &other) const
+    {
+        return Key > other.Key;
+    }
+    bool operator==(const Item &other) const
+    {
+        return Key == other.Key;
+    }
     bool operator<(const Item &other) const
     {
         return Key < other.Key;

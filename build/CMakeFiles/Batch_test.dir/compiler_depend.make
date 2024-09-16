@@ -235,12 +235,6 @@ CMakeFiles/Batch_test.dir/src/BTree.cpp.o: ../src/BTree.cpp \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   ../include/lib/set.hpp \
   ../include/lib/btree.hpp \
-  /usr/include/c++/11/shared_mutex \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
-  /usr/include/c++/11/bits/std_mutex.h \
   ../include/Indexer.hpp \
   ../include/Type.hpp \
   ../include/LogRecord.hpp \
@@ -266,6 +260,12 @@ CMakeFiles/Batch_test.dir/src/BTree.cpp.o: ../src/BTree.cpp \
   ../include/Iterator.hpp \
   ../include/Options.hpp \
   ../include/DB.hpp \
+  /usr/include/c++/11/shared_mutex \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/bits/std_mutex.h \
   /usr/include/c++/11/atomic \
   ../include/DataFile.hpp \
   /usr/include/c++/11/iomanip \
@@ -324,9 +324,7 @@ CMakeFiles/Batch_test.dir/src/BTree.cpp.o: ../src/BTree.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
   /usr/include/c++/11/cstring \
   ../include/Code.hpp \
-  /usr/include/c++/11/optional \
-  /usr/include/c++/11/mutex \
-  /usr/include/c++/11/bits/unique_lock.h
+  /usr/include/c++/11/optional
 
 CMakeFiles/Batch_test.dir/src/Batch.cpp.o: ../src/Batch.cpp \
   /usr/include/stdc-predef.h \
@@ -2502,6 +2500,8 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 
 /usr/include/c++/11/variant:
 
+/usr/include/c++/11/mutex:
+
 /usr/include/regex.h:
 
 /usr/include/c++/11/stdlib.h:
@@ -2517,8 +2517,6 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 ../src/Code.cpp:
 
 ../src/Batch.cpp:
-
-/usr/include/c++/11/mutex:
 
 /usr/include/c++/11/optional:
 
@@ -2602,21 +2600,21 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 
 /usr/include/c++/11/atomic:
 
-../include/DB.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
-
-../include/Options.hpp:
-
-../include/Iterator.hpp:
-
-/usr/include/linux/close_range.h:
-
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
-
 /usr/include/c++/11/bits/std_mutex.h:
+
+/usr/include/c++/11/bits/parse_numbers.h:
+
+/usr/include/c++/11/ctime:
+
+/usr/include/c++/11/condition_variable:
+
+/usr/include/c++/11/ratio:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
+
+/usr/include/c++/11/shared_mutex:
+
+../include/DB.hpp:
 
 /usr/include/wchar.h:
 
@@ -2629,6 +2627,10 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 /usr/include/c++/11/bits/postypes.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
+
+/usr/include/c++/11/chrono:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/11/bits/hashtable.h:
 
@@ -2671,6 +2673,8 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 /usr/include/c++/11/vector:
 
 /usr/include/c++/11/bits/align.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
@@ -2733,6 +2737,8 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 /usr/include/c++/11/bits/memoryfwd.h:
 
 /usr/include/c++/11/bits/stl_function.h:
+
+../include/Iterator.hpp:
 
 ../googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-internal.h:
 
@@ -2834,15 +2840,13 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
-/usr/include/c++/11/ctime:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
 
 /usr/include/c++/11/debug/assertions.h:
 
-/usr/include/c++/11/bits/shared_ptr_atomic.h:
+/usr/include/linux/close_range.h:
 
-/usr/include/c++/11/bits/parse_numbers.h:
+/usr/include/c++/11/bits/shared_ptr_atomic.h:
 
 ../include/DataFile.hpp:
 
@@ -3056,14 +3060,6 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
-../googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-param-util.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
-
-/usr/include/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
-
 /usr/include/x86_64-linux-gnu/sys/file.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
@@ -3100,10 +3096,6 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 
 /usr/include/c++/11/cstdio:
 
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/c++/11/chrono:
-
 /usr/include/stdio.h:
 
 ../googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest-message.h:
@@ -3129,6 +3121,10 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/c++/11/bits/charconv.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
+
+../include/Options.hpp:
 
 /usr/include/c++/11/bits/basic_string.tcc:
 
@@ -3170,10 +3166,6 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
-
-/usr/include/c++/11/shared_mutex:
-
 /usr/include/linux/types.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
@@ -3204,10 +3196,6 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
 
-/usr/include/c++/11/condition_variable:
-
-/usr/include/c++/11/ratio:
-
 ../include/Indexer.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
@@ -3225,3 +3213,13 @@ CMakeFiles/Batch_test.dir/test/Batch_test.cpp.o: ../test/Batch_test.cpp \
 /usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/environments.h:
+
+../googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/internal/gtest-param-util.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:

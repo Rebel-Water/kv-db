@@ -1,0 +1,5 @@
+if(EXISTS "/home/ace/kv/build/SkipList_test[1]_tests.cmake")
+  include("/home/ace/kv/build/SkipList_test[1]_tests.cmake")
+else()
+  add_test(SkipList_test_NOT_BUILT SkipList_test_NOT_BUILT)
+endif()

@@ -4,6 +4,7 @@
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
+include("/home/ace/kv/build/SkipList_test[1]_include.cmake")
 include("/home/ace/kv/build/BTree_test[1]_include.cmake")
 include("/home/ace/kv/build/FileIO_test[1]_include.cmake")
 include("/home/ace/kv/build/Mmap_test[1]_include.cmake")

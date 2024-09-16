@@ -172,6 +172,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named SkipList_test
+
+# Build rule for target.
+SkipList_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SkipList_test
+.PHONY : SkipList_test
+
+# fast build rule for target.
+SkipList_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/build
+.PHONY : SkipList_test/fast
+
+#=============================================================================
 # Target rules for targets named BTree_test
 
 # Build rule for target.
@@ -314,6 +327,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+include/lib/skiplist.o: include/lib/skiplist.cpp.o
+.PHONY : include/lib/skiplist.o
+
+# target to build an object file
+include/lib/skiplist.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/include/lib/skiplist.cpp.o
+.PHONY : include/lib/skiplist.cpp.o
+
+include/lib/skiplist.i: include/lib/skiplist.cpp.i
+.PHONY : include/lib/skiplist.i
+
+# target to preprocess a source file
+include/lib/skiplist.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/include/lib/skiplist.cpp.i
+.PHONY : include/lib/skiplist.cpp.i
+
+include/lib/skiplist.s: include/lib/skiplist.cpp.s
+.PHONY : include/lib/skiplist.s
+
+# target to generate assembly for a file
+include/lib/skiplist.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/include/lib/skiplist.cpp.s
+.PHONY : include/lib/skiplist.cpp.s
+
 src/BTree.o: src/BTree.cpp.o
 .PHONY : src/BTree.o
 
@@ -388,6 +425,7 @@ src/Code.o: src/Code.cpp.o
 
 # target to build an object file
 src/Code.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/Code.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/Code.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/Code.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/Code.cpp.o
@@ -402,6 +440,7 @@ src/Code.i: src/Code.cpp.i
 
 # target to preprocess a source file
 src/Code.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/Code.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/Code.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/Code.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/Code.cpp.i
@@ -416,6 +455,7 @@ src/Code.s: src/Code.cpp.s
 
 # target to generate assembly for a file
 src/Code.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/Code.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/Code.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/Code.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/Code.cpp.s
@@ -463,6 +503,7 @@ src/DataFile.o: src/DataFile.cpp.o
 
 # target to build an object file
 src/DataFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/DataFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/DataFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/DataFile.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/DataFile.cpp.o
@@ -477,6 +518,7 @@ src/DataFile.i: src/DataFile.cpp.i
 
 # target to preprocess a source file
 src/DataFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/DataFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/DataFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/DataFile.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/DataFile.cpp.i
@@ -491,6 +533,7 @@ src/DataFile.s: src/DataFile.cpp.s
 
 # target to generate assembly for a file
 src/DataFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/DataFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/DataFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/DataFile.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/DataFile.cpp.s
@@ -505,6 +548,7 @@ src/FileIO.o: src/FileIO.cpp.o
 
 # target to build an object file
 src/FileIO.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/FileIO.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/FileIO.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/FileIO.cpp.o
@@ -519,6 +563,7 @@ src/FileIO.i: src/FileIO.cpp.i
 
 # target to preprocess a source file
 src/FileIO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/FileIO.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/FileIO.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/FileIO.cpp.i
@@ -533,6 +578,7 @@ src/FileIO.s: src/FileIO.cpp.s
 
 # target to generate assembly for a file
 src/FileIO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/FileIO.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/FileIO.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/FileIO.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/FileIO.cpp.s
@@ -571,6 +617,7 @@ src/Mmap.o: src/Mmap.cpp.o
 
 # target to build an object file
 src/Mmap.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/Mmap.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/Mmap.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/Mmap.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/Mmap.cpp.o
@@ -585,6 +632,7 @@ src/Mmap.i: src/Mmap.cpp.i
 
 # target to preprocess a source file
 src/Mmap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/Mmap.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/Mmap.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/Mmap.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/Mmap.cpp.i
@@ -599,6 +647,7 @@ src/Mmap.s: src/Mmap.cpp.s
 
 # target to generate assembly for a file
 src/Mmap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/Mmap.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BTree_test.dir/build.make CMakeFiles/BTree_test.dir/src/Mmap.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileIO_test.dir/build.make CMakeFiles/FileIO_test.dir/src/Mmap.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/src/Mmap.cpp.s
@@ -607,6 +656,30 @@ src/Mmap.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DB_test.dir/build.make CMakeFiles/DB_test.dir/src/Mmap.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Batch_test.dir/build.make CMakeFiles/Batch_test.dir/src/Mmap.cpp.s
 .PHONY : src/Mmap.cpp.s
+
+src/SkipList.o: src/SkipList.cpp.o
+.PHONY : src/SkipList.o
+
+# target to build an object file
+src/SkipList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/SkipList.cpp.o
+.PHONY : src/SkipList.cpp.o
+
+src/SkipList.i: src/SkipList.cpp.i
+.PHONY : src/SkipList.i
+
+# target to preprocess a source file
+src/SkipList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/SkipList.cpp.i
+.PHONY : src/SkipList.cpp.i
+
+src/SkipList.s: src/SkipList.cpp.s
+.PHONY : src/SkipList.s
+
+# target to generate assembly for a file
+src/SkipList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/src/SkipList.cpp.s
+.PHONY : src/SkipList.cpp.s
 
 test/BTree_test.o: test/BTree_test.cpp.o
 .PHONY : test/BTree_test.o
@@ -776,6 +849,30 @@ test/Mmap_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mmap_test.dir/build.make CMakeFiles/Mmap_test.dir/test/Mmap_test.cpp.s
 .PHONY : test/Mmap_test.cpp.s
 
+test/SkipList_test.o: test/SkipList_test.cpp.o
+.PHONY : test/SkipList_test.o
+
+# target to build an object file
+test/SkipList_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/test/SkipList_test.cpp.o
+.PHONY : test/SkipList_test.cpp.o
+
+test/SkipList_test.i: test/SkipList_test.cpp.i
+.PHONY : test/SkipList_test.i
+
+# target to preprocess a source file
+test/SkipList_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/test/SkipList_test.cpp.i
+.PHONY : test/SkipList_test.cpp.i
+
+test/SkipList_test.s: test/SkipList_test.cpp.s
+.PHONY : test/SkipList_test.s
+
+# target to generate assembly for a file
+test/SkipList_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SkipList_test.dir/build.make CMakeFiles/SkipList_test.dir/test/SkipList_test.cpp.s
+.PHONY : test/SkipList_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -796,10 +893,14 @@ help:
 	@echo "... FileIO_test"
 	@echo "... LogRecord_test"
 	@echo "... Mmap_test"
+	@echo "... SkipList_test"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... include/lib/skiplist.o"
+	@echo "... include/lib/skiplist.i"
+	@echo "... include/lib/skiplist.s"
 	@echo "... src/BTree.o"
 	@echo "... src/BTree.i"
 	@echo "... src/BTree.s"
@@ -824,6 +925,9 @@ help:
 	@echo "... src/Mmap.o"
 	@echo "... src/Mmap.i"
 	@echo "... src/Mmap.s"
+	@echo "... src/SkipList.o"
+	@echo "... src/SkipList.i"
+	@echo "... src/SkipList.s"
 	@echo "... test/BTree_test.o"
 	@echo "... test/BTree_test.i"
 	@echo "... test/BTree_test.s"
@@ -845,6 +949,9 @@ help:
 	@echo "... test/Mmap_test.o"
 	@echo "... test/Mmap_test.i"
 	@echo "... test/Mmap_test.s"
+	@echo "... test/SkipList_test.o"
+	@echo "... test/SkipList_test.i"
+	@echo "... test/SkipList_test.s"
 .PHONY : help
 
 
