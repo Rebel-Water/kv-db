@@ -4,7 +4,6 @@
 #include <unistd.h>
 #include "Type.hpp"
 #include <string>
-#include <gtest/gtest.h>
 
 class File
 {

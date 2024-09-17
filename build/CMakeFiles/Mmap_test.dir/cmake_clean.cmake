@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Mmap_test.dir/include/lib/skiplist.cpp.o"
+  "CMakeFiles/Mmap_test.dir/include/lib/skiplist.cpp.o.d"
   "CMakeFiles/Mmap_test.dir/src/Code.cpp.o"
   "CMakeFiles/Mmap_test.dir/src/Code.cpp.o.d"
   "CMakeFiles/Mmap_test.dir/src/DataFile.cpp.o"
@@ -7,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Mmap_test.dir/src/FileIO.cpp.o.d"
   "CMakeFiles/Mmap_test.dir/src/Mmap.cpp.o"
   "CMakeFiles/Mmap_test.dir/src/Mmap.cpp.o.d"
+  "CMakeFiles/Mmap_test.dir/src/SkipList.cpp.o"
+  "CMakeFiles/Mmap_test.dir/src/SkipList.cpp.o.d"
   "CMakeFiles/Mmap_test.dir/test/Mmap_test.cpp.o"
   "CMakeFiles/Mmap_test.dir/test/Mmap_test.cpp.o.d"
   "Mmap_test"

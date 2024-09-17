@@ -7,6 +7,7 @@
 
 TEST(Batch_test, WriteBatch) {
     try {
+        std::filesystem::remove_all("/home/ace/kv/data");
         Options option;
         DB  db(option);
         WriteBatchOptions wbOption;
@@ -46,8 +47,9 @@ TEST(Batch_test, SeqNoBatch) {
         // }
         // wb->Commit();
         auto keys = db.ListKey();  
-        // GTEST_LOG_(INFO) << keys.size();
-        EXPECT_EQ(keys.size(), 0);
+        for(auto& key : keys)
+            GTEST_LOG_(INFO) << key;
+        EXPECT_EQ(keys.size(), 2);
         std::remove("/home/ace/kv/data/000000000.txt");
         std::filesystem::remove_all("/home/ace/kv/data");
     } catch(const std::exception& e) {

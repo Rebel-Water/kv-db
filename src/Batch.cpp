@@ -1,4 +1,3 @@
-#include <gtest/gtest.h>
 #include "Batch.hpp"
 #include "Util.hpp"
 #include "DB.hpp"

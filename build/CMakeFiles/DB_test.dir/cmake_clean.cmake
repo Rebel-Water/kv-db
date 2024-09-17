@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DB_test.dir/include/lib/skiplist.cpp.o"
+  "CMakeFiles/DB_test.dir/include/lib/skiplist.cpp.o.d"
   "CMakeFiles/DB_test.dir/src/BTree.cpp.o"
   "CMakeFiles/DB_test.dir/src/BTree.cpp.o.d"
   "CMakeFiles/DB_test.dir/src/Batch.cpp.o"
@@ -15,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DB_test.dir/src/Iterator.cpp.o.d"
   "CMakeFiles/DB_test.dir/src/Mmap.cpp.o"
   "CMakeFiles/DB_test.dir/src/Mmap.cpp.o.d"
+  "CMakeFiles/DB_test.dir/src/SkipList.cpp.o"
+  "CMakeFiles/DB_test.dir/src/SkipList.cpp.o.d"
   "CMakeFiles/DB_test.dir/test/DB_test.cpp.o"
   "CMakeFiles/DB_test.dir/test/DB_test.cpp.o.d"
   "DB_test"

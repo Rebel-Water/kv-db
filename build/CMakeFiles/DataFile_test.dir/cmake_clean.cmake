@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DataFile_test.dir/include/lib/skiplist.cpp.o"
+  "CMakeFiles/DataFile_test.dir/include/lib/skiplist.cpp.o.d"
   "CMakeFiles/DataFile_test.dir/src/BTree.cpp.o"
   "CMakeFiles/DataFile_test.dir/src/BTree.cpp.o.d"
   "CMakeFiles/DataFile_test.dir/src/Batch.cpp.o"
@@ -13,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DataFile_test.dir/src/FileIO.cpp.o.d"
   "CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o"
   "CMakeFiles/DataFile_test.dir/src/Mmap.cpp.o.d"
+  "CMakeFiles/DataFile_test.dir/src/SkipList.cpp.o"
+  "CMakeFiles/DataFile_test.dir/src/SkipList.cpp.o.d"
   "CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o"
   "CMakeFiles/DataFile_test.dir/test/DataFile_test.cpp.o.d"
   "DataFile_test"

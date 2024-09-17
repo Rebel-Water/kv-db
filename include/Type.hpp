@@ -19,7 +19,8 @@ enum class IOType{
 };
 
 enum class IndexType {
-    BTree_Index
+    BTree_Index,
+    SkipList_Index
 };
 
 enum class DataFileType {

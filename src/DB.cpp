@@ -1,6 +1,7 @@
 #include "DB.hpp"
 #include "lib/file.hpp"
 #include <shared_mutex>
+#include "SkipList.hpp"
 #include <mutex>
 #include <filesystem>
 #include <sys/file.h>
@@ -12,8 +13,6 @@
 #include "Mmap.hpp"
 #include <algorithm>
 #include "Batch.hpp"
-#include <gtest/gtest.h>
-
 
 const std::string DB::mergeDirName = "Merge";
 const std::vector<byte> DB::mergeFinishKey = Util::ToByteVector("merge-finished");
@@ -27,6 +26,9 @@ DB::DB(const Options &option) : option(option), seqNo(0), isMerging(false), isCl
     {
     case IndexType::BTree_Index:
         index = std::make_unique<BTree>();
+        break;
+    case IndexType::SkipList_Index:
+        index = std::make_unique<SkipList>();
         break;
     default:
         throw std::runtime_error("No Indexer Type Fit");
@@ -196,16 +198,16 @@ void DB::Fold(FoldFn fn)
     iterator->Close();
 }
 
-std::vector<std::vector<byte>> DB::ListKey()
+std::vector<std::string> DB::ListKey()
 {
     std::unique_ptr<Iterator_Interface> iter;
     {
         std::shared_lock<std::shared_mutex> lock(RWMutex);
         iter = index->Iter(false);
     }
-    auto keys = std::vector<std::vector<byte>>();
+    auto keys = std::vector<std::string>();
     for (iter->Rewind(); iter->Valid(); iter->Next())
-        keys.emplace_back(iter->Key());
+        keys.emplace_back(Util::ToString(iter->Key()));
     iter->Close();
     return keys;
 }
@@ -242,6 +244,11 @@ void DB::Sync()
     activeFile->Sync();
 }
 
+void DB::Put(const std::string &key, const std::string &value)
+{
+    return Put(Util::ToByteVector(key), Util::ToByteVector(value));
+}
+
 // write-lock
 void DB::Put(const std::vector<byte> &key, const std::vector<byte> &value)
 {
@@ -261,10 +268,19 @@ std::vector<byte> DB::Get(const std::vector<byte> &key)
     std::shared_lock<std::shared_mutex> lock(RWMutex); // read lock
     if (key.size() == 0)
         throw std::runtime_error("DB::Get Empty Key");
-    auto logRecordPos = index->Get(key);
+    auto logRecordPos = std::move(index->Get(key));
     if (!logRecordPos.has_value())
         throw std::runtime_error("DB::Get Key Not Found");
     return GetValueByPosition(logRecordPos.value());
+}
+
+std::string DB::Get(const std::string &key)
+{
+    return Util::ToString(Get(Util::ToByteVector(key)));
+}
+
+void DB::Delete(const std::string &key) {
+    return Delete(Util::ToByteVector(key));
 }
 
 // write-lock
@@ -274,13 +290,11 @@ void DB::Delete(const std::vector<byte> &key)
     if (key.size() == 0)
         throw std::runtime_error("DB::Delete Key Empty");
     auto pos = index->Get(key);
-    if (!pos.has_value())
+    if (!pos.has_value()) //
         return;
     LogRecord logRecord(WriteBatch::logRecordKeyWithSeq(key, WriteBatch::NonTransactionSeqNo), LogRecordType::LogRecordDeleted); // Delete LogRecord size is smaller
 
     AppendLogRecord(logRecord);                                                                               // update at disk level to appand a delete flag
-    // write-lock so here delete don't need lock
-    // write-lock
     auto ret = index->Delete(key);
     if (!ret.has_value()) // update at memory level to call btree.delete
         throw std::runtime_error("DB::Delete Index Update Fail");
@@ -289,7 +303,7 @@ void DB::Delete(const std::vector<byte> &key)
 }
 
 // call this function should hold read-lock
-std::optional<LogRecord> DB::ReadLogRecord(int64 offset, std::shared_ptr<DataFile> datafile)
+std::optional<LogRecord> DB::ReadLogRecord(int64 offset, const std::shared_ptr<DataFile>& datafile)
 {
     int filesize = datafile->IoManager->Size();
     int headerBytes = MaxLogRecordHeaderSize;
@@ -357,7 +371,7 @@ LogRecordPos DB::AppendLogRecord(LogRecord& logRecord) // here appandlogrecord c
     return LogRecordPos(activeFile->FileId, writeOff, size);
 }
 
-void DB::WriteHintRecord(std::shared_ptr<DataFile> datafile, const std::vector<byte> &key, LogRecordPos pos)
+void DB::WriteHintRecord(const std::shared_ptr<DataFile>& datafile, const std::vector<byte> &key, LogRecordPos pos)
 {
     LogRecord record(key, Code::EncodeLogRecordPos(pos));
     auto encodeRecord = Code::EncodeLogRecord(record);
@@ -381,7 +395,7 @@ std::vector<byte> DB::GetValueByPosition(const LogRecordPos &pos)
     std::shared_ptr<DataFile> datafile;
     if (activeFile->FileId == pos.Fid)
         datafile = activeFile;
-    else if (olderFiles.find(pos.Fid) != this->olderFiles.end())
+    else 
         datafile = olderFiles[pos.Fid]; // note: we also should know db's member data lock logic
 
     auto logRecord = std::move(ReadLogRecord(pos.Offset, datafile)); // can overfit
@@ -421,7 +435,7 @@ void DB::CheckOptions(const Options &option)
 
 void DB::LoadDataFiles()
 {
-    std::vector<int> fileIds;
+    std::vector<int> local_fileIds;
     for (const auto &entry : std::filesystem::directory_iterator(option.DirPath))
     {
         if (entry.is_regular_file())
@@ -435,12 +449,12 @@ void DB::LoadDataFiles()
                 std::string token;
                 std::getline(ss, token, '.');  // Get the first part before the dot
                 int fileId = std::stoi(token); // use number as name
-                fileIds.push_back(fileId);
+                local_fileIds.push_back(fileId);
             }
         }
     }
-    sort(fileIds.begin(), fileIds.end());
-    fileIds = fileIds;
+    sort(local_fileIds.begin(), local_fileIds.end());
+    fileIds = std::move(local_fileIds);
     int n = fileIds.size();
     for (int i = 0; i < n; i++)
     {
@@ -475,12 +489,14 @@ void DB::LoadIndexFromDataFiles() // now kv record all in disk, read from it and
     {
         if (type == LogRecordType::LogRecordDeleted) // delete is a record to appand into disk but in memory we do delete
         {
-            if (!index->Delete(key).has_value())
-                throw std::runtime_error("DB::LoadIndexFromDataFiles Update Delete Index Fail");
+            if (auto ret = index->Delete(key); ret.has_value())
+                this->reclaimableSize += ret->Size * 2;
+                //throw std::runtime_error("DB::LoadIndexFromDataFiles Update Delete Index Fail");
         }
         else if (type == LogRecordType::LogRecordNormal)
         {
-            index->Put(key, pos);
+            if (auto ret = index->Put(key, pos); ret.has_value())
+                this->reclaimableSize += ret->Size;
             // if (!index->Put(key, pos).isEmpty)
             //     throw std::runtime_error("DB::LoadIndexFromDataFiles Update Put Index Fail");
         }

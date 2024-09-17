@@ -1,10 +1,10 @@
-Start testing: Sep 16 10:39 CST
+Start testing: Sep 17 12:02 CST
 ----------------------------------------------------------
 1/39 Testing: SkipListTest.SkipList_Put
 1/39 Test: SkipListTest.SkipList_Put
 Command: "/home/ace/kv/build/SkipList_test" "--gtest_filter=SkipListTest.SkipList_Put" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"SkipListTest.SkipList_Put" start time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Put" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -23,7 +23,7 @@ Note: Google Test filter = SkipListTest.SkipList_Put
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"SkipListTest.SkipList_Put" end time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Put" end time: Sep 17 12:02 CST
 "SkipListTest.SkipList_Put" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -31,7 +31,7 @@ Test Passed.
 2/39 Test: SkipListTest.SkipList_Get
 Command: "/home/ace/kv/build/SkipList_test" "--gtest_filter=SkipListTest.SkipList_Get" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"SkipListTest.SkipList_Get" start time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Get" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -50,7 +50,7 @@ Note: Google Test filter = SkipListTest.SkipList_Get
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"SkipListTest.SkipList_Get" end time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Get" end time: Sep 17 12:02 CST
 "SkipListTest.SkipList_Get" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -58,7 +58,7 @@ Test Passed.
 3/39 Test: SkipListTest.SkipList_Delete
 Command: "/home/ace/kv/build/SkipList_test" "--gtest_filter=SkipListTest.SkipList_Delete" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"SkipListTest.SkipList_Delete" start time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Delete" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -77,7 +77,7 @@ Note: Google Test filter = SkipListTest.SkipList_Delete
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"SkipListTest.SkipList_Delete" end time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Delete" end time: Sep 17 12:02 CST
 "SkipListTest.SkipList_Delete" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -85,7 +85,7 @@ Test Passed.
 4/39 Test: SkipListTest.SkipList_Iterator
 Command: "/home/ace/kv/build/SkipList_test" "--gtest_filter=SkipListTest.SkipList_Iterator" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"SkipListTest.SkipList_Iterator" start time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Iterator" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -104,7 +104,7 @@ Note: Google Test filter = SkipListTest.SkipList_Iterator
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"SkipListTest.SkipList_Iterator" end time: Sep 16 10:39 CST
+"SkipListTest.SkipList_Iterator" end time: Sep 17 12:02 CST
 "SkipListTest.SkipList_Iterator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -112,7 +112,7 @@ Test Passed.
 5/39 Test: BTreeTest.BTree_Put
 Command: "/home/ace/kv/build/BTree_test" "--gtest_filter=BTreeTest.BTree_Put" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"BTreeTest.BTree_Put" start time: Sep 16 10:39 CST
+"BTreeTest.BTree_Put" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -128,10 +128,10 @@ Note: Google Test filter = BTreeTest.BTree_Put
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.01 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"BTreeTest.BTree_Put" end time: Sep 16 10:39 CST
+"BTreeTest.BTree_Put" end time: Sep 17 12:02 CST
 "BTreeTest.BTree_Put" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -139,7 +139,7 @@ Test Passed.
 6/39 Test: BTreeTest.BTree_Get
 Command: "/home/ace/kv/build/BTree_test" "--gtest_filter=BTreeTest.BTree_Get" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"BTreeTest.BTree_Get" start time: Sep 16 10:39 CST
+"BTreeTest.BTree_Get" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -158,7 +158,7 @@ Note: Google Test filter = BTreeTest.BTree_Get
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"BTreeTest.BTree_Get" end time: Sep 16 10:39 CST
+"BTreeTest.BTree_Get" end time: Sep 17 12:02 CST
 "BTreeTest.BTree_Get" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -166,7 +166,7 @@ Test Passed.
 7/39 Test: BTreeTest.BTree_Delete
 Command: "/home/ace/kv/build/BTree_test" "--gtest_filter=BTreeTest.BTree_Delete" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"BTreeTest.BTree_Delete" start time: Sep 16 10:39 CST
+"BTreeTest.BTree_Delete" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -185,7 +185,7 @@ Note: Google Test filter = BTreeTest.BTree_Delete
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"BTreeTest.BTree_Delete" end time: Sep 16 10:39 CST
+"BTreeTest.BTree_Delete" end time: Sep 17 12:02 CST
 "BTreeTest.BTree_Delete" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -193,7 +193,7 @@ Test Passed.
 8/39 Test: BTreeTest.BTree_Iterator
 Command: "/home/ace/kv/build/BTree_test" "--gtest_filter=BTreeTest.BTree_Iterator" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"BTreeTest.BTree_Iterator" start time: Sep 16 10:39 CST
+"BTreeTest.BTree_Iterator" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -212,7 +212,7 @@ Note: Google Test filter = BTreeTest.BTree_Iterator
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"BTreeTest.BTree_Iterator" end time: Sep 16 10:39 CST
+"BTreeTest.BTree_Iterator" end time: Sep 17 12:02 CST
 "BTreeTest.BTree_Iterator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -220,7 +220,7 @@ Test Passed.
 9/39 Test: FileIOTest.OpenFile
 Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.OpenFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.OpenFile" start time: Sep 16 10:39 CST
+"FileIOTest.OpenFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -239,7 +239,7 @@ Note: Google Test filter = FileIOTest.OpenFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.OpenFile" end time: Sep 16 10:39 CST
+"FileIOTest.OpenFile" end time: Sep 17 12:02 CST
 "FileIOTest.OpenFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -247,7 +247,7 @@ Test Passed.
 10/39 Test: FileIOTest.WriteFile
 Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.WriteFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.WriteFile" start time: Sep 16 10:39 CST
+"FileIOTest.WriteFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -266,7 +266,7 @@ Note: Google Test filter = FileIOTest.WriteFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.WriteFile" end time: Sep 16 10:39 CST
+"FileIOTest.WriteFile" end time: Sep 17 12:02 CST
 "FileIOTest.WriteFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -274,7 +274,7 @@ Test Passed.
 11/39 Test: FileIOTest.ReadFile
 Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.ReadFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.ReadFile" start time: Sep 16 10:39 CST
+"FileIOTest.ReadFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -293,7 +293,7 @@ Note: Google Test filter = FileIOTest.ReadFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.ReadFile" end time: Sep 16 10:39 CST
+"FileIOTest.ReadFile" end time: Sep 17 12:02 CST
 "FileIOTest.ReadFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -301,7 +301,7 @@ Test Passed.
 12/39 Test: FileIOTest.SizeFile
 Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.SizeFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.SizeFile" start time: Sep 16 10:39 CST
+"FileIOTest.SizeFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -320,7 +320,7 @@ Note: Google Test filter = FileIOTest.SizeFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.SizeFile" end time: Sep 16 10:39 CST
+"FileIOTest.SizeFile" end time: Sep 17 12:02 CST
 "FileIOTest.SizeFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -328,7 +328,7 @@ Test Passed.
 13/39 Test: FileIOTest.SyncFile
 Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.SyncFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.SyncFile" start time: Sep 16 10:39 CST
+"FileIOTest.SyncFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -347,7 +347,7 @@ Note: Google Test filter = FileIOTest.SyncFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.SyncFile" end time: Sep 16 10:39 CST
+"FileIOTest.SyncFile" end time: Sep 17 12:02 CST
 "FileIOTest.SyncFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -355,7 +355,7 @@ Test Passed.
 14/39 Test: FileIOTest.CloseFile
 Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.CloseFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.CloseFile" start time: Sep 16 10:39 CST
+"FileIOTest.CloseFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -374,7 +374,7 @@ Note: Google Test filter = FileIOTest.CloseFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.CloseFile" end time: Sep 16 10:39 CST
+"FileIOTest.CloseFile" end time: Sep 17 12:02 CST
 "FileIOTest.CloseFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -382,7 +382,7 @@ Test Passed.
 15/39 Test: FileIOTest.DestroyFile
 Command: "/home/ace/kv/build/FileIO_test" "--gtest_filter=FileIOTest.DestroyFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"FileIOTest.DestroyFile" start time: Sep 16 10:39 CST
+"FileIOTest.DestroyFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -401,7 +401,7 @@ Note: Google Test filter = FileIOTest.DestroyFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"FileIOTest.DestroyFile" end time: Sep 16 10:39 CST
+"FileIOTest.DestroyFile" end time: Sep 17 12:02 CST
 "FileIOTest.DestroyFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -409,7 +409,7 @@ Test Passed.
 16/39 Test: MmapTest.OpenFile
 Command: "/home/ace/kv/build/Mmap_test" "--gtest_filter=MmapTest.OpenFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"MmapTest.OpenFile" start time: Sep 16 10:39 CST
+"MmapTest.OpenFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -428,7 +428,7 @@ Note: Google Test filter = MmapTest.OpenFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"MmapTest.OpenFile" end time: Sep 16 10:39 CST
+"MmapTest.OpenFile" end time: Sep 17 12:02 CST
 "MmapTest.OpenFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -436,7 +436,7 @@ Test Passed.
 17/39 Test: MmapTest.ReadFile
 Command: "/home/ace/kv/build/Mmap_test" "--gtest_filter=MmapTest.ReadFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"MmapTest.ReadFile" start time: Sep 16 10:39 CST
+"MmapTest.ReadFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -455,7 +455,7 @@ Note: Google Test filter = MmapTest.ReadFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"MmapTest.ReadFile" end time: Sep 16 10:39 CST
+"MmapTest.ReadFile" end time: Sep 17 12:02 CST
 "MmapTest.ReadFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -463,7 +463,7 @@ Test Passed.
 18/39 Test: MmapTest.SizeFile
 Command: "/home/ace/kv/build/Mmap_test" "--gtest_filter=MmapTest.SizeFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"MmapTest.SizeFile" start time: Sep 16 10:39 CST
+"MmapTest.SizeFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -482,7 +482,7 @@ Note: Google Test filter = MmapTest.SizeFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"MmapTest.SizeFile" end time: Sep 16 10:39 CST
+"MmapTest.SizeFile" end time: Sep 17 12:02 CST
 "MmapTest.SizeFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -490,7 +490,7 @@ Test Passed.
 19/39 Test: MmapTest.CloseFile
 Command: "/home/ace/kv/build/Mmap_test" "--gtest_filter=MmapTest.CloseFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"MmapTest.CloseFile" start time: Sep 16 10:39 CST
+"MmapTest.CloseFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -509,7 +509,7 @@ Note: Google Test filter = MmapTest.CloseFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"MmapTest.CloseFile" end time: Sep 16 10:39 CST
+"MmapTest.CloseFile" end time: Sep 17 12:02 CST
 "MmapTest.CloseFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -517,7 +517,7 @@ Test Passed.
 20/39 Test: MmapTest.DestroyFile
 Command: "/home/ace/kv/build/Mmap_test" "--gtest_filter=MmapTest.DestroyFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"MmapTest.DestroyFile" start time: Sep 16 10:39 CST
+"MmapTest.DestroyFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -536,7 +536,7 @@ Note: Google Test filter = MmapTest.DestroyFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"MmapTest.DestroyFile" end time: Sep 16 10:39 CST
+"MmapTest.DestroyFile" end time: Sep 17 12:02 CST
 "MmapTest.DestroyFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -544,7 +544,7 @@ Test Passed.
 21/39 Test: DataFile_test.DataFile
 Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.DataFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DataFile_test.DataFile" start time: Sep 16 10:39 CST
+"DataFile_test.DataFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -563,7 +563,7 @@ Note: Google Test filter = DataFile_test.DataFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DataFile_test.DataFile" end time: Sep 16 10:39 CST
+"DataFile_test.DataFile" end time: Sep 17 12:02 CST
 "DataFile_test.DataFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -571,7 +571,7 @@ Test Passed.
 22/39 Test: DataFile_test.WriteAndSyncFile
 Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.WriteAndSyncFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DataFile_test.WriteAndSyncFile" start time: Sep 16 10:39 CST
+"DataFile_test.WriteAndSyncFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -590,7 +590,7 @@ Note: Google Test filter = DataFile_test.WriteAndSyncFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DataFile_test.WriteAndSyncFile" end time: Sep 16 10:39 CST
+"DataFile_test.WriteAndSyncFile" end time: Sep 17 12:02 CST
 "DataFile_test.WriteAndSyncFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -598,7 +598,7 @@ Test Passed.
 23/39 Test: DataFile_test.CloseFile
 Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.CloseFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DataFile_test.CloseFile" start time: Sep 16 10:39 CST
+"DataFile_test.CloseFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -617,7 +617,7 @@ Note: Google Test filter = DataFile_test.CloseFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DataFile_test.CloseFile" end time: Sep 16 10:39 CST
+"DataFile_test.CloseFile" end time: Sep 17 12:02 CST
 "DataFile_test.CloseFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -625,7 +625,7 @@ Test Passed.
 24/39 Test: DataFile_test.DestroyFile
 Command: "/home/ace/kv/build/DataFile_test" "--gtest_filter=DataFile_test.DestroyFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DataFile_test.DestroyFile" start time: Sep 16 10:39 CST
+"DataFile_test.DestroyFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -644,7 +644,7 @@ Note: Google Test filter = DataFile_test.DestroyFile
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DataFile_test.DestroyFile" end time: Sep 16 10:39 CST
+"DataFile_test.DestroyFile" end time: Sep 17 12:02 CST
 "DataFile_test.DestroyFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -652,7 +652,7 @@ Test Passed.
 25/39 Test: LogRecord_Test.EncodeAndDecodeLogRecord
 Command: "/home/ace/kv/build/LogRecord_test" "--gtest_filter=LogRecord_Test.EncodeAndDecodeLogRecord" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"LogRecord_Test.EncodeAndDecodeLogRecord" start time: Sep 16 10:39 CST
+"LogRecord_Test.EncodeAndDecodeLogRecord" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -671,7 +671,7 @@ Note: Google Test filter = LogRecord_Test.EncodeAndDecodeLogRecord
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LogRecord_Test.EncodeAndDecodeLogRecord" end time: Sep 16 10:39 CST
+"LogRecord_Test.EncodeAndDecodeLogRecord" end time: Sep 17 12:02 CST
 "LogRecord_Test.EncodeAndDecodeLogRecord" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -679,7 +679,7 @@ Test Passed.
 26/39 Test: DB_Test.DBPutAndGet
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBPutAndGet" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_Test.DBPutAndGet" start time: Sep 16 10:39 CST
+"DB_Test.DBPutAndGet" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -688,17 +688,17 @@ Note: Google Test filter = DB_Test.DBPutAndGet
 [----------] Global test environment set-up.
 [----------] 1 test from DB_Test
 [ RUN      ] DB_Test.DBPutAndGet
-[       OK ] DB_Test.DBPutAndGet (1 ms)
-[----------] 1 test from DB_Test (1 ms total)
+[       OK ] DB_Test.DBPutAndGet (0 ms)
+[----------] 1 test from DB_Test (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (1 ms total)
+[==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.01 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_Test.DBPutAndGet" end time: Sep 16 10:39 CST
+"DB_Test.DBPutAndGet" end time: Sep 17 12:02 CST
 "DB_Test.DBPutAndGet" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -706,7 +706,7 @@ Test Passed.
 27/39 Test: DB_Test.DBIndexLoadFromDataFile
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBIndexLoadFromDataFile" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_Test.DBIndexLoadFromDataFile" start time: Sep 16 10:39 CST
+"DB_Test.DBIndexLoadFromDataFile" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -726,7 +726,7 @@ DB::Get Key Not Found
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_Test.DBIndexLoadFromDataFile" end time: Sep 16 10:39 CST
+"DB_Test.DBIndexLoadFromDataFile" end time: Sep 17 12:02 CST
 "DB_Test.DBIndexLoadFromDataFile" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -734,7 +734,7 @@ Test Passed.
 28/39 Test: DB_Test.DBDelete
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBDelete" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_Test.DBDelete" start time: Sep 16 10:39 CST
+"DB_Test.DBDelete" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -753,7 +753,7 @@ Note: Google Test filter = DB_Test.DBDelete
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_Test.DBDelete" end time: Sep 16 10:39 CST
+"DB_Test.DBDelete" end time: Sep 17 12:02 CST
 "DB_Test.DBDelete" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -761,7 +761,7 @@ Test Passed.
 29/39 Test: DB_Test.DBIterator
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBIterator" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_Test.DBIterator" start time: Sep 16 10:39 CST
+"DB_Test.DBIterator" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -771,9 +771,13 @@ Note: Google Test filter = DB_Test.DBIterator
 [----------] 1 test from DB_Test
 [ RUN      ] DB_Test.DBIterator
 
-[  INFO ] /home/ace/kv/test/DB_test.cpp:92:: 
+[  INFO ] /home/ace/kv/test/DB_test.cpp:95:: b
 
-[  INFO ] /home/ace/kv/test/DB_test.cpp:97:: DB::ReadLogRecord Crc fault
+
+[  INFO ] /home/ace/kv/test/DB_test.cpp:95:: bc
+
+
+[  INFO ] /home/ace/kv/test/DB_test.cpp:95:: bd
 
 [       OK ] DB_Test.DBIterator (0 ms)
 [----------] 1 test from DB_Test (0 ms total)
@@ -785,7 +789,7 @@ Note: Google Test filter = DB_Test.DBIterator
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_Test.DBIterator" end time: Sep 16 10:39 CST
+"DB_Test.DBIterator" end time: Sep 17 12:02 CST
 "DB_Test.DBIterator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -793,7 +797,7 @@ Test Passed.
 30/39 Test: DB_Test.DBFold
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBFold" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_Test.DBFold" start time: Sep 16 10:39 CST
+"DB_Test.DBFold" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -812,7 +816,7 @@ Note: Google Test filter = DB_Test.DBFold
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_Test.DBFold" end time: Sep 16 10:39 CST
+"DB_Test.DBFold" end time: Sep 17 12:02 CST
 "DB_Test.DBFold" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -820,7 +824,7 @@ Test Passed.
 31/39 Test: DB_Test.DBListKey
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DBListKey" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_Test.DBListKey" start time: Sep 16 10:39 CST
+"DB_Test.DBListKey" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -829,9 +833,6 @@ Note: Google Test filter = DB_Test.DBListKey
 [----------] Global test environment set-up.
 [----------] 1 test from DB_Test
 [ RUN      ] DB_Test.DBListKey
-
-[  INFO ] /home/ace/kv/test/DB_test.cpp:134:: DB::Get Key Not Found
-
 [       OK ] DB_Test.DBListKey (0 ms)
 [----------] 1 test from DB_Test (0 ms total)
 
@@ -842,7 +843,7 @@ Note: Google Test filter = DB_Test.DBListKey
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_Test.DBListKey" end time: Sep 16 10:39 CST
+"DB_Test.DBListKey" end time: Sep 17 12:02 CST
 "DB_Test.DBListKey" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -850,7 +851,7 @@ Test Passed.
 32/39 Test: DB_Test.DestroyFiles
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_Test.DestroyFiles" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_Test.DestroyFiles" start time: Sep 16 10:39 CST
+"DB_Test.DestroyFiles" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -869,7 +870,7 @@ Note: Google Test filter = DB_Test.DestroyFiles
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_Test.DestroyFiles" end time: Sep 16 10:39 CST
+"DB_Test.DestroyFiles" end time: Sep 17 12:02 CST
 "DB_Test.DestroyFiles" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -877,7 +878,7 @@ Test Passed.
 33/39 Test: DB_TEST.DBMerge
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_TEST.DBMerge" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_TEST.DBMerge" start time: Sep 16 10:39 CST
+"DB_TEST.DBMerge" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -887,19 +888,19 @@ Note: Google Test filter = DB_TEST.DBMerge
 [----------] 1 test from DB_TEST
 [ RUN      ] DB_TEST.DBMerge
 
-[  INFO ] /home/ace/kv/test/DB_test.cpp:171:: DB::Get Key Not Found
+[  INFO ] /home/ace/kv/test/DB_test.cpp:174:: DB::Get Key Not Found
 
-[       OK ] DB_TEST.DBMerge (1 ms)
-[----------] 1 test from DB_TEST (1 ms total)
+[       OK ] DB_TEST.DBMerge (0 ms)
+[----------] 1 test from DB_TEST (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (1 ms total)
+[==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_TEST.DBMerge" end time: Sep 16 10:39 CST
+"DB_TEST.DBMerge" end time: Sep 17 12:02 CST
 "DB_TEST.DBMerge" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -907,7 +908,7 @@ Test Passed.
 34/39 Test: DB_TEST.DBMerge2
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_TEST.DBMerge2" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_TEST.DBMerge2" start time: Sep 16 10:39 CST
+"DB_TEST.DBMerge2" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -916,9 +917,6 @@ Note: Google Test filter = DB_TEST.DBMerge2
 [----------] Global test environment set-up.
 [----------] 1 test from DB_TEST
 [ RUN      ] DB_TEST.DBMerge2
-
-[  INFO ] /home/ace/kv/test/DB_test.cpp:188:: DB::Get Key Not Found
-
 [       OK ] DB_TEST.DBMerge2 (0 ms)
 [----------] 1 test from DB_TEST (0 ms total)
 
@@ -929,7 +927,7 @@ Note: Google Test filter = DB_TEST.DBMerge2
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_TEST.DBMerge2" end time: Sep 16 10:39 CST
+"DB_TEST.DBMerge2" end time: Sep 17 12:02 CST
 "DB_TEST.DBMerge2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -937,7 +935,7 @@ Test Passed.
 35/39 Test: DB_TEST.DBFileLock
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_TEST.DBFileLock" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_TEST.DBFileLock" start time: Sep 16 10:39 CST
+"DB_TEST.DBFileLock" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -947,7 +945,7 @@ Note: Google Test filter = DB_TEST.DBFileLock
 [----------] 1 test from DB_TEST
 [ RUN      ] DB_TEST.DBFileLock
 
-[  INFO ] /home/ace/kv/test/DB_test.cpp:202:: DB::Open File Lock Occupied
+[  INFO ] /home/ace/kv/test/DB_test.cpp:205:: DB::Open File Lock Occupied
 
 [       OK ] DB_TEST.DBFileLock (0 ms)
 [----------] 1 test from DB_TEST (0 ms total)
@@ -959,7 +957,7 @@ Note: Google Test filter = DB_TEST.DBFileLock
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_TEST.DBFileLock" end time: Sep 16 10:39 CST
+"DB_TEST.DBFileLock" end time: Sep 17 12:02 CST
 "DB_TEST.DBFileLock" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -967,7 +965,7 @@ Test Passed.
 36/39 Test: DB_TEST.DBStatement
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_TEST.DBStatement" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_TEST.DBStatement" start time: Sep 16 10:39 CST
+"DB_TEST.DBStatement" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -977,7 +975,7 @@ Note: Google Test filter = DB_TEST.DBStatement
 [----------] 1 test from DB_TEST
 [ RUN      ] DB_TEST.DBStatement
 
-[  INFO ] /home/ace/kv/test/DB_test.cpp:220:: reclaimableSize: 2290
+[  INFO ] /home/ace/kv/test/DB_test.cpp:223:: reclaimableSize: 2290
 
 [       OK ] DB_TEST.DBStatement (0 ms)
 [----------] 1 test from DB_TEST (0 ms total)
@@ -989,7 +987,7 @@ Note: Google Test filter = DB_TEST.DBStatement
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_TEST.DBStatement" end time: Sep 16 10:39 CST
+"DB_TEST.DBStatement" end time: Sep 17 12:02 CST
 "DB_TEST.DBStatement" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -997,7 +995,7 @@ Test Passed.
 37/39 Test: DB_TEST.DBBackUp
 Command: "/home/ace/kv/build/DB_test" "--gtest_filter=DB_TEST.DBBackUp" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"DB_TEST.DBBackUp" start time: Sep 16 10:39 CST
+"DB_TEST.DBBackUp" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -1006,17 +1004,17 @@ Note: Google Test filter = DB_TEST.DBBackUp
 [----------] Global test environment set-up.
 [----------] 1 test from DB_TEST
 [ RUN      ] DB_TEST.DBBackUp
-[       OK ] DB_TEST.DBBackUp (0 ms)
-[----------] 1 test from DB_TEST (0 ms total)
+[       OK ] DB_TEST.DBBackUp (1 ms)
+[----------] 1 test from DB_TEST (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
+[==========] 1 test from 1 test suite ran. (1 ms total)
 [  PASSED  ] 1 test.
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DB_TEST.DBBackUp" end time: Sep 16 10:39 CST
+"DB_TEST.DBBackUp" end time: Sep 17 12:02 CST
 "DB_TEST.DBBackUp" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1024,7 +1022,7 @@ Test Passed.
 38/39 Test: Batch_test.WriteBatch
 Command: "/home/ace/kv/build/Batch_test" "--gtest_filter=Batch_test.WriteBatch" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"Batch_test.WriteBatch" start time: Sep 16 10:39 CST
+"Batch_test.WriteBatch" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -1043,7 +1041,7 @@ Note: Google Test filter = Batch_test.WriteBatch
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Batch_test.WriteBatch" end time: Sep 16 10:39 CST
+"Batch_test.WriteBatch" end time: Sep 17 12:02 CST
 "Batch_test.WriteBatch" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1051,7 +1049,7 @@ Test Passed.
 39/39 Test: Batch_test.SeqNoBatch
 Command: "/home/ace/kv/build/Batch_test" "--gtest_filter=Batch_test.SeqNoBatch" "--gtest_also_run_disabled_tests"
 Directory: /home/ace/kv/build
-"Batch_test.SeqNoBatch" start time: Sep 16 10:39 CST
+"Batch_test.SeqNoBatch" start time: Sep 17 12:02 CST
 Output:
 ----------------------------------------------------------
 Running main() from /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/src/gtest_main.cc
@@ -1060,6 +1058,10 @@ Note: Google Test filter = Batch_test.SeqNoBatch
 [----------] Global test environment set-up.
 [----------] 1 test from Batch_test
 [ RUN      ] Batch_test.SeqNoBatch
+
+[  INFO ] /home/ace/kv/test/Batch_test.cpp:51:: second
+
+[  INFO ] /home/ace/kv/test/Batch_test.cpp:51:: third
 [       OK ] Batch_test.SeqNoBatch (0 ms)
 [----------] 1 test from Batch_test (0 ms total)
 
@@ -1070,8 +1072,8 @@ Note: Google Test filter = Batch_test.SeqNoBatch
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Batch_test.SeqNoBatch" end time: Sep 16 10:39 CST
+"Batch_test.SeqNoBatch" end time: Sep 17 12:02 CST
 "Batch_test.SeqNoBatch" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 16 10:39 CST
+End testing: Sep 17 12:02 CST

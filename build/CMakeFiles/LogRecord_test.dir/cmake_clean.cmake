@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/LogRecord_test.dir/include/lib/skiplist.cpp.o"
+  "CMakeFiles/LogRecord_test.dir/include/lib/skiplist.cpp.o.d"
   "CMakeFiles/LogRecord_test.dir/src/BTree.cpp.o"
   "CMakeFiles/LogRecord_test.dir/src/BTree.cpp.o.d"
   "CMakeFiles/LogRecord_test.dir/src/Batch.cpp.o"
@@ -13,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LogRecord_test.dir/src/FileIO.cpp.o.d"
   "CMakeFiles/LogRecord_test.dir/src/Mmap.cpp.o"
   "CMakeFiles/LogRecord_test.dir/src/Mmap.cpp.o.d"
+  "CMakeFiles/LogRecord_test.dir/src/SkipList.cpp.o"
+  "CMakeFiles/LogRecord_test.dir/src/SkipList.cpp.o.d"
   "CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o"
   "CMakeFiles/LogRecord_test.dir/test/LogRecord_test.cpp.o.d"
   "LogRecord_test"

@@ -41,22 +41,29 @@ public:
     Stat Statement();
     void Merge();
     void Fold(FoldFn fn);
-    std::vector<std::vector<byte>> ListKey();
-
-    std::string getMergePath();
     void Sync();
     void Close();
-    inline auto getSeqNo() { return seqNo.load(); }
+
+    std::vector<std::string> ListKey();
+
     std::vector<byte> Get(const std::vector<byte> &key);
+    std::string Get(const std::string& key);
+
+    void Put(const std::string& key, const std::string& value);
     void Put(const std::vector<byte> &key, const std::vector<byte> &value);
+
     void Delete(const std::vector<byte> &key);
+    void Delete(const std::string& key);
 
     std::unique_ptr<Iterator> NewIterator(IteratorOptions option);
     std::unique_ptr<WriteBatch> NewWriteBatch(WriteBatchOptions option);
 
-    std::optional<LogRecord> ReadLogRecord(int64 offset, std::shared_ptr<DataFile> datafile);
+private:
+    std::string getMergePath();
+    inline auto getSeqNo() { return seqNo.load(); }
+    std::optional<LogRecord> ReadLogRecord(int64 offset, const std::shared_ptr<DataFile>& datafile);
     LogRecordPos AppendLogRecord(LogRecord& logRecord);
-    void WriteHintRecord(std::shared_ptr<DataFile> datafile, const std::vector<byte> &key, LogRecordPos pos);
+    void WriteHintRecord(const std::shared_ptr<DataFile>& datafile, const std::vector<byte> &key, LogRecordPos pos);
     std::vector<byte> GetValueByPosition(const LogRecordPos &pos);
     void SetActiveDataFile();
     void CheckOptions(const Options &option);
@@ -79,5 +86,6 @@ private:
     int fileLockFd;
     uint bytesWrite;
     int reclaimableSize;
+    friend class Iterator;
     friend class WriteBatch;
 };

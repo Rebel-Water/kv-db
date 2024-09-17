@@ -7,11 +7,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_BUILD_TYPE "Debug")
 
+
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+
 find_package(ZLIB REQUIRED)
+find_package(benchmark REQUIRED)
 
 # Include project headers
 include_directories(include)
 
+# set(BENCHMARK_USE_BUNDLED_GTEST OFF)
+# set(BENCHMARK_ENABLE_GTEST_TESTS OFF)
 # Fetch and set up GoogleTest
 include(FetchContent)
 FetchContent_Declare(
@@ -33,15 +40,20 @@ function(add_gtest test_name)
   gtest_discover_tests(${test_name})
 endfunction()
 
-# add_executable(main src/DB.cpp src/FileIO.cpp src/BTree.cpp main.cpp)
-# target_link_libraries(main ZLIB::ZLIB)
 
 # Add tests
-add_gtest(SkipList_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/SkipList.cpp test/SkipList_test.cpp)
-add_gtest(BTree_test src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/BTree.cpp test/BTree_test.cpp)
-add_gtest(FileIO_test src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/FileIO.cpp test/FileIO_test.cpp)
-add_gtest(Mmap_test src/DataFile.cpp src/Code.cpp src/Mmap.cpp src/FileIO.cpp test/Mmap_test.cpp)
-add_gtest(DataFile_test src/DataFile.cpp src/Code.cpp src/Batch.cpp src/BTree.cpp src/Mmap.cpp src/FileIO.cpp src/DB.cpp test/DataFile_test.cpp)
-add_gtest(LogRecord_test src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/LogRecord_test.cpp)
-add_gtest(DB_test src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/DB_test.cpp)
-add_gtest(Batch_test src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/BTree.cpp src/FileIO.cpp test/Batch_test.cpp)
+# add_gtest(SkipList_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/SkipList.cpp test/SkipList_test.cpp)
+# add_gtest(BTree_test src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/BTree.cpp test/BTree_test.cpp)
+# add_gtest(FileIO_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/FileIO.cpp test/FileIO_test.cpp src/SkipList.cpp)
+# add_gtest(Mmap_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Mmap.cpp src/FileIO.cpp test/Mmap_test.cpp src/SkipList.cpp)
+# add_gtest(DataFile_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/BTree.cpp src/Mmap.cpp src/FileIO.cpp src/DB.cpp test/DataFile_test.cpp src/SkipList.cpp)
+# add_gtest(LogRecord_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/LogRecord_test.cpp src/SkipList.cpp)
+# add_gtest(DB_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/DB_test.cpp src/SkipList.cpp)
+# add_gtest(Batch_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/BTree.cpp src/FileIO.cpp test/Batch_test.cpp src/SkipList.cpp)
+
+add_executable(bench_mark test/Benchmark_test.cpp src/DB.cpp include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp  src/Mmap.cpp src/FileIO.cpp src/BTree.cpp src/SkipList.cpp src/FileIO.cpp)
+target_link_libraries(bench_mark benchmark::benchmark ZLIB::ZLIB)
+
+# add_executable(main main.cpp src/DB.cpp include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp src/SkipList.cpp src/FileIO.cpp)
+# target_link_libraries(main ZLIB::ZLIB)
+
