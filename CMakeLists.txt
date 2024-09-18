@@ -42,17 +42,18 @@ endfunction()
 
 
 # Add tests
-# add_gtest(SkipList_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/SkipList.cpp test/SkipList_test.cpp)
-# add_gtest(BTree_test src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/BTree.cpp test/BTree_test.cpp)
-# add_gtest(FileIO_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/FileIO.cpp test/FileIO_test.cpp src/SkipList.cpp)
-# add_gtest(Mmap_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Mmap.cpp src/FileIO.cpp test/Mmap_test.cpp src/SkipList.cpp)
-# add_gtest(DataFile_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/BTree.cpp src/Mmap.cpp src/FileIO.cpp src/DB.cpp test/DataFile_test.cpp src/SkipList.cpp)
-# add_gtest(LogRecord_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/LogRecord_test.cpp src/SkipList.cpp)
-# add_gtest(DB_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/DB_test.cpp src/SkipList.cpp)
-# add_gtest(Batch_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/BTree.cpp src/FileIO.cpp test/Batch_test.cpp src/SkipList.cpp)
+add_gtest(SkipList_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/SkipList.cpp test/SkipList_test.cpp)
+add_gtest(BTree_test src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/BTree.cpp test/BTree_test.cpp)
+add_gtest(FileIO_test include/lib/skiplist.cpp src/FileIO.cpp src/Mmap.cpp src/DataFile.cpp src/Code.cpp src/FileIO.cpp test/FileIO_test.cpp src/SkipList.cpp)
+add_gtest(Mmap_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Mmap.cpp src/FileIO.cpp test/Mmap_test.cpp src/SkipList.cpp)
+add_gtest(DataFile_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/BTree.cpp src/Mmap.cpp src/FileIO.cpp src/DB.cpp test/DataFile_test.cpp src/SkipList.cpp)
+add_gtest(LogRecord_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/LogRecord_test.cpp src/SkipList.cpp)
+add_gtest(DB_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/DB_test.cpp src/SkipList.cpp)
+add_gtest(Batch_test include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/DB.cpp src/Mmap.cpp src/BTree.cpp src/FileIO.cpp test/Batch_test.cpp src/SkipList.cpp)
 
-add_executable(bench_mark test/Benchmark_test.cpp src/DB.cpp include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp  src/Mmap.cpp src/FileIO.cpp src/BTree.cpp src/SkipList.cpp src/FileIO.cpp)
-target_link_libraries(bench_mark benchmark::benchmark ZLIB::ZLIB)
+add_gtest(redis_type_test src/redis/types.cpp test/redis_type_test.cpp include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp src/DB.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp test/DB_test.cpp src/SkipList.cpp)
+# add_executable(bench_mark test/Benchmark_test.cpp src/DB.cpp include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp  src/Mmap.cpp src/FileIO.cpp src/BTree.cpp src/SkipList.cpp src/FileIO.cpp)
+# target_link_libraries(bench_mark benchmark::benchmark ZLIB::ZLIB)
 
 # add_executable(main main.cpp src/DB.cpp include/lib/skiplist.cpp src/DataFile.cpp src/Code.cpp src/Batch.cpp src/Iterator.cpp src/Mmap.cpp src/FileIO.cpp src/BTree.cpp src/SkipList.cpp src/FileIO.cpp)
 # target_link_libraries(main ZLIB::ZLIB)
