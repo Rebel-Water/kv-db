@@ -83,24 +83,38 @@ CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
-CMakeFiles/main.dir/src/DB.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/DB.cpp.o: ../src/DB.cpp
-CMakeFiles/main.dir/src/DB.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/DB.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/DB.cpp.o -MF CMakeFiles/main.dir/src/DB.cpp.o.d -o CMakeFiles/main.dir/src/DB.cpp.o -c /home/ace/kv/src/DB.cpp
+CMakeFiles/main.dir/src/redis/metadata.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/redis/metadata.cpp.o: ../src/redis/metadata.cpp
+CMakeFiles/main.dir/src/redis/metadata.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/redis/metadata.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/redis/metadata.cpp.o -MF CMakeFiles/main.dir/src/redis/metadata.cpp.o.d -o CMakeFiles/main.dir/src/redis/metadata.cpp.o -c /home/ace/kv/src/redis/metadata.cpp
 
-CMakeFiles/main.dir/src/DB.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/DB.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/src/DB.cpp > CMakeFiles/main.dir/src/DB.cpp.i
+CMakeFiles/main.dir/src/redis/metadata.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/redis/metadata.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/src/redis/metadata.cpp > CMakeFiles/main.dir/src/redis/metadata.cpp.i
 
-CMakeFiles/main.dir/src/DB.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/DB.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/DB.cpp -o CMakeFiles/main.dir/src/DB.cpp.s
+CMakeFiles/main.dir/src/redis/metadata.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/redis/metadata.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/redis/metadata.cpp -o CMakeFiles/main.dir/src/redis/metadata.cpp.s
+
+CMakeFiles/main.dir/src/redis/types.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/redis/types.cpp.o: ../src/redis/types.cpp
+CMakeFiles/main.dir/src/redis/types.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/redis/types.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/redis/types.cpp.o -MF CMakeFiles/main.dir/src/redis/types.cpp.o.d -o CMakeFiles/main.dir/src/redis/types.cpp.o -c /home/ace/kv/src/redis/types.cpp
+
+CMakeFiles/main.dir/src/redis/types.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/redis/types.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/src/redis/types.cpp > CMakeFiles/main.dir/src/redis/types.cpp.i
+
+CMakeFiles/main.dir/src/redis/types.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/redis/types.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/redis/types.cpp -o CMakeFiles/main.dir/src/redis/types.cpp.s
 
 CMakeFiles/main.dir/include/lib/skiplist.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/include/lib/skiplist.cpp.o: ../include/lib/skiplist.cpp
 CMakeFiles/main.dir/include/lib/skiplist.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/include/lib/skiplist.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/include/lib/skiplist.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/include/lib/skiplist.cpp.o -MF CMakeFiles/main.dir/include/lib/skiplist.cpp.o.d -o CMakeFiles/main.dir/include/lib/skiplist.cpp.o -c /home/ace/kv/include/lib/skiplist.cpp
 
 CMakeFiles/main.dir/include/lib/skiplist.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/main.dir/include/lib/skiplist.cpp.s: cmake_force
 CMakeFiles/main.dir/src/DataFile.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/DataFile.cpp.o: ../src/DataFile.cpp
 CMakeFiles/main.dir/src/DataFile.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/DataFile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/DataFile.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/DataFile.cpp.o -MF CMakeFiles/main.dir/src/DataFile.cpp.o.d -o CMakeFiles/main.dir/src/DataFile.cpp.o -c /home/ace/kv/src/DataFile.cpp
 
 CMakeFiles/main.dir/src/DataFile.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/main.dir/src/DataFile.cpp.s: cmake_force
 CMakeFiles/main.dir/src/Code.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/Code.cpp.o: ../src/Code.cpp
 CMakeFiles/main.dir/src/Code.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/Code.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/Code.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/Code.cpp.o -MF CMakeFiles/main.dir/src/Code.cpp.o.d -o CMakeFiles/main.dir/src/Code.cpp.o -c /home/ace/kv/src/Code.cpp
 
 CMakeFiles/main.dir/src/Code.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/main.dir/src/Code.cpp.s: cmake_force
 CMakeFiles/main.dir/src/Batch.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/Batch.cpp.o: ../src/Batch.cpp
 CMakeFiles/main.dir/src/Batch.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/Batch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/Batch.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/Batch.cpp.o -MF CMakeFiles/main.dir/src/Batch.cpp.o.d -o CMakeFiles/main.dir/src/Batch.cpp.o -c /home/ace/kv/src/Batch.cpp
 
 CMakeFiles/main.dir/src/Batch.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/main.dir/src/Batch.cpp.s: cmake_force
 CMakeFiles/main.dir/src/Iterator.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/Iterator.cpp.o: ../src/Iterator.cpp
 CMakeFiles/main.dir/src/Iterator.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/Iterator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/Iterator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/Iterator.cpp.o -MF CMakeFiles/main.dir/src/Iterator.cpp.o.d -o CMakeFiles/main.dir/src/Iterator.cpp.o -c /home/ace/kv/src/Iterator.cpp
 
 CMakeFiles/main.dir/src/Iterator.cpp.i: cmake_force
@@ -167,10 +181,24 @@ CMakeFiles/main.dir/src/Iterator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/Iterator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/Iterator.cpp -o CMakeFiles/main.dir/src/Iterator.cpp.s
 
+CMakeFiles/main.dir/src/DB.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/DB.cpp.o: ../src/DB.cpp
+CMakeFiles/main.dir/src/DB.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/DB.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/DB.cpp.o -MF CMakeFiles/main.dir/src/DB.cpp.o.d -o CMakeFiles/main.dir/src/DB.cpp.o -c /home/ace/kv/src/DB.cpp
+
+CMakeFiles/main.dir/src/DB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/DB.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/src/DB.cpp > CMakeFiles/main.dir/src/DB.cpp.i
+
+CMakeFiles/main.dir/src/DB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/DB.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/DB.cpp -o CMakeFiles/main.dir/src/DB.cpp.s
+
 CMakeFiles/main.dir/src/Mmap.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/Mmap.cpp.o: ../src/Mmap.cpp
 CMakeFiles/main.dir/src/Mmap.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/Mmap.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/Mmap.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/Mmap.cpp.o -MF CMakeFiles/main.dir/src/Mmap.cpp.o.d -o CMakeFiles/main.dir/src/Mmap.cpp.o -c /home/ace/kv/src/Mmap.cpp
 
 CMakeFiles/main.dir/src/Mmap.cpp.i: cmake_force
@@ -184,7 +212,7 @@ CMakeFiles/main.dir/src/Mmap.cpp.s: cmake_force
 CMakeFiles/main.dir/src/FileIO.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/FileIO.cpp.o: ../src/FileIO.cpp
 CMakeFiles/main.dir/src/FileIO.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/FileIO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/src/FileIO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/FileIO.cpp.o -MF CMakeFiles/main.dir/src/FileIO.cpp.o.d -o CMakeFiles/main.dir/src/FileIO.cpp.o -c /home/ace/kv/src/FileIO.cpp
 
 CMakeFiles/main.dir/src/FileIO.cpp.i: cmake_force
@@ -198,7 +226,7 @@ CMakeFiles/main.dir/src/FileIO.cpp.s: cmake_force
 CMakeFiles/main.dir/src/BTree.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/BTree.cpp.o: ../src/BTree.cpp
 CMakeFiles/main.dir/src/BTree.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/src/BTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/src/BTree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/BTree.cpp.o -MF CMakeFiles/main.dir/src/BTree.cpp.o.d -o CMakeFiles/main.dir/src/BTree.cpp.o -c /home/ace/kv/src/BTree.cpp
 
 CMakeFiles/main.dir/src/BTree.cpp.i: cmake_force
@@ -212,7 +240,7 @@ CMakeFiles/main.dir/src/BTree.cpp.s: cmake_force
 CMakeFiles/main.dir/src/SkipList.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/SkipList.cpp.o: ../src/SkipList.cpp
 CMakeFiles/main.dir/src/SkipList.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/src/SkipList.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/src/SkipList.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/SkipList.cpp.o -MF CMakeFiles/main.dir/src/SkipList.cpp.o.d -o CMakeFiles/main.dir/src/SkipList.cpp.o -c /home/ace/kv/src/SkipList.cpp
 
 CMakeFiles/main.dir/src/SkipList.cpp.i: cmake_force
@@ -226,12 +254,14 @@ CMakeFiles/main.dir/src/SkipList.cpp.s: cmake_force
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
-"CMakeFiles/main.dir/src/DB.cpp.o" \
+"CMakeFiles/main.dir/src/redis/metadata.cpp.o" \
+"CMakeFiles/main.dir/src/redis/types.cpp.o" \
 "CMakeFiles/main.dir/include/lib/skiplist.cpp.o" \
 "CMakeFiles/main.dir/src/DataFile.cpp.o" \
 "CMakeFiles/main.dir/src/Code.cpp.o" \
 "CMakeFiles/main.dir/src/Batch.cpp.o" \
 "CMakeFiles/main.dir/src/Iterator.cpp.o" \
+"CMakeFiles/main.dir/src/DB.cpp.o" \
 "CMakeFiles/main.dir/src/Mmap.cpp.o" \
 "CMakeFiles/main.dir/src/FileIO.cpp.o" \
 "CMakeFiles/main.dir/src/BTree.cpp.o" \
@@ -241,12 +271,14 @@ main_OBJECTS = \
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/main.cpp.o
-main: CMakeFiles/main.dir/src/DB.cpp.o
+main: CMakeFiles/main.dir/src/redis/metadata.cpp.o
+main: CMakeFiles/main.dir/src/redis/types.cpp.o
 main: CMakeFiles/main.dir/include/lib/skiplist.cpp.o
 main: CMakeFiles/main.dir/src/DataFile.cpp.o
 main: CMakeFiles/main.dir/src/Code.cpp.o
 main: CMakeFiles/main.dir/src/Batch.cpp.o
 main: CMakeFiles/main.dir/src/Iterator.cpp.o
+main: CMakeFiles/main.dir/src/DB.cpp.o
 main: CMakeFiles/main.dir/src/Mmap.cpp.o
 main: CMakeFiles/main.dir/src/FileIO.cpp.o
 main: CMakeFiles/main.dir/src/BTree.cpp.o
@@ -254,7 +286,7 @@ main: CMakeFiles/main.dir/src/SkipList.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/lib/x86_64-linux-gnu/libz.so
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

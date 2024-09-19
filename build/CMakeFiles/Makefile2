@@ -367,12 +367,12 @@ CMakeFiles/redis_type_test.dir/all: _deps/googletest-build/googletest/CMakeFiles
 CMakeFiles/redis_type_test.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/redis_type_test.dir/build.make CMakeFiles/redis_type_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/redis_type_test.dir/build.make CMakeFiles/redis_type_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=85,86,87,88,89,90,91,92,93,94,95,96,97,98 "Built target redis_type_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=85,86,87,88,89,90,91,92,93,94,95,96,97,98,99 "Built target redis_type_test"
 .PHONY : CMakeFiles/redis_type_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/redis_type_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ace/kv/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ace/kv/build/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/redis_type_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ace/kv/build/CMakeFiles 0
 .PHONY : CMakeFiles/redis_type_test.dir/rule

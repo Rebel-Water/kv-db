@@ -1,1 +1,1 @@
-40:redis_type_test.set_and_get_test
+43:redis_type_test.hash_type_test

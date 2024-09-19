@@ -94,3 +94,24 @@ int Code::GetVarint(const std::vector<byte> &buf, int index, int *length)
     *length = cnt;
     return val;
 }
+
+int Code::PutUint64(std::vector<byte> &buf, int index, int val)
+{
+    for(int cnt = 0; cnt < 8; cnt++)
+    {
+        buf[index + cnt] = (val & 0xff);
+        val >>= 8;
+    }
+    return sizeof(uint64);
+}
+
+int Code::GetUint64(const std::vector<byte> &buf, int index)
+{
+    int val = 0;
+    for(int cnt = 0; cnt < 8; cnt++)
+    {
+        val <<= 8;
+        val |= buf[index + cnt];
+    }
+    return val;
+}

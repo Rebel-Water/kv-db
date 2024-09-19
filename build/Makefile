@@ -760,6 +760,30 @@ src/SkipList.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/redis_type_test.dir/build.make CMakeFiles/redis_type_test.dir/src/SkipList.cpp.s
 .PHONY : src/SkipList.cpp.s
 
+src/redis/metadata.o: src/redis/metadata.cpp.o
+.PHONY : src/redis/metadata.o
+
+# target to build an object file
+src/redis/metadata.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/redis_type_test.dir/build.make CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o
+.PHONY : src/redis/metadata.cpp.o
+
+src/redis/metadata.i: src/redis/metadata.cpp.i
+.PHONY : src/redis/metadata.i
+
+# target to preprocess a source file
+src/redis/metadata.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/redis_type_test.dir/build.make CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.i
+.PHONY : src/redis/metadata.cpp.i
+
+src/redis/metadata.s: src/redis/metadata.cpp.s
+.PHONY : src/redis/metadata.s
+
+# target to generate assembly for a file
+src/redis/metadata.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/redis_type_test.dir/build.make CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.s
+.PHONY : src/redis/metadata.cpp.s
+
 src/redis/types.o: src/redis/types.cpp.o
 .PHONY : src/redis/types.o
 
@@ -1059,6 +1083,9 @@ help:
 	@echo "... src/SkipList.o"
 	@echo "... src/SkipList.i"
 	@echo "... src/SkipList.s"
+	@echo "... src/redis/metadata.o"
+	@echo "... src/redis/metadata.i"
+	@echo "... src/redis/metadata.s"
 	@echo "... src/redis/types.o"
 	@echo "... src/redis/types.i"
 	@echo "... src/redis/types.s"

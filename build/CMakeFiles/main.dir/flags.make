@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/ace/kv/include
 
-CXX_FLAGS =  -pg -g -std=gnu++17
+CXX_FLAGS = -g -std=gnu++17
 

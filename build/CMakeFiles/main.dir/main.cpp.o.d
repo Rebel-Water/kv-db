@@ -270,4 +270,6 @@ CMakeFiles/main.dir/main.cpp.o: /home/ace/kv/main.cpp \
  /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h \
- /usr/include/c++/11/pstl/glue_numeric_defs.h
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/ace/kv/include/redis/metadata.hpp \
+ /home/ace/kv/include/redis/types.hpp

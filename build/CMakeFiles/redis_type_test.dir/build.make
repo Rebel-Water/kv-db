@@ -69,10 +69,24 @@ include CMakeFiles/redis_type_test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/redis_type_test.dir/flags.make
 
+CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
+CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o: ../src/redis/metadata.cpp
+CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o -MF CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o -c /home/ace/kv/src/redis/metadata.cpp
+
+CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/kv/src/redis/metadata.cpp > CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.i
+
+CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/kv/src/redis/metadata.cpp -o CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.s
+
 CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o: ../src/redis/types.cpp
 CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o -MF CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o -c /home/ace/kv/src/redis/types.cpp
 
 CMakeFiles/redis_type_test.dir/src/redis/types.cpp.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/redis_type_test.dir/src/redis/types.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o: ../test/redis_type_test.cpp
 CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o -MF CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o.d -o CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o -c /home/ace/kv/test/redis_type_test.cpp
 
 CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o: ../include/lib/skiplist.cpp
 CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o -MF CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o.d -o CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o -c /home/ace/kv/include/lib/skiplist.cpp
 
 CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o: ../src/DataFile.cpp
 CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o -MF CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/DataFile.cpp.o -c /home/ace/kv/src/DataFile.cpp
 
 CMakeFiles/redis_type_test.dir/src/DataFile.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/redis_type_test.dir/src/DataFile.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/Code.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/Code.cpp.o: ../src/Code.cpp
 CMakeFiles/redis_type_test.dir/src/Code.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/redis_type_test.dir/src/Code.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/redis_type_test.dir/src/Code.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/Code.cpp.o -MF CMakeFiles/redis_type_test.dir/src/Code.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/Code.cpp.o -c /home/ace/kv/src/Code.cpp
 
 CMakeFiles/redis_type_test.dir/src/Code.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/redis_type_test.dir/src/Code.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/Batch.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/Batch.cpp.o: ../src/Batch.cpp
 CMakeFiles/redis_type_test.dir/src/Batch.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/redis_type_test.dir/src/Batch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/redis_type_test.dir/src/Batch.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/Batch.cpp.o -MF CMakeFiles/redis_type_test.dir/src/Batch.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/Batch.cpp.o -c /home/ace/kv/src/Batch.cpp
 
 CMakeFiles/redis_type_test.dir/src/Batch.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/redis_type_test.dir/src/Batch.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o: ../src/Iterator.cpp
 CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o -MF CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/Iterator.cpp.o -c /home/ace/kv/src/Iterator.cpp
 
 CMakeFiles/redis_type_test.dir/src/Iterator.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/redis_type_test.dir/src/Iterator.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/DB.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/DB.cpp.o: ../src/DB.cpp
 CMakeFiles/redis_type_test.dir/src/DB.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/redis_type_test.dir/src/DB.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/redis_type_test.dir/src/DB.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/DB.cpp.o -MF CMakeFiles/redis_type_test.dir/src/DB.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/DB.cpp.o -c /home/ace/kv/src/DB.cpp
 
 CMakeFiles/redis_type_test.dir/src/DB.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/redis_type_test.dir/src/DB.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o: ../src/Mmap.cpp
 CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o -MF CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o -c /home/ace/kv/src/Mmap.cpp
 
 CMakeFiles/redis_type_test.dir/src/Mmap.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/redis_type_test.dir/src/Mmap.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o: ../src/FileIO.cpp
 CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o -MF CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/FileIO.cpp.o -c /home/ace/kv/src/FileIO.cpp
 
 CMakeFiles/redis_type_test.dir/src/FileIO.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/redis_type_test.dir/src/FileIO.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/BTree.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/BTree.cpp.o: ../src/BTree.cpp
 CMakeFiles/redis_type_test.dir/src/BTree.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/redis_type_test.dir/src/BTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/redis_type_test.dir/src/BTree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/BTree.cpp.o -MF CMakeFiles/redis_type_test.dir/src/BTree.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/BTree.cpp.o -c /home/ace/kv/src/BTree.cpp
 
 CMakeFiles/redis_type_test.dir/src/BTree.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/redis_type_test.dir/src/BTree.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o: ../test/DB_test.cpp
 CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o -MF CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o.d -o CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o -c /home/ace/kv/test/DB_test.cpp
 
 CMakeFiles/redis_type_test.dir/test/DB_test.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/redis_type_test.dir/test/DB_test.cpp.s: cmake_force
 CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o: CMakeFiles/redis_type_test.dir/flags.make
 CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o: ../src/SkipList.cpp
 CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o: CMakeFiles/redis_type_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o -MF CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o.d -o CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o -c /home/ace/kv/src/SkipList.cpp
 
 CMakeFiles/redis_type_test.dir/src/SkipList.cpp.i: cmake_force
@@ -253,6 +267,7 @@ CMakeFiles/redis_type_test.dir/src/SkipList.cpp.s: cmake_force
 
 # Object files for target redis_type_test
 redis_type_test_OBJECTS = \
+"CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o" \
 "CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o" \
 "CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o" \
 "CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o" \
@@ -270,6 +285,7 @@ redis_type_test_OBJECTS = \
 # External object files for target redis_type_test
 redis_type_test_EXTERNAL_OBJECTS =
 
+redis_type_test: CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o
 redis_type_test: CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o
 redis_type_test: CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o
 redis_type_test: CMakeFiles/redis_type_test.dir/include/lib/skiplist.cpp.o
@@ -288,7 +304,7 @@ redis_type_test: lib/libgtest_main.a
 redis_type_test: /usr/lib/x86_64-linux-gnu/libz.so
 redis_type_test: lib/libgtest.a
 redis_type_test: CMakeFiles/redis_type_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable redis_type_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/kv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable redis_type_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/redis_type_test.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -D TEST_TARGET=redis_type_test -D TEST_EXECUTABLE=/home/ace/kv/build/redis_type_test -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/ace/kv/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=redis_type_test_TESTS -D CTEST_FILE=/home/ace/kv/build/redis_type_test[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.22/Modules/GoogleTestAddTests.cmake
 

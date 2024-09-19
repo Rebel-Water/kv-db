@@ -21,6 +21,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/Mmap.cpp.o.d"
   "CMakeFiles/main.dir/src/SkipList.cpp.o"
   "CMakeFiles/main.dir/src/SkipList.cpp.o.d"
+  "CMakeFiles/main.dir/src/redis/metadata.cpp.o"
+  "CMakeFiles/main.dir/src/redis/metadata.cpp.o.d"
+  "CMakeFiles/main.dir/src/redis/types.cpp.o"
+  "CMakeFiles/main.dir/src/redis/types.cpp.o.d"
   "main"
   "main.pdb"
 )

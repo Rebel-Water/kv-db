@@ -303,4 +303,5 @@ CMakeFiles/redis_type_test.dir/test/redis_type_test.cpp.o: \
  /home/ace/kv/googletest-03597a01ee50ed33e9dfd640b249b4be3799d395/googletest/include/gtest/gtest_prod.h \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h \
- /home/ace/kv/include/redis/types.hpp
+ /home/ace/kv/include/redis/types.hpp \
+ /home/ace/kv/include/redis/metadata.hpp

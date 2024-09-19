@@ -6,7 +6,8 @@
 #include <exception>
 #include <thread>
 #include "redis/types.hpp"
-TEST(redis_type_test, set_and_get_test) {
+TEST(redis_type_test, set_and_get_test)
+{
     Options opt;
     opt.DirPath = "/home/ace/kv/redis";
     auto redis = RedisDataStructure(opt);
@@ -22,7 +23,8 @@ TEST(redis_type_test, set_and_get_test) {
     std::filesystem::remove_all(opt.DirPath);
 }
 
-TEST(redis_type_test, del_test) {
+TEST(redis_type_test, del_test)
+{
     Options opt;
     opt.DirPath = "/home/ace/kv/redis";
     auto redis = RedisDataStructure(opt);
@@ -32,12 +34,50 @@ TEST(redis_type_test, del_test) {
     std::filesystem::remove_all(opt.DirPath);
 }
 
-TEST(redis_type_test, type_test) {
+TEST(redis_type_test, string_type_test)
+{
     Options opt;
     opt.DirPath = "/home/ace/kv/redis";
     auto redis = RedisDataStructure(opt);
     redis.Set(Util::ToByteVector("tiktok"), std::chrono::seconds(0), Util::ToByteVector("china"));
     auto type = redis.Type(Util::ToByteVector("tiktok"));
     EXPECT_EQ(type, RedisDataType::String);
+    std::filesystem::remove_all(opt.DirPath);
+}
+
+TEST(redis_type_test, hash_type_test)
+{
+    Options opt;
+    opt.DirPath = "/home/ace/kv/redis";
+    auto redis = RedisDataStructure(opt);
+    auto flag = redis.HSet(Util::ToByteVector("key1"), Util::ToByteVector("field1"), Util::ToByteVector("value1"));
+    EXPECT_EQ(flag, true);
+    flag = redis.HSet(Util::ToByteVector("key1"), Util::ToByteVector("field1"), Util::ToByteVector("value2"));
+    EXPECT_EQ(flag, false);
+    flag = redis.HSet(Util::ToByteVector("key1"), Util::ToByteVector("field2"), Util::ToByteVector("value3"));
+    EXPECT_EQ(flag, true);
+
+    auto val1 = redis.HGet(Util::ToByteVector("key1"), Util::ToByteVector("field1"));
+    EXPECT_EQ(val1, Util::ToByteVector("value2"));
+    auto val2 = redis.HGet(Util::ToByteVector("key1"), Util::ToByteVector("field2"));
+    EXPECT_EQ(val2, Util::ToByteVector("value3"));
+
+    flag = redis.HDel(Util::ToByteVector("key1"), Util::ToByteVector("field1"));
+    EXPECT_EQ(flag, true);
+    flag = redis.HDel(Util::ToByteVector("key1"), Util::ToByteVector("field2"));
+    EXPECT_EQ(flag, true);
+        flag = redis.HDel(Util::ToByteVector("key1"), Util::ToByteVector("field2"));
+        EXPECT_EQ(flag, false);
+
+    try
+    {
+        val1 = redis.HGet(Util::ToByteVector("key1"), Util::ToByteVector("field1"));
+        EXPECT_NE(1, 1);
+    }
+    catch (const std::exception &e)
+    {
+        EXPECT_EQ(1, 1);
+    }
+
     std::filesystem::remove_all(opt.DirPath);
 }

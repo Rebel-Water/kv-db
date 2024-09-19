@@ -19,4 +19,7 @@ public:
     static int PutVarint(std::vector<byte> &buf, int index, int val);
 
     static int GetVarint(const std::vector<byte> &buf, int index, int* length);
+
+    static int PutUint64(std::vector<byte> &buf, int index, int val);
+    static int GetUint64(const std::vector<byte> &buf, int index);
 };

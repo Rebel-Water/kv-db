@@ -1,0 +1,5 @@
+if(EXISTS "/home/ace/kv/build/main.cpp[1]_tests.cmake")
+  include("/home/ace/kv/build/main.cpp[1]_tests.cmake")
+else()
+  add_test(main.cpp_NOT_BUILT main.cpp_NOT_BUILT)
+endif()

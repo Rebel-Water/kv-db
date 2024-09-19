@@ -155,7 +155,7 @@ CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/ace/kv/include/Options.hpp /home/ace/kv/include/Code.hpp \
+ /home/ace/kv/include/redis/metadata.hpp /home/ace/kv/include/Code.hpp \
  /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
  /home/ace/kv/include/LogRecord.hpp /usr/include/zlib.h \
  /usr/include/zconf.h /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
@@ -172,16 +172,19 @@ CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h /usr/include/c++/11/stdexcept \
- /home/ace/kv/include/DB.hpp /usr/include/c++/11/shared_mutex \
- /usr/include/c++/11/bits/std_mutex.h /usr/include/c++/11/system_error \
+ /usr/include/linux/close_range.h /home/ace/kv/include/Options.hpp \
+ /home/ace/kv/include/Batch.hpp /usr/include/c++/11/mutex \
+ /usr/include/c++/11/system_error \
  /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
- /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/stdexcept /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/unordered_map \
+ /usr/include/c++/11/bits/hashtable.h \
  /usr/include/c++/11/bits/hashtable_policy.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
- /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/functional \
- /usr/include/c++/11/bits/std_function.h \
+ /usr/include/c++/11/bits/erase_if.h /home/ace/kv/include/Util.hpp \
+ /home/ace/kv/include/DB.hpp /usr/include/c++/11/shared_mutex \
+ /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
  /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \

@@ -19,6 +19,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ace/kv/src/Iterator.cpp" "CMakeFiles/main.dir/src/Iterator.cpp.o" "gcc" "CMakeFiles/main.dir/src/Iterator.cpp.o.d"
   "/home/ace/kv/src/Mmap.cpp" "CMakeFiles/main.dir/src/Mmap.cpp.o" "gcc" "CMakeFiles/main.dir/src/Mmap.cpp.o.d"
   "/home/ace/kv/src/SkipList.cpp" "CMakeFiles/main.dir/src/SkipList.cpp.o" "gcc" "CMakeFiles/main.dir/src/SkipList.cpp.o.d"
+  "/home/ace/kv/src/redis/metadata.cpp" "CMakeFiles/main.dir/src/redis/metadata.cpp.o" "gcc" "CMakeFiles/main.dir/src/redis/metadata.cpp.o.d"
+  "/home/ace/kv/src/redis/types.cpp" "CMakeFiles/main.dir/src/redis/types.cpp.o" "gcc" "CMakeFiles/main.dir/src/redis/types.cpp.o.d"
   )
 
 # Targets to which this target links.

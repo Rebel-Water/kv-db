@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/redis_type_test.dir/src/Mmap.cpp.o.d"
   "CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o"
   "CMakeFiles/redis_type_test.dir/src/SkipList.cpp.o.d"
+  "CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o"
+  "CMakeFiles/redis_type_test.dir/src/redis/metadata.cpp.o.d"
   "CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o"
   "CMakeFiles/redis_type_test.dir/src/redis/types.cpp.o.d"
   "CMakeFiles/redis_type_test.dir/test/DB_test.cpp.o"
