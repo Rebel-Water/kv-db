@@ -1,6 +1,9 @@
 #include "Code.hpp"
 #include <optional>
 #include <memory>
+#include <sstream>
+#include <iomanip>
+#include <limits>
 
 std::vector<byte> Code::EncodeLogRecord(LogRecord& logRecord)
 {
@@ -115,3 +118,17 @@ int Code::GetUint64(const std::vector<byte> &buf, int index)
     }
     return val;
 }
+
+double Code::FloatFromBytes(const std::vector<byte>& val) {
+    if(val.size() == 0) return -1;
+    std::string str(val.begin(), val.end());
+    return std::stod(str);  // Convert string to double
+}
+
+std::vector<byte> Code::Float64ToBytes(double val) {
+    std::ostringstream oss;
+    oss << std::setprecision(std::numeric_limits<double>::digits10 + 1) << val;
+    std::string str = oss.str();
+    return std::vector<byte>(str.begin(), str.end());
+}
+

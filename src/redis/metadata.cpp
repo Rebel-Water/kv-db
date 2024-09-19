@@ -9,9 +9,9 @@ std::vector<byte> metadata::encode()
     auto buf = std::vector<byte>(size);
     buf[0] = static_cast<byte>(dataType);
     int index = 1;
-    index += Code::PutVarint(buf, index, expire);
-    index += Code::PutVarint(buf, index, version);
-    index += Code::PutVarint(buf, index, size);
+    index += Code::PutVarint(buf, index, this->expire);
+    index += Code::PutVarint(buf, index, this->version);
+    index += Code::PutVarint(buf, index, this->size);
 
     if (dataType == RedisDataType::List)
     {

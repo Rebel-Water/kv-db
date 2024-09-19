@@ -12,6 +12,74 @@ RedisDataStructure::RedisDataStructure(const Options &opt)
     db = std::make_unique<DB>(opt);
 }
 
+bool RedisDataStructure::ZAdd(const std::vector<byte> &key, double score, const std::vector<byte> &member)
+{
+    auto meta = findMetaData(key, RedisDataType::ZSet);
+    auto zk = zsetInternalKey(key, meta.version, member, score);
+    int exist = true;
+    std::vector<byte> value = {};
+    try
+    {
+        value = db->Get(zk.encodeWithMember());
+    }
+    catch (...)
+    {
+        exist = false;
+    }
+    if(exist) {
+        if(score == Code::FloatFromBytes(value))
+            return false;
+    }
+
+    WriteBatchOptions opt;
+    auto wb = db->NewWriteBatch(opt);
+    if(!exist) {
+        meta.size++;
+        wb->Put(key, meta.encode());
+    } else {
+        auto oldKey = zsetInternalKey(key, meta.version, member, Code::FloatFromBytes(value));
+        wb->Delete(oldKey.encodeWithScore());
+    }
+    wb->Put(zk.encodeWithMember(), Code::Float64ToBytes(score));
+    wb->Put(zk.encodeWithScore(), {}); // why modify
+    try {
+        wb->Commit();
+    } catch(...) {
+        return false;
+    }
+
+    return !exist;
+}
+
+double RedisDataStructure::ZScore(const std::vector<byte> &key, const std::vector<byte> &member)
+{
+    auto meta = findMetaData(key, RedisDataType::ZSet);
+    if(meta.size == 0)
+        throw std::runtime_error("RedisDataStructure::ZScore No meta in it.");
+    auto zk = zsetInternalKey(key, meta.version, member, 0);
+    auto value = db->Get(zk.encodeWithMember());
+    return Code::FloatFromBytes(value);
+}
+uint32 RedisDataStructure::LPush(const std::vector<byte> &key, const std::vector<byte> &element)
+{
+    return pushInner(key, element, true);
+}
+
+uint32 RedisDataStructure::RPush(const std::vector<byte> &key, const std::vector<byte> &element)
+{
+    return pushInner(key, element, true);
+}
+
+std::vector<byte> RedisDataStructure::LPop(const std::vector<byte> &key)
+{
+    return popInner(key, true);
+}
+
+std::vector<byte> RedisDataStructure::RPop(const std::vector<byte> &key)
+{
+    return popInner(key, false);
+}
+
 void RedisDataStructure::Set(const std::vector<byte> &key,
                              std::chrono::nanoseconds ttl,
                              const std::vector<byte> &value)
@@ -53,7 +121,7 @@ bool RedisDataStructure::HSet(const std::vector<byte> &key, const std::vector<by
     {
         db->Get(encKey);
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
         exist = false;
     }
@@ -69,7 +137,7 @@ bool RedisDataStructure::HSet(const std::vector<byte> &key, const std::vector<by
         wb->Put(encKey, value);
         wb->Commit();
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
         return false;
     }
@@ -81,7 +149,7 @@ RedisDataStructure::HGet(const std::vector<byte> &key, const std::vector<byte> &
 {
     auto meta = findMetaData(key, RedisDataType::Hash);
     if (meta.size == 0)
-        return {};
+        throw std::runtime_error("RedisDataStructure::HGet Cannot Find Meta");
 
     auto hk = hashInternalKey(key, meta.version, field);
 
@@ -101,7 +169,7 @@ bool RedisDataStructure::HDel(const std::vector<byte> &key, const std::vector<by
     {
         db->Get(encKey);
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
         exist = false;
     }
@@ -117,7 +185,7 @@ bool RedisDataStructure::HDel(const std::vector<byte> &key, const std::vector<by
         {
             wb->Commit();
         }
-        catch (const std::exception& e)
+        catch (const std::exception &e)
         {
             return false;
         }
@@ -133,20 +201,18 @@ std::vector<byte> RedisDataStructure::Get(const std::vector<byte> &key)
     {
         encValue = db->Get(key);
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
-        std::cerr << "RedisDataStructure::Get Key is Not Found. Message: " << e.what() << std::endl;
-        return {};
+        throw std::runtime_error("RedisDataStructure::Get Key is Not Found.");
     }
     if (encValue.empty())
-        return {};
+        throw std::runtime_error("RedisDataStructure::Get EncodeValue is Empty.");
 
     // Decode dataType from encValue
     uint8_t dataType = encValue[0];
     if (dataType != static_cast<uint8_t>(RedisDataType::String))
     { // Assuming 'S' is the String type
-        std::cerr << "Error: Wrong type operation" << std::endl;
-        return {};
+        throw std::runtime_error("Error: Expect Redis-String Type");
     }
 
     int index = 1;
@@ -161,7 +227,7 @@ std::vector<byte> RedisDataStructure::Get(const std::vector<byte> &key)
     auto now = std::chrono::system_clock::now().time_since_epoch();
     int64_t currentNanoTime = std::chrono::duration_cast<std::chrono::seconds>(now).count();
     if (expire > 0 && expire <= currentNanoTime)
-        return {};
+        throw std::runtime_error("RedisDataStructure::Get Key is Expired.");
 
     // Return the actual value (rest of encValue starting at index)
     std::vector<uint8_t> result(encValue.begin() + index, encValue.end());
@@ -185,8 +251,65 @@ RedisDataType RedisDataStructure::Type(const std::vector<byte> &key)
         return RedisDataType::NIL;
     }
 }
+uint32 RedisDataStructure::pushInner(const std::vector<byte> &key, const std::vector<byte> &element, bool isLeft)
+{
+    auto meta = findMetaData(key, RedisDataType::List);
+    auto listkey = listInternalKey(key, meta.version, 0);
+    if (isLeft)
+        listkey.index = meta.head - 1;
+    else
+        listkey.index = meta.tail;
+    WriteBatchOptions opt;
+    auto wb = db->NewWriteBatch(opt);
+    meta.size++;
+    if (isLeft)
+        meta.head--;
+    else
+        meta.tail++;
+    wb->Put(key, meta.encode());
+    wb->Put(listkey.encode(), element);
+    try
+    {
+        wb->Commit();
+    }
+    catch (const std::exception &e)
+    {
+        return 0;
+    }
+    return meta.size;
+}
+
+std::vector<byte> RedisDataStructure::popInner(const std::vector<byte> &key, bool isLeft)
+{
+    auto meta = findMetaData(key, RedisDataType::List);
+    if (meta.size == 0)
+        throw std::runtime_error("RedisDataStructure::popInner Cannot Find Meta");
+    auto listkey = listInternalKey(key, meta.version, 0);
+    if (isLeft)
+        listkey.index = meta.head;
+    else
+        listkey.index = meta.tail - 1;
+
+    std::vector<byte> element;
+    try
+    {
+        element = db->Get(listkey.encode());
+    }
+    catch (const std::exception &e)
+    {
+        throw std::runtime_error("RedisDataStructure::popInner Cannot Find ListKey");
+    }
+    meta.size--;
+    if (isLeft)
+        meta.head++;
+    else
+        meta.tail--;
+    db->Put(key, meta.encode());
+    return element;
+}
 
 metadata RedisDataStructure::findMetaData(const std::vector<byte> &key, RedisDataType datatype)
+
 {
     int exist = true;
     std::vector<byte> metabuf;
@@ -202,7 +325,7 @@ metadata RedisDataStructure::findMetaData(const std::vector<byte> &key, RedisDat
         if (meta.expire != 0 && meta.expire <= currentNanoTime)
             exist = false;
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
         exist = false;
     }

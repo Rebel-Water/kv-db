@@ -12,14 +12,22 @@
 #include "redis/types.hpp"
 
 int main() {
-    Options opt;
-    std::filesystem::remove_all("redis/");
+
+        Options opt;
     opt.DirPath = "/home/ace/kv/redis";
     auto redis = RedisDataStructure(opt);
-    auto flag = redis.HSet(Util::ToByteVector("key1"), Util::ToByteVector("field1"), Util::ToByteVector("value1"));
-    std::cout<<flag<<std::endl;
-    flag = redis.HSet(Util::ToByteVector("key1"), Util::ToByteVector("field1"), Util::ToByteVector("value1"));
-    std::cout<<flag<<std::endl;
-    flag = redis.HSet(Util::ToByteVector("key1"), Util::ToByteVector("field2"), Util::ToByteVector("value1"));
-    std::cout<<flag<<std::endl;
+
+    auto ok = redis.ZAdd(Util::ToByteVector("key1"), 113, Util::ToByteVector("value1"));
+    std::cout<<ok<<" ";
+    ok = redis.ZAdd(Util::ToByteVector("key1"), 333, Util::ToByteVector("value1"));
+    std::cout<<ok<<" ";
+    ok = redis.ZAdd(Util::ToByteVector("key1"), 98, Util::ToByteVector("value2"));
+    std::cout<<ok<<" ";
+    // auto score = redis.ZScore(Util::ToByteVector("key1"), Util::ToByteVector("value1"));
+    // EXPECT_EQ(score, 333);
+    // score = redis.ZScore(Util::ToByteVector("key1"), Util::ToByteVector("value2"));
+    // EXPECT_EQ(score, 98);
+
+       std::filesystem::remove_all(opt.DirPath);
 }
+

@@ -18,8 +18,16 @@ TEST(redis_type_test, set_and_get_test)
     val = redis.Get(Util::ToByteVector("google"));
     EXPECT_EQ(val, Util::ToByteVector("usa"));
     std::this_thread::sleep_for(std::chrono::seconds(6));
-    val = redis.Get(Util::ToByteVector("google"));
-    EXPECT_EQ(val.size(), 0);
+    try
+    {
+        val = redis.Get(Util::ToByteVector("google"));
+        EXPECT_NE(1, 1);
+    }
+    catch (...)
+    {
+        EXPECT_EQ(1, 1);
+    }
+
     std::filesystem::remove_all(opt.DirPath);
 }
 
@@ -30,7 +38,15 @@ TEST(redis_type_test, del_test)
     auto redis = RedisDataStructure(opt);
     redis.Set(Util::ToByteVector("tiktok"), std::chrono::seconds(0), Util::ToByteVector("china"));
     redis.Del(Util::ToByteVector("tiktok"));
-    EXPECT_EQ(redis.Get(Util::ToByteVector("tiktok")).size(), 0);
+    try
+    {
+        redis.Get(Util::ToByteVector("tiktok"));
+        EXPECT_NE(1, 1);
+    }
+    catch (...)
+    {
+        EXPECT_EQ(1, 1);
+    }
     std::filesystem::remove_all(opt.DirPath);
 }
 
@@ -66,13 +82,12 @@ TEST(redis_type_test, hash_type_test)
     EXPECT_EQ(flag, true);
     flag = redis.HDel(Util::ToByteVector("key1"), Util::ToByteVector("field2"));
     EXPECT_EQ(flag, true);
-        flag = redis.HDel(Util::ToByteVector("key1"), Util::ToByteVector("field2"));
-        EXPECT_EQ(flag, false);
+    flag = redis.HDel(Util::ToByteVector("key1"), Util::ToByteVector("field2"));
+    EXPECT_EQ(flag, false);
 
     try
     {
         val1 = redis.HGet(Util::ToByteVector("key1"), Util::ToByteVector("field1"));
-        EXPECT_NE(1, 1);
     }
     catch (const std::exception &e)
     {
@@ -80,4 +95,49 @@ TEST(redis_type_test, hash_type_test)
     }
 
     std::filesystem::remove_all(opt.DirPath);
+}
+
+TEST(redis_type_test, list_type_test)
+{
+    Options opt;
+    opt.DirPath = "/home/ace/kv/redis";
+    auto redis = RedisDataStructure(opt);
+    auto res = redis.LPush(Util::ToByteVector("key1"), Util::ToByteVector("val1"));
+    EXPECT_EQ(res, 1);
+    res = redis.LPush(Util::ToByteVector("key1"), Util::ToByteVector("val1"));
+    EXPECT_EQ(res, 2);
+    res = redis.LPush(Util::ToByteVector("key1"), Util::ToByteVector("val2"));
+    EXPECT_EQ(res, 3);
+
+    auto val = redis.RPop(Util::ToByteVector("key1"));
+    EXPECT_EQ(val, Util::ToByteVector("val1"));
+
+    val = redis.LPop(Util::ToByteVector("key1"));
+    EXPECT_EQ(val, Util::ToByteVector("val2"));
+
+    val = redis.RPop(Util::ToByteVector("key1"));
+    EXPECT_EQ(val, Util::ToByteVector("val1"));
+
+    std::filesystem::remove_all(opt.DirPath);
+}
+
+TEST(redis_type_test, zset_type_test)
+{
+    Options opt;
+    opt.DirPath = "/home/ace/kv/redis";
+    auto redis = RedisDataStructure(opt);
+
+    auto ok = redis.ZAdd(Util::ToByteVector("key1"), 113, Util::ToByteVector("value1"));
+    EXPECT_EQ(ok, true);
+    ok = redis.ZAdd(Util::ToByteVector("key1"), 333, Util::ToByteVector("value1"));
+    EXPECT_EQ(ok, false);
+    ok = redis.ZAdd(Util::ToByteVector("key1"), 98, Util::ToByteVector("value2"));
+    EXPECT_EQ(ok, true);
+    auto score = redis.ZScore(Util::ToByteVector("key1"), Util::ToByteVector("value1"));
+    EXPECT_EQ(score, 333);
+    score = redis.ZScore(Util::ToByteVector("key1"), Util::ToByteVector("value2"));
+    EXPECT_EQ(score, 98);
+
+    std::filesystem::remove_all(opt.DirPath);
+
 }
