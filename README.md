@@ -1,5 +1,8 @@
 # kv-db
-apt install build-essential
-apt install cmake
 apt install zlib1g-dev
-grep -a -o 'test' 000000000.data | wc -l
+https://github.com/nlohmann/json
+https://github.com/Kronuz/cpp-btree
+https://github.com/google/benchmark
+https://github.com/greensky00/skiplist
+https://github.com/google/googletest
+https://github.com/yhirose/cpp-httplib
