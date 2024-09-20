@@ -1,4 +1,4 @@
-# The KV Storage Engine Based on Bitcask - C++ Implementation
+## The KV Storage Engine Based on Bitcask - C++ Implementation
 
 A key-value storage engine built on the Bitcask model and implemented in modern C++. This database is compatible with Redis data structures and provides an HTTP interaction interface. It boasts high performance, characterized by high write throughput and low read amplification. Compared with Redis, which is memory-based, this database implements persistent storage, significantly reducing memory usage while offering various indexing structures for efficient data retrieval.
 
