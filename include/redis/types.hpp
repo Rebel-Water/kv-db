@@ -23,10 +23,12 @@ class RedisDataStructure
 public:
     RedisDataStructure(const Options &);
 
+    bool SAdd(const std::vector<byte>& key, const std::vector<byte>& member);
+    bool SIsMember(const std::vector<byte>& key, const std::vector<byte>& member);
+    bool SRem(const std::vector<byte>& key, const std::vector<byte>& member);
+
     bool ZAdd(const std::vector<byte>& key, double score, const std::vector<byte>& member);
     double ZScore(const std::vector<byte>& key, const std::vector<byte>& member);
-
-
 
     uint32 LPush(const std::vector<byte>& key, const std::vector<byte>& element);
     uint32 RPush(const std::vector<byte>& key, const std::vector<byte>& element);

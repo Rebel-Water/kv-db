@@ -7,18 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_BUILD_TYPE "Debug")
 
-
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
-# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
-
 find_package(ZLIB REQUIRED)
 find_package(benchmark REQUIRED)
 
 # Include project headers
 include_directories(include)
 
-# set(BENCHMARK_USE_BUNDLED_GTEST OFF)
-# set(BENCHMARK_ENABLE_GTEST_TESTS OFF)
 # Fetch and set up GoogleTest
 include(FetchContent)
 FetchContent_Declare(

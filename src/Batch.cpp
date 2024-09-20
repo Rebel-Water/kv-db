@@ -49,6 +49,16 @@ void WriteBatch::Delete(const std::vector<byte> &key)
     this->pendingWrites[key_str] = std::make_unique<LogRecord>(key, LogRecordType::LogRecordDeleted);
 }
 
+void WriteBatch::Put(const std::string &key, const std::string &value)
+{
+    this->Put(Util::ToByteVector(key), Util::ToByteVector(value));
+}
+
+void WriteBatch::Delete(const std::string &key)
+{
+    this->Delete(Util::ToByteVector(key));
+}
+
 void WriteBatch::Commit()
 {
     std::lock_guard lock(this->mutex);

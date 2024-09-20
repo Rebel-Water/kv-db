@@ -23,6 +23,9 @@ public:
 
     void Put(const std::vector<byte> &key, const std::vector<byte> &value);
     void Delete(const std::vector<byte> &key);
+
+    void Put(const std::string &key, const std::string &value);
+    void Delete(const std::string &key);
     void Commit();
 
     #ifdef GTEST

@@ -280,7 +280,7 @@ std::string DB::Get(const std::string &key)
 }
 
 void DB::Delete(const std::string &key) {
-    return Delete(Util::ToByteVector(key));
+    Delete(Util::ToByteVector(key));
 }
 
 // write-lock

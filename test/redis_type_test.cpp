@@ -139,5 +139,34 @@ TEST(redis_type_test, zset_type_test)
     EXPECT_EQ(score, 98);
 
     std::filesystem::remove_all(opt.DirPath);
+}
 
+TEST(redis_type_test, set_type_test)
+{
+    Options opt;
+    opt.DirPath = "/home/ace/kv/redis";
+    auto redis = RedisDataStructure(opt);
+
+    auto ok = redis.SAdd(Util::ToByteVector("key1"), Util::ToByteVector("value1"));
+    EXPECT_EQ(ok, true);
+    ok = redis.SAdd(Util::ToByteVector("key1"), Util::ToByteVector("value1"));
+    EXPECT_EQ(ok, false);
+    ok = redis.SAdd(Util::ToByteVector("key1"), Util::ToByteVector("value2"));
+    EXPECT_EQ(ok, true);
+
+    ok = redis.SIsMember(Util::ToByteVector("key2"), Util::ToByteVector("value1"));
+    EXPECT_EQ(ok, false);
+    ok = redis.SIsMember(Util::ToByteVector("key1"), Util::ToByteVector("value1"));
+    EXPECT_EQ(ok, true);
+    ok = redis.SIsMember(Util::ToByteVector("key1"), Util::ToByteVector("value2"));
+    EXPECT_EQ(ok, true);
+    ok = redis.SIsMember(Util::ToByteVector("key1"), Util::ToByteVector("value not exist"));
+    EXPECT_EQ(ok, false);
+
+    ok = redis.SRem(Util::ToByteVector("key2"), Util::ToByteVector("value1"));
+    EXPECT_EQ(ok, false);
+    ok = redis.SRem(Util::ToByteVector("key1"), Util::ToByteVector("value2"));
+    EXPECT_EQ(ok, true);
+    
+    std::filesystem::remove_all(opt.DirPath);
 }

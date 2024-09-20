@@ -12,6 +12,70 @@ RedisDataStructure::RedisDataStructure(const Options &opt)
     db = std::make_unique<DB>(opt);
 }
 
+bool RedisDataStructure::SAdd(const std::vector<byte> &key, const std::vector<byte> &member)
+{
+    auto meta = findMetaData(key, RedisDataType::Set);
+
+    auto sk = setInternalKey(key, meta.version, member);
+
+    bool ok = false;
+    try {
+        db->Get(sk.encode());
+    } catch(...) {
+        WriteBatchOptions opt;
+        auto wb = db->NewWriteBatch(opt);
+        meta.size++;
+        wb->Put(key, meta.encode());
+        wb->Put(sk.encode(), {});
+        try {
+            wb->Commit();
+        } catch(...) {
+            return false;
+        }
+        ok = true;
+    }
+
+    return ok;
+}
+bool RedisDataStructure::SIsMember(const std::vector<byte> &key, const std::vector<byte> &member)
+{
+    auto meta = findMetaData(key, RedisDataType::Set);
+    if(meta.size == 0) return false;
+
+    auto sk = setInternalKey(key, meta.version, member);
+    try {
+        db->Get(sk.encode());
+    } catch(...) {
+        return false;
+    }
+    return true;
+}
+bool RedisDataStructure::SRem(const std::vector<byte> &key, const std::vector<byte> &member)
+{
+    auto meta = findMetaData(key, RedisDataType::Set);
+    if(meta.size == 0) return false;
+
+    auto sk = setInternalKey(key, meta.version, member);
+
+    try {
+        db->Get(sk.encode());
+    } catch(...) {
+        return false;
+    }
+
+    WriteBatchOptions opt;
+    auto wb = db->NewWriteBatch(opt);
+    meta.size--;
+    wb->Put(key, meta.encode());
+    wb->Delete(sk.encode());
+    try {
+        wb->Commit();
+    } catch(...) {
+        return false;
+    }
+
+    return true;
+}
 bool RedisDataStructure::ZAdd(const std::vector<byte> &key, double score, const std::vector<byte> &member)
 {
     auto meta = findMetaData(key, RedisDataType::ZSet);

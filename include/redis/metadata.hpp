@@ -4,6 +4,26 @@
 class RedisDataStructure;
 enum class RedisDataType;
 
+struct setInternalKey {
+    std::vector<byte> key;
+    int64 version;
+    std::vector<byte> member;
+        setInternalKey(const std::vector<byte>& key, int64 version, const std::vector<byte>& member)
+        : key(key), version(version), member(member) {}
+
+    std::vector<byte> encode() {
+        auto buf = std::vector<byte>(key.size() + member.size() + sizeof(version) + sizeof(version));
+        int index = 0;
+        std::copy(key.begin(), key.end(), buf.begin());
+        index += key.size();
+        index += Code::PutUint64(buf, index, version);
+        std::copy(member.begin(), member.end(), buf.begin() + index);
+        index += member.size();
+        Code::PutUint64(buf, index, member.size());
+        return std::move(buf);
+    }
+};
+
 struct zsetInternalKey {
     std::vector<byte> key;
     int64 version;
